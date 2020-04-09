@@ -1,25 +1,42 @@
 const gulp       = require('gulp');
-const pug     = require("gulp-pug");
-const sass     = require("gulp-sass");
+const pug        = require("gulp-pug");
+const sass       = require("gulp-sass");
 const minifyCSS  = require('gulp-minify-css');
 const concat     = require('gulp-concat');
 const uglify     = require('gulp-uglify');
 const rename     = require("gulp-rename");
+const autoprefixer = require('gulp-autoprefixer');
+const webserver  = require('gulp-webserver');
 
+function swallowError (error) {
+  console.log(error.toString())
+  this.emit('end')
+}
 
-gulp.task('build', ['pug', 'sass'], function() {  
+gulp.task('build', ['pug', 'sass', 'autoprefixer'], function() {  
   console.log("build...");
 });
 
 gulp.task('pug', function() {  
   gulp.src('./src/pug/*.pug') 
     .pipe(pug())
+    .on('error', swallowError)
     .pipe(gulp.dest('./'))
 });
 
 gulp.task('sass', function() {  
   gulp.src('./src/sass/*.sass') 
     .pipe(sass())
+    .on('error', swallowError)
+    .pipe(gulp.dest('./dest/css')) 
+});
+
+gulp.task('autoprefixer', function() {  
+  gulp.src('./dest/css/*.css') 
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .on('error', swallowError)
     .pipe(gulp.dest('./dest/css')) 
 });
 
@@ -56,5 +73,16 @@ gulp.task('watch', function () {
   gulp.watch('./src/**/*.*',['build']);
 });
 
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      port: 443,
+      livereload: true,
+      directoryListing: false,
+      open: true,
+      fallback: 'index.html'
+    }));
+});
+
 // default要執行的Task
-gulp.task('default',['watch']);
+gulp.task('default',['watch', 'webserver']);
