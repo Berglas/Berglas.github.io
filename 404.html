@@ -1,29 +1,107 @@
 <!DOCTYPE html><html lang="zh-tw"><head><meta charset="UTF-8"><title>404</title><script></script><style>body {
   margin: 0;
   padding: 0;
-  hegiht: 100vh;
+  height: 100vh;
   width: 100vw;
-  overflow: hidden
 }
 
-.wave {
+.text1 {
   position: absolute;
-  left: -50%;
-  bottom: 0%;
-  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  left: calc(50% - 240px);
+  top: calc(50% + 160px);
+  transform: translate(-50%, -50%);
+  width: 240px;
+  font-size: 240px;
+  color: #FFF;
+  text-align: center;
+  text-shadow: #666 2px 4px 8px;
+  font-weight: 600;
+}
+.text2 {
+  position: absolute;
+  left: calc(50%);
+  top: calc(50% + 160px);
+  transform: translate(-50%, -50%);
+  width: 240px;
+  font-size: 240px;
+  color: #FFF;
+  text-align: center;
+  text-shadow: #666 2px 4px 8px;
+  font-weight: 600;
+}
+.text3 {
+  position: absolute;
+  left: calc(50% + 240px);
+  top: calc(50% + 160px);
+  transform: translate(-50%, -50%);
+  width: 240px;
+  font-size: 240px;
+  color: #FFF;
+  text-align: center;
+  text-shadow: #666 2px 4px 8px;
+  font-weight: 600;
 }
 
-.wave path {
-  fill: rgb(60, 90 ,150);
+.box {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-@keyframes wave {
+.wave1 {
+  position: absolute;
+  left: -40%;
+  top: 80%;
+  background: rgba(60,90,150, .5);
+  border-radius: 40% 45% 35% 38%;
+  animation: wave1 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave2 {
+  position: absolute;
+  left: -80%;
+  top: 80%;
+  background: rgba(60,90,150, .5);
+  border-radius: 40% 45% 35% 38%;
+  animation: wave2 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave3 {
+  position: absolute;
+  left: -20%;
+  top: 90%;
+  background: rgba(60,90,150, .5);
+  border-radius: 40% 45% 35% 38%;
+  animation: wave3 16s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+@keyframes wave1 {
     0% {
-        left: -50%;
+      transform:rotate(45deg);
     }
 
     100% {
-        left: 100%;
+      transform:rotate(405deg);
     }
 }
-</style></head><body><svg width="1600" height="198"><defs><lineargradient id="a" x1="50%" x2="50%" y1="-10.959%" y2="100%"><stop stop-color="#66317C" stop-opacity=".25" offset="0%"></stop><stop stop-color="#66317C" offset="100%"></stop></lineargradient></defs><path fill="url(#a)" fill-rule="evenodd" d="M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z" transform="matrix(-1 0 0 1 1600 0)"></path></svg></body></html>
+
+@keyframes wave2 {
+    0% {
+      transform:rotate(135deg);
+    }
+
+    100% {
+      transform:rotate(495deg);
+    }
+}
+
+@keyframes wave3 {
+    0% {
+      transform:rotate(0deg);
+    }
+
+    100% {
+      transform:rotate(360deg);
+    }
+}</style></head><body><div class="box"><div class="text1">4</div><div class="text2">0</div><div class="text3">4</div><div class="wave1" style="width: 3600px; height: 3600px"></div><div class="wave2" style="width: 4800px; height: 4800px"></div><div class="wave3" style="width: 2400px; height: 2400px"></div></div></body></html>
