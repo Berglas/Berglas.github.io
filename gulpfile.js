@@ -13,7 +13,7 @@ function swallowError (error) {
   this.emit('end')
 }
 
-gulp.task('build', ['pug', 'sass', 'autoprefixer'], function() {  
+gulp.task('build', ['pug', 'sass'], function() {  
   console.log("build...");
 });
 
