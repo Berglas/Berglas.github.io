@@ -7,28 +7,28 @@ html(lang='zh-TW')
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     meta(name='author' content='Berglas')
     meta(name='copyright' content='Berglas')
-    //- link(rel='icon', type='image/png', href='image/logo.png', sizes='16x16')
     title Simple.STUDIO
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    //- script(type='text/javascript', src='dest/js/package/jquery.min.js')
-    //- script(type='text/javascript', src='js/main.min.js')
     link(rel='stylesheet', type='text/css', href='dest/css/main.css')
   body
     .header
       .top-menu
         h1.title Simple Studio Blog
+        ul.menu-list
+          li(class='list' title='關於這裡')
+            a(href='/list.html') 關於這裡
+          li(class='list' title='所有文章')
+            a(href='/list.html') 所有文章
+          li(class='list' title='聯絡我')
+            a(href='/list.html') 聯絡我 
     .container
+      .sponsor-box
+      .tag-box
       .content
         main
     .footer
       .license Copyright © Berglas 2020.
-      //- ul.menu
-        li(class='list' title='文章列表')
-          a(href='/list.html') ARCHIVE
-        li(class='list' title='文章列表')
-          a(href='/list.html') ARCHIVE
-        li(class='list' title='文章列表')
-          a(href='/list.html') ARCHIVE 
+      
       //- #main-menu
         .mobile-menu
           span

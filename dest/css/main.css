@@ -13,6 +13,7 @@ ol, ul, li {
   list-style: none; }
 
 /*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px; }
@@ -23,28 +24,60 @@ ol, ul, li {
 ::-webkit-scrollbar-thumb:vertical {
   height: 30px;
   border-radius: 5px;
-  background-color: #424242; }
+  background-color: #E87A90; }
 
 ::-webkit-scrollbar-thumb:horizontal {
   width: 30px;
   border-radius: 5px;
-  background-color: #424242; }
+  background-color: #66BAB7; }
 
 body {
   font-family: 'Microsoft JhengHei';
   background: rgba(67, 216, 255, 0.1);
-  color: #2f333a; }
+  position: relative; }
 
 .header {
+  position: relative;
   height: 120px;
-  width: 100%; }
+  width: 100%;
+  background: url("/dest/1.svg") no-repeat; }
+  .header .top-menu {
+    position: relative; }
+    .header .top-menu .menu-list {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      display: flex;
+      flex-direction: row;
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 1rem; }
+      .header .top-menu .menu-list li {
+        margin: 0 .4rem; }
+      .header .top-menu .menu-list a {
+        text-decoration: none;
+        font-weight: 900;
+        color: #2f333a; }
 
 .container {
+  position: relative;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 24px 15% 24px 15%; }
+  padding: 24px 0;
+  width: 100%; }
+  .container .sponsor-box {
+    position: fixed;
+    top: 144px;
+    right: 2.5%;
+    width: 15%;
+    height: 200px;
+    border-radius: 12px;
+    background: #FAFAFA;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2); }
   .container .content {
-    height: 1000px;
+    height: 2000px;
+    width: 60%;
+    margin-left: 20%;
     border-radius: 12px;
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2); }
@@ -57,6 +90,3 @@ body {
   width: 100%;
   border-top: 1px dashed #b4b4b4;
   background-color: rgba(255, 255, 255, 0.6); }
-
-.h1 {
-  color: #FEF; }
