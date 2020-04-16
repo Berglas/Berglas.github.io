@@ -7,56 +7,50 @@ html(lang='zh-TW')
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     meta(name='author' content='Berglas')
     meta(name='copyright' content='Berglas')
-    title Simple.STUDIO
+    title 巴格-生活日記·學習筆記
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', type='text/css', href='dest/css/main.css')
+    script(src='dest/js/package/jquery.min.js')
+
   body
     .header
-      .top-menu
-        h1.title Simple Studio Blog
-        ul.menu-list
-          li(class='list' title='關於這裡')
-            a(href='/list.html') 關於這裡
-          li(class='list' title='所有文章')
-            a(href='/list.html') 所有文章
-          li(class='list' title='聯絡我')
-            a(href='/list.html') 聯絡我 
+      .logo
+      .title 
+        h1 巴格-生活日記·學習筆記
+        span 取之於網路，用之於網路
+      ul.menu-list
+        li(class='list' title='關於這裡')
+          a(href='/list.html') 關於這裡
+        li(class='list' title='所有文章')
+          a(href='/list.html') 所有文章
+        li(class='list' title='聯絡我')
+          a(href='/list.html') 聯絡我
     .container
-      .sponsor-box
+      .outline-box
       .tag-box
       .content
         main
-    .footer
-      .license Copyright © Berglas 2020.
-      
-      //- #main-menu
-        .mobile-menu
-          span
-          span
-          span
-        .menu
-          a(href='/')
-            i
-            | ALL
-          a(href='/index.html?tag-creative')
-            i
-            | Vue
-          a(href='/index.html?tag-ui')
-            i
-            | UI & UX
-          a(href='/index.html?tag-photo')
-            i
-            | PHOTO
-          a(href='/index.html?tag-css')
-            i 日文            
-          a(href='/index.html?tag-web')
-            i
-          a(href='/index.html?tag-share')
-            i 食光旅人
-          a(href='/index.html?tag-others')
-            i
-            | OTHERS
-          a(href='/list.html')
-            i
-            | ARCHIVE
-  body
+      .bonus-box
+      .footer
+        .license 
+    script.
+      $(document).ready(function() {
+        $(window).bind('scroll', function() {
+          let navHeight = $('.header').height();
+          if ($(window).scrollTop() > navHeight / 2) {
+            $('.header').addClass('reduce');
+            $('.content').addClass('xx');
+            $('.outline-box').addClass('xx');
+            $('.tag-box').addClass('xx');
+          }
+          else {
+            $('.header').removeClass('reduce');
+            $('.content').removeClass('xx');
+            $('.outline-box').removeClass('xx');
+            $('.tag-box').removeClass('xx');
+          }
+        });
+
+        let currentDateTime = new Date().getFullYear()
+        $('.license').text('Copyright © Berglas ' + currentDateTime + '.')
+      });
