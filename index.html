@@ -1,17 +1,13 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta charset="UTF-8"><meta http-equiv="Cache-control" content="public"><meta http-equiv="max-age" content="864000"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name="author" content="Berglas"><meta name="copyright" content="Berglas"><title>巴格-生活日記·學習筆記</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="dest/css/main.css"><script src="dest/js/package/jquery.min.js"></script></head><body><div class="header"><div class="logo"></div><div class="title"> <h1>巴格-生活日記·學習筆記</h1><span>取之於網路，用之於網路</span></div><ul class="menu-list"><li class="list" title="關於這裡"><a href="/list.html">關於這裡</a></li><li class="list" title="所有文章"><a href="/list.html">所有文章</a></li><li class="list" title="聯絡我"><a href="/list.html">聯絡我</a></li></ul></div><div class="container"><div class="outline-box"></div><div class="tag-box"></div><div class="content"><main></main></div><div class="bonus-box"></div><div class="footer"><div class="license"> </div></div></div><script>$(document).ready(function() {
+<!DOCTYPE html><html lang="zh-TW"><head><meta charset="UTF-8"><meta http-equiv="Cache-control" content="public"><meta http-equiv="max-age" content="864000"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name="author" content="Berglas"><meta name="copyright" content="Berglas"><title>巴格-生活日記·學習筆記</title><link rel="shortcut icon" type="image/x-icon" href="favicon.ico"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="dest/css/main.css"><script src="dest/js/package/jquery.min.js"></script></head><body><div class="header"><div class="logo"></div><div class="title"> <h1>巴格-生活日記·學習筆記</h1><p>- 取之於網路，用之於網路 -</p></div><ul class="menu-list"><li class="list" title="關於這裡"><a href="/list.html"> <sapn>關於這裡</sapn></a></li><li class="list" title="所有文章"><a href="/list.html"> <sapn>所有文章</sapn></a></li><li class="list" title="聯絡我"><a href="/list.html"> <sapn>聯絡我</sapn></a></li></ul></div><div class="container"><div class="outline-box"></div><div class="tag-box"></div><div class="content"><main></main></div><div class="bonus-box"></div><div class="footer"><div class="license"> </div></div></div><script>$(document).ready(function() {
   $(window).bind('scroll', function() {
     let navHeight = $('.header').height();
     if ($(window).scrollTop() > navHeight / 2) {
       $('.header').addClass('reduce');
-      $('.content').addClass('xx');
-      $('.outline-box').addClass('xx');
-      $('.tag-box').addClass('xx');
+      $('.container').addClass('xx');
     }
     else {
       $('.header').removeClass('reduce');
-      $('.content').removeClass('xx');
-      $('.outline-box').removeClass('xx');
-      $('.tag-box').removeClass('xx');
+      $('.container').removeClass('xx');
     }
   });
 

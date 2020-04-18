@@ -6,30 +6,37 @@
 img {
   border: 0; }
 
-body {
-  line-height: 180%; }
-
 ol, ul, li {
   list-style: none; }
 
+h1, h2, h3, h4, h5, h6, span, p {
+  line-height: normal; }
+
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
+::selection {
+  background: #e8788e;
+  color: #FFF; }
+
+::-moz-selection {
+  background: #e8788e;
+  color: #FFF; }
+
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px; }
+  width: 5px; }
 
 ::-webkit-scrollbar-track-piece {
   background: transparent; }
 
 ::-webkit-scrollbar-thumb:vertical {
-  height: 30px;
+  height: 15px;
   border-radius: 5px;
-  background-color: #E87A90; }
+  background-color: #e8788e; }
 
 ::-webkit-scrollbar-thumb:horizontal {
-  width: 30px;
+  width: 15px;
   border-radius: 5px;
-  background-color: #66BAB7; }
+  background-color: #e8788e; }
 
 body {
   font-family: 'Microsoft JhengHei';
@@ -45,13 +52,15 @@ body {
   background: #FFF;
   z-index: 2000;
   transition: all .5s ease;
-  box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2); }
   .header .title {
     position: absolute;
     top: 1rem;
     left: 1rem;
     display: block; }
-    .header .title span {
+    .header .title h1 {
+      font-size: 2rem; }
+    .header .title p {
       font-size: .8rem; }
   .header .logo {
     position: absolute;
@@ -60,9 +69,9 @@ body {
     transform: translate(-50%, -50%);
     width: 7rem;
     height: 7rem;
-    background: url("/src/img/logo.svg");
-    background-position: 100% 100%;
-    background-size: 100% 100%;
+    background: url("/dest/img/logo.svg");
+    background-position: 50% 50%;
+    background-size: 150% 150%;
     transition: all .5s ease; }
   .header .menu-list {
     position: absolute;
@@ -72,7 +81,8 @@ body {
     flex-direction: row;
     height: 1rem;
     line-height: 1rem;
-    font-size: 1rem; }
+    font-size: 1rem;
+    transition: all .4s ease; }
     .header .menu-list li {
       margin: 0 .4rem; }
     .header .menu-list a {
@@ -87,13 +97,12 @@ body {
   .reduce .logo {
     position: absolute;
     top: 50%;
-    left: 0%;
+    left: 1rem;
     transform: translate(0%, -50%);
     height: 3.5rem;
     width: 3.5rem; }
-
-.xx {
-  margin-top: -3.5rem; }
+  .reduce .menu-list {
+    top: 1.25rem; }
 
 .container {
   position: relative;
@@ -149,3 +158,9 @@ body {
     margin-top: 2rem;
     border-top: 1px dashed #b4b4b4;
     background-color: rgba(255, 255, 255, 0.6); }
+
+.xx .outline-box {
+  margin-top: -3.5rem; }
+
+.xx .tag-box {
+  margin-top: -3.5rem; }
