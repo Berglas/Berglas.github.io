@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="max-age" content="864000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Berglas">
+    <meta name="copyright" content="Berglas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../dest/css/main.css">
+
+
+
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo" onclick="javascript:location.href=&quot;/&quot;"></div>
+      <div class="title"> 
+        <h1>巴格.生活日記•學習筆記</h1>
+        <p>- 取之於網路，用之於網路 -</p>
+      </div>
+      <ul class="menu-list">
+        <li class="list" title="關於這裡"><a href="/dest/articles/first.html"> 
+            <sapn>關於這裡</sapn></a></li>
+        <li class="list" title="所有文章"><a href="/dest/articles/1.html"> 
+            <sapn>所有文章</sapn></a></li>
+        <li class="list" title="聯絡我"><a href="/list.html"> 
+            <sapn>聯絡我</sapn></a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="outline-box"></div>
+      <div class="tag-box"></div>
+      <div class="content">
+
+<div class='title-box'>
+<p class='theme-title'>巴格的宇宙·起源</p>
+<p class='time-mark'>2020-04-26</p>
+</div>
+
+<p><img src="https://i.imgur.com/tzg4qeJ.jpg" alt="">
+紀錄所學，一直以來想把我的筆記找個地方記錄起來，但礙於許多框架都無法做出自己想要的風格，
+於是乎我就把自己的專長運用起來，也就產生了這裡。</p>
+
+      </div>
+      <div class="bonus-box"></div>
+      <div class="footer">
+        <div class="license"> </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $(window).bind('scroll', function() {
+          let navHeight = $('.header').height();
+          if ($(window).scrollTop() > navHeight / 2) {
+            $('.header').addClass('reduce');
+            $('.container').addClass('xx');
+          }
+          else {
+            $('.header').removeClass('reduce');
+            $('.container').removeClass('xx');
+          }
+        });
+      
+        let currentDateTime = new Date().getFullYear()
+        $('.license').text('Copyright © Berglas ' + currentDateTime + '.')
+      });
+    </script>
+  </body>
+</html>
