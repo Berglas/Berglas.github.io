@@ -67,10 +67,9 @@ body
     content: ''
     height: 100%
     width: 100%
-    background: rgba(66, 66, 66, .1)
+    background: rgba(255, 255, 255, .1)
     z-index: 2000
     pointer-events: none
-
   .title
     position: absolute
     top: 1rem
@@ -108,6 +107,7 @@ body
       text-decoration: none
       font-weight: 900
       color: rgb(47, 51, 58)
+
 .reduce
   height: 3.5rem
   .title
@@ -122,12 +122,54 @@ body
   .menu-list      
     top: 1.25rem
 
+.adjust
+  .outline-box
+    margin-top: -($header-height / 2)
+  .tag-box
+    margin-top: -($header-height / 2)
+
 .container
   position: relative
   top: $header-height
   overflow-x: hidden
   overflow-y: auto
   width: 100%
+  #articles
+    padding: 0 20%
+    display: flex
+    flex-flow: row wrap
+    align-content: flex-start
+    // height: 2000px
+    .cell
+      width: calc(100% / 3 - 40px)
+      margin: 20px 20px
+      // border: .1rem solid rgb(188, 188, 188)
+      // background: #FAFAFA
+      // box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
+      .title
+        // height: 2rem
+        // font-size: 1.6rem
+        width: 100%
+        border-bottom: .2rem solid $main-color1
+      .time-mark
+        width: 100%
+        text-align: right
+        font-size: 1rem
+        color: rgb(124, 124, 124)
+      // background: #FAFAFA
+        // background: red
+
+      .preview
+        height: 180px
+        width: 100%
+        // background: blue
+        border-radius: .5rem
+
+      .depiction
+        height: 180px
+        width: 100%
+        background: rgb(213, 213, 200)
+
   .outline-box
     position: fixed
     top: $header-height  + 2rem
@@ -161,9 +203,9 @@ body
     z-index: 1900
   .content
     width: 50%
-    margin-left: 25%
+    height: 1000px
     padding: 2rem
-    margin-top: 2rem
+    margin: 2rem 0 2rem 25%
     border-radius: 12px
     background: #FAFAFA
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
@@ -184,23 +226,15 @@ body
         top: 0
         right: 0
         font-size: .8rem
-
     img
       width: 100%
       border-radius: 8px
-
   .footer
     display: flex
     align-items: center
     justify-content: center
     height: 40px
     width: 100%
-    margin-top: 2rem
     border-top: 1px dashed rgb(180, 180, 180)
     background: rgba(66, 66, 66,.1)
 
-.xx
-  .outline-box
-    margin-top: -($header-height / 2)
-  .tag-box
-    margin-top: -($header-height / 2)

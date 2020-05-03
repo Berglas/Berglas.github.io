@@ -9,9 +9,11 @@
     <meta name="copyright" content="Berglas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>巴格.生活日記•學習筆記</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../dest/css/main.css">
-    <script src="../../dest/js/package/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/dest/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="/dest/js/main.js"></script>
   </head>
   <body>
     <div class="header">
@@ -21,7 +23,7 @@
         <p>- 取之於網路，用之於網路 -</p>
       </div>
       <ul class="menu-list">
-        <li class="list" title="關於這裡"><a href="/dest/articles/test.html"> 
+        <li class="list" title="關於這裡"><a href="/dest/articles/2020/4/origin.html"> 
             <sapn>關於這裡</sapn></a></li>
         <li class="list" title="所有文章"><a href="/dest/articles/1.html"> 
             <sapn>所有文章</sapn></a></li>
@@ -30,32 +32,57 @@
       </ul>
     </div>
     <div class="container">
-      <div class="outline-box"></div>
-      <div class="tag-box"></div>
-      <div class="content">
-        <main></main>
+      <div id="articles">
+        <div class="cell" v-for="item in dataList">
+          <h2 class="title">{{item.title}} </h2>
+          <div class="preview"><img src="/"></div>
+          <div class="depiction">{{item.depiction}}</div>
+          <p class="time-mark">{{item.date.substring(0, 10)}}</p>
+        </div>
       </div>
-      <div class="bonus-box"></div>
       <div class="footer">
         <div class="license"> </div>
       </div>
     </div>
     <script>
-      $(document).ready(function() {
-        $(window).bind('scroll', function() {
-          let navHeight = $('.header').height();
-          if ($(window).scrollTop() > navHeight / 2) {
-            $('.header').addClass('reduce');
-            $('.container').addClass('xx');
+      new Vue({
+        el: '#articles',
+        data () {
+          return {
+            pageList: [],
+            dataList: [],
+            index: 0,
+            amount: 9
           }
-          else {
-            $('.header').removeClass('reduce');
-            $('.container').removeClass('xx');
+        },
+        watch: {
+          index: {
+            handler (val) {
+              this.loadData()
+            }
           }
-        });
+        },
+        methods: {
+          loadData (tag, search) {
+            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          }
+        },
+        mounted () {
+          window.addEventListener('scroll', () => {
+            if (($(window).height() + $(window).scrollTop()) >= document.body.offsetHeight + 112) { // header 高度，因為她是flex
+              this.index += 1
+            }
+          }, false)
+          $.getJSON("/dest/articles/pageList.json", e => {
+            this.pageList = e
+            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          })
+        }
+      })
       
-        let currentDateTime = new Date().getFullYear()
-        $('.license').text('Copyright © Berglas ' + currentDateTime + '.')
+      $(document).ready(() => {
+        $('#articles .title').css({fill: '#0f0'})
+        
       });
     </script>
   </body>

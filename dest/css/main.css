@@ -61,7 +61,7 @@ body {
     content: '';
     height: 100%;
     width: 100%;
-    background: rgba(66, 66, 66, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     z-index: 2000;
     pointer-events: none; }
   .header .title {
@@ -116,12 +116,42 @@ body {
   .reduce .menu-list {
     top: 1.25rem; }
 
+.adjust .outline-box {
+  margin-top: -3.5rem; }
+
+.adjust .tag-box {
+  margin-top: -3.5rem; }
+
 .container {
   position: relative;
   top: 7rem;
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%; }
+  .container #articles {
+    padding: 0 20%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start; }
+    .container #articles .cell {
+      width: calc(100% / 3 - 40px);
+      margin: 20px 20px; }
+      .container #articles .cell .title {
+        width: 100%;
+        border-bottom: 0.2rem solid #e8788e; }
+      .container #articles .cell .time-mark {
+        width: 100%;
+        text-align: right;
+        font-size: 1rem;
+        color: #7c7c7c; }
+      .container #articles .cell .preview {
+        height: 180px;
+        width: 100%;
+        border-radius: .5rem; }
+      .container #articles .cell .depiction {
+        height: 180px;
+        width: 100%;
+        background: #d5d5c8; }
   .container .outline-box {
     position: fixed;
     top: 9rem;
@@ -155,9 +185,9 @@ body {
     z-index: 1900; }
   .container .content {
     width: 50%;
-    margin-left: 25%;
+    height: 1000px;
     padding: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0 2rem 25%;
     border-radius: 12px;
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2); }
@@ -187,12 +217,5 @@ body {
     justify-content: center;
     height: 40px;
     width: 100%;
-    margin-top: 2rem;
     border-top: 1px dashed #b4b4b4;
     background: rgba(66, 66, 66, 0.1); }
-
-.xx .outline-box {
-  margin-top: -3.5rem; }
-
-.xx .tag-box {
-  margin-top: -3.5rem; }

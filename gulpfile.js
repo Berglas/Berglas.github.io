@@ -1,14 +1,18 @@
-const gulp       = require('gulp')
-const pug        = require("gulp-pug")
-const sass       = require("gulp-sass")
-const minifyCSS  = require('gulp-minify-css')
-const concat     = require('gulp-concat')
-const uglify     = require('gulp-uglify')
-const rename     = require("gulp-rename")
+const fs           = require('fs')
+const gulp         = require('gulp')
+const pug          = require("gulp-pug")
+const sass         = require("gulp-sass")
+const minifyCSS    = require('gulp-minify-css')
+const concat       = require('gulp-concat')
+const uglify       = require('gulp-uglify')
+const rename       = require("gulp-rename")
+const frontMatter  = require('gulp-front-matter')
+const md2json      = require('gulp-markdown-to-json')
 const autoprefixer = require('gulp-autoprefixer')
-const markdown = require('gulp-markdown')
-const extender = require('gulp-html-extend')
-const webserver  = require('gulp-webserver')
+const markdown     = require('gulp-markdown')
+const extender     = require('gulp-html-extend')
+const webserver    = require('gulp-webserver')
+const marked       = require('marked')
 
 function swallowError (error) {
   console.log(error.toString())
@@ -44,17 +48,53 @@ gulp.task('autoprefixer', () => {
     .pipe(gulp.dest('./dest/css')) 
 })
 
-gulp.task('markdown', () => {
-  gulp.src('./src/md/*.md')
-    .pipe(markdown())
-    .pipe(gulp.dest('./src/md2html/'))
-})
+// gulp.task('markdown', () => {
+//   gulp.src('./src/md/*.md')
+//     .pipe(markdown())
+//     .pipe(gulp.dest('./src/md2html/'))
+// })
 
 gulp.task('extend', () => {
-  gulp.src('./src/md2html/*.html')
+  gulp.src('./src/articles/html/**/*.html')
     .pipe(extender({annotations:false,verbose:false}))
     .pipe(gulp.dest('./dest/articles/'))
 })
+
+gulp.task('markdown', () => {
+  gulp.src('./src/articles/md/**/*.md')
+    .pipe(md2json(marked, function(data, file) {
+      delete data.body
+      return data
+    }))
+    .pipe(gulp.dest('./src/articles/json'))
+});
+
+gulp.task('json2html', () => {
+  fs.readdir('./src/articles/json/', function(err, files) {
+    let pageList = [] 
+    files.forEach((file, i) => {
+      var data = JSON.parse(fs.readFileSync('./src/articles/json/' + file, 'utf8'))
+      data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
+      data.index = i
+      data.index = i
+      pageList.push(data)
+      gulp.src('./src/articles/md/'+file.split('.')[0] + '.md')
+        .pipe(frontMatter({
+            remove: true
+          }))
+        .pipe(markdown({
+          headerIds: false
+        }))
+        .pipe(gulp.dest('./src/articles/html/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)))
+    })
+    fs.writeFile('./dest/articles/pageList.json', JSON.stringify(pageList), function (err) {
+      if (err)
+        console.log(err)
+      else
+        console.log('Write operation complete.')
+    })
+  })
+});
 
 // gulp.task('uglify', () => {
 //   return gulp.src('./frontend/src/js/*.js')
@@ -102,7 +142,8 @@ gulp.task('webserver', () => {
 
 // default要執行的Task
 gulp.task('default',['watch', 'webserver'])
-gulp.task('extend ',['extend'])
+gulp.task('extend_html',['extend'])
 gulp.task('compile_markdown',['markdown'])
 gulp.task('compile_pug',['pug'])
 gulp.task('compile_sass',['sass'])
+gulp.task('compile_json2html',['json2html'])

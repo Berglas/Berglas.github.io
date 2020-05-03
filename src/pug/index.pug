@@ -9,9 +9,11 @@ html(lang='zh-TW')
     meta(name='copyright' content='Berglas')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title 巴格.生活日記•學習筆記
-    link(rel='shortcut icon' type='image/x-icon' href='../../favicon.ico')
-    link(rel='stylesheet', type='text/css', href='../../dest/css/main.css')
-    script(src='../../dest/js/package/jquery.min.js')
+    link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+    link(rel='stylesheet', type='text/css', href='/dest/css/main.css')
+    script(src='https://code.jquery.com/jquery-3.5.0.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js')
+    script(src='/dest/js/main.js')
   body
     .header
       .logo(onclick='javascript:location.href="/"')
@@ -20,7 +22,7 @@ html(lang='zh-TW')
         p - 取之於網路，用之於網路 -
       ul.menu-list
         li(class='list' title='關於這裡')
-          a(href='/dest/articles/test.html') 
+          a(href='/dest/articles/2020/4/origin.html') 
             sapn 關於這裡
         li(class='list' title='所有文章')
           a(href='/dest/articles/1.html') 
@@ -29,27 +31,52 @@ html(lang='zh-TW')
           a(href='/list.html') 
             sapn 聯絡我
     .container
-      .outline-box
-      .tag-box
-      .content
-        main
-      .bonus-box
+      #articles
+        .cell(v-for='item in dataList')
+          h2.title {{item.title}} 
+          .preview
+            img(src='/')
+          .depiction {{item.depiction}}
+          p.time-mark {{item.date.substring(0, 10)}}
       .footer
         .license 
     script.
-      $(document).ready(function() {
-        $(window).bind('scroll', function() {
-          let navHeight = $('.header').height();
-          if ($(window).scrollTop() > navHeight / 2) {
-            $('.header').addClass('reduce');
-            $('.container').addClass('xx');
+      new Vue({
+        el: '#articles',
+        data () {
+          return {
+            pageList: [],
+            dataList: [],
+            index: 0,
+            amount: 9
           }
-          else {
-            $('.header').removeClass('reduce');
-            $('.container').removeClass('xx');
+        },
+        watch: {
+          index: {
+            handler (val) {
+              this.loadData()
+            }
           }
-        });
+        },
+        methods: {
+          loadData (tag, search) {
+            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          }
+        },
+        mounted () {
+          window.addEventListener('scroll', () => {
+            if (($(window).height() + $(window).scrollTop()) >= document.body.offsetHeight + 112) { // header 高度，因為她是flex
+              this.index += 1
+            }
+          }, false)
+          $.getJSON("/dest/articles/pageList.json", e => {
+            this.pageList = e
+            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          })
+        }
+      })
 
-        let currentDateTime = new Date().getFullYear()
-        $('.license').text('Copyright © Berglas ' + currentDateTime + '.')
+      $(document).ready(() => {
+        $('#articles .title').css({fill: '#0f0'})
+        
       });
