@@ -6,13 +6,8 @@ const minifyCSS    = require('gulp-minify-css')
 const concat       = require('gulp-concat')
 const uglify       = require('gulp-uglify')
 const rename       = require("gulp-rename")
-const frontMatter  = require('gulp-front-matter')
-const md2json      = require('gulp-markdown-to-json')
 const autoprefixer = require('gulp-autoprefixer')
-const markdown     = require('gulp-markdown')
-const extender     = require('gulp-html-extend')
 const webserver    = require('gulp-webserver')
-const marked       = require('marked')
 
 function swallowError (error) {
   console.log(error.toString())
