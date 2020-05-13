@@ -8,6 +8,8 @@ img
   border: 0
 ol, ul, li
   list-style: none
+input
+  outline: none
 h1, h2 ,h3 ,h4, h5, h6, span, p
   line-height: normal
 ::selection, ::-moz-selection
@@ -38,21 +40,6 @@ body
   position: fixed
   left: 0
   bottom: 0
-section
-  position: relative
-  height: 100vh
-  width: 100%
-  overflow: hidden
-  background: rgba(48, 52, 55, 1)
-  .title
-    position: absolute
-    font-size: 40rem
-    font-weight: 900
-    color: rgba(255, 233, 210, .01)
-    top: 50%
-    left: 50%
-    transform: translate(-55%, -60%) rotate(-15deg)
-
 @keyframes draw-cls-1
   0%
     stroke: rgba(7, 233, 210, .1)
@@ -88,7 +75,7 @@ section
   transform: translate(-50%, 0%)
   width: 150px
   height: 150px
-  border-radius: 100%  
+  border-radius: 100%
   cursor: pointer
   .main
     fill: rgba(255, 233, 210, .5)
@@ -122,7 +109,7 @@ section
     stroke-dasharray: 2.5 2.5
     animation: draw-cls-6 6s forwards
 
-.icon-home  
+.icon-home
   animation: loading1 1S forwards, draw-main 3s forwards
 .icon-profile
   animation: loading2 .5S forwards, draw-main 3s forwards
@@ -151,7 +138,7 @@ section
   svg
     g
       .cls-1, .cls-2, .cls-4, .cls-6
-        animation-delay: 2s        
+        animation-delay: 2s
 
 @keyframes loading1
   0%
@@ -231,20 +218,71 @@ section
     bottom: 0
     transform: translate(-50%, 35%)
     opacity: 1
-
-.scroll-button
-  position: absolute
-  bottom: 10%
-  left: 50%
-  width: 40px
-  height: 40px
-  border-radius: 100%
-  background-color: rgba(255, 255, 255, 0.4)
-  animation: up-down 2s infinite ease-in-out
-  cursor: pointer
-  > a
+section
+  position: relative
+  height: 100vh
+  width: 100%
+  overflow: hidden
+  background: rgba(48, 52, 55, 1)
+  .title
     position: absolute
-    top: 0
-    left: 0
+    font-size: 40rem
+    font-weight: 900
+    color: rgba(255, 233, 210, .05)
+    top: 50%
+    left: 50%
+    transform: translate(-55%, -60%) rotate(-15deg)
+    z-index: 100
+#page1
+  .content
+    z-index: 5000
+
+    .introduction
+      height: 50%
+      width: 360px
+      padding: 1rem
+      background: rgba(7, 233, 210, .1)
+      border-radius: 5px
+      // border: 4px solid rgba(7, 233, 210, .5)
+      position: absolute
+      box-shadow: 0px 0px 50px 1px rgba(7, 233, 210, .1)
+      top: 40%
+      left: 50%
+#page4
+  .content
+    position: relative
+    z-index: 5000
     width: 100%
     height: 100%
+    background: rgba(7, 233, 210, .1)
+    .communicate-box
+      width: 100%
+      height: 100%
+      padding: 5% 25%
+      form
+        height: 100%
+        width: 100%
+      input
+        width: 40%
+        padding: .5rem        
+        border: 2px solid $font-color
+        border-radius: 5px
+      textarea
+        resize: none
+        width: 100%
+        height: 50%
+        margin-top: 1%
+        padding: .5rem        
+        border: 2px solid $font-color
+        border-radius: 5px
+      .my-button
+        margin-right: 2%
+        float: right
+  // .communicate-box
+  //   height: 80%
+  //   width: 60%
+  //   padding: 1rem
+  //   border-radius: 5px
+  //   // border: 4px solid rgba(7, 233, 210, .5)
+
+  //   box-shadow: 0px 0px 50px 1px rgba(7, 233, 210, .2)

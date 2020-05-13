@@ -6,8 +6,14 @@ const minifyCSS    = require('gulp-minify-css')
 const concat       = require('gulp-concat')
 const uglify       = require('gulp-uglify')
 const rename       = require("gulp-rename")
+const frontMatter  = require('gulp-front-matter')
 const autoprefixer = require('gulp-autoprefixer')
 const webserver    = require('gulp-webserver')
+const md2json      = require('gulp-markdown-to-json')
+const markdown     = require('gulp-markdown')
+const extender     = require('gulp-html-extend')
+const marked       = require('marked')
+const replace     = require('gulp-replace')
 
 function swallowError (error) {
   console.log(error.toString())
@@ -43,18 +49,13 @@ gulp.task('autoprefixer', () => {
     .pipe(gulp.dest('./dest/css')) 
 })
 
-// gulp.task('markdown', () => {
-//   gulp.src('./src/md/*.md')
-//     .pipe(markdown())
-//     .pipe(gulp.dest('./src/md2html/'))
-// })
-
 gulp.task('extend', () => {
   gulp.src('./src/articles/html/**/*.html')
     .pipe(extender({annotations:false,verbose:false}))
     .pipe(gulp.dest('./dest/articles/'))
 })
 
+// 將markdown轉成json檔
 gulp.task('markdown', () => {
   gulp.src('./src/articles/md/**/*.md')
     .pipe(md2json(marked, function(data, file) {
@@ -71,9 +72,12 @@ gulp.task('json2html', () => {
       var data = JSON.parse(fs.readFileSync('./src/articles/json/' + file, 'utf8'))
       data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
       data.index = i
-      data.index = i
+      if (data.depiction.length > 80) {
+        data.depiction = data.depiction.substring(0, 80) + '...'
+      }
       pageList.push(data)
-      gulp.src('./src/articles/md/'+file.split('.')[0] + '.md')
+      console.log(file)
+      gulp.src('./src/articles/md/'+ file.split('.')[0] + '.md')
         .pipe(frontMatter({
             remove: true
           }))

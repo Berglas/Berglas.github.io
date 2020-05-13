@@ -64,52 +64,6 @@ $(function() {
   });
 });
 
-//進行翻譯
-$(function() {
-    $('.translate').click(function() {
-        $('.translate').each(function(index, el) {
-            el.classList.remove("language-select");
-        });
-        setCookie("language", this.id, 24);
-        this.classList.add("language-select");
-    });
-});
-
-//設定expanded-box開關
-$(function() {
-    $('.expanded-switch').on('click', function() {
-        $(this).parent()[0].classList.toggle('is-expanded');
-    })
-});
-
-$(function() {
-    $('.expanded-button').on('click', function() {
-        $($($(this).parent()[0]).parent()[0]).parent()[0].classList.toggle('is-expanded');
-    })
-});
-
-//設定bootstrap輪播
-$(function() {
-    var li = "";
-    var total = $('.carousel .carousel-inner div.carousel-item').size();
-    var carousel_ID = $(".carousel")[0].id;
-
-    for (var i = 0; i <= total - 1; i++) {
-        if (i == 0) {
-            li += "<li data-target='#" + carousel_ID + "' data-slide-to='" + i + "' class='active'></li>";
-        } else {
-            li += "<li data-target='#" + carousel_ID + "' data-slide-to='" + i + "' class=''></li>";
-        }
-    }
-
-    $(".carousel-indicators").append(li);
-
-    //輪播秒數與滑入停止
-    $('.carousel').carousel({
-        interval: false
-    });
-});
-
 //初始化has-animation
 $(function() {
     $('.has-animation').each(function(index) {
@@ -121,20 +75,10 @@ $(function() {
 
 //傳送mail表單
 function send_mail() {
-    if (confirm("確認送出?")) {
-        $('#mail_form').submit();
-    } else {}
-
+  if (confirm("確認送出?")) {
+      $('#mail_form').submit();
+  } else {}
 }
-
-//初始化sliding-menu
-$(function() {
-    $('.sliding-menu').append("<div class='menu-icon'><span></span></div>");
-    $('.menu-icon').on('click', function() {
-        $(".menu-icon")[0].classList.toggle("active");
-        $(".sliding-menu>nav")[0].classList.toggle("active");
-    })
-});
 
 //初始化skill-bar
 $(function() {

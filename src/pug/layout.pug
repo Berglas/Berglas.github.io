@@ -10,9 +10,11 @@ html(lang='zh-TW')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
     link(rel='stylesheet', type='text/css', href='/dest/css/main.css')
-    script(src='/dest/js/package/jquery.min.js')
+    script(src='https://code.jquery.com/jquery-3.5.0.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js')
     script(src='/dest/js/main.js')
-    <!--@@placeholder=title-->
+    <!---->    
+    <!--@@placeholder=webTitle-->
   body
     .header
       .logo(onclick='javascript:location.href="/"')
@@ -23,35 +25,25 @@ html(lang='zh-TW')
         li(class='list' title='關於這裡')
           a(href='/dest/articles/first.html') 
             sapn 關於這裡
-        li(class='list' title='所有文章')
-          a(href='/dest/articles/1.html') 
-            sapn 所有文章
-        li(class='list' title='聯絡我')
-          a(href='/list.html') 
-            sapn 聯絡我
+        //- li(class='list' title='所有文章')
+        //-   a(href='/dest/articles/1.html') 
+        //-     sapn 所有文章
+        //- li(class='list' title='聯絡我')
+        //-   a(href='/list.html') 
+        //-     sapn 聯絡我
     .container
-      .outline-box
-      .tag-box
+      //- .outline-box
+      //- .tag-box
       .content
         main
+          .title-box
+            <!----> 
+            <!--@@placeholder=contentTitle-->
+          .depiction-box
+            <!----> 
+            <!--@@placeholder=depiction-->
+          <!----> 
           <!--@@placeholder=content-->
       .bonus-box
       .footer
-        .license 
-    script.
-      $(document).ready(function() {
-        $(window).bind('scroll', function() {
-          let navHeight = $('.header').height();
-          if ($(window).scrollTop() > navHeight / 2) {
-            $('.header').addClass('reduce');
-            $('.container').addClass('xx');
-          }
-          else {
-            $('.header').removeClass('reduce');
-            $('.container').removeClass('xx');
-          }
-        });
-
-        let currentDateTime = new Date().getFullYear()
-        $('.license').text('Copyright © Berglas ' + currentDateTime + '.')
-      });
+        .license     

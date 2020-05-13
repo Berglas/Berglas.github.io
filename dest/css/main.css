@@ -1,3 +1,5 @@
+/*------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,8 +14,10 @@ ol, ul, li {
 h1, h2, h3, h4, h5, h6, span, p {
   line-height: normal; }
 
-/*------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------------------------------*/
+a {
+  text-decoration: none;
+  color: #2f333a; }
+
 ::selection {
   background: #e8788e;
   color: #FFF; }
@@ -41,7 +45,7 @@ h1, h2, h3, h4, h5, h6, span, p {
 body {
   font-family: 'Microsoft JhengHei';
   position: relative;
-  color: #424242;
+  color: #2f333a;
   background: url("/dest/img/background.jpg"); }
 
 .header {
@@ -98,9 +102,7 @@ body {
     .header .menu-list li {
       margin: 0 .4rem; }
     .header .menu-list a {
-      text-decoration: none;
-      font-weight: 900;
-      color: #2f333a; }
+      font-weight: 900; }
 
 .reduce {
   height: 3.5rem; }
@@ -117,10 +119,12 @@ body {
     top: 1.25rem; }
 
 .adjust .outline-box {
-  margin-top: -3.5rem; }
+  margin-top: -3.5rem;
+  opacity: 1 !important; }
 
 .adjust .tag-box {
-  margin-top: -3.5rem; }
+  margin-top: -3.5rem;
+  opacity: 1 !important; }
 
 .container {
   position: relative;
@@ -129,6 +133,7 @@ body {
   overflow-y: auto;
   width: 100%; }
   .container #articles {
+    min-height: calc(100vh - 12rem);
     padding: 0 20%;
     display: flex;
     flex-flow: row wrap;
@@ -136,7 +141,14 @@ body {
     .container #articles .cell {
       width: calc(100% / 3 - 40px);
       margin: 20px 20px; }
+      .container #articles .cell .main {
+        width: 100%;
+        height: 100%;
+        cursor: pointer; }
       .container #articles .cell .title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         width: 100%;
         border-bottom: 0.2rem solid #e8788e; }
       .container #articles .cell .time-mark {
@@ -145,13 +157,22 @@ body {
         font-size: 1rem;
         color: #7c7c7c; }
       .container #articles .cell .preview {
-        height: 180px;
+        height: 200px;
         width: 100%;
-        border-radius: .5rem; }
+        margin-top: .5rem; }
+        .container #articles .cell .preview img {
+          border-radius: .5rem;
+          height: 100%;
+          width: 100%;
+          background-size: 100%; }
       .container #articles .cell .depiction {
-        height: 180px;
+        padding: .5rem 0;
+        height: 7rem;
         width: 100%;
-        background: #d5d5c8; }
+        text-overflow: ellipsis;
+        white-space: wrap;
+        overflow: hidden;
+        font-weight: 600; }
   .container .outline-box {
     position: fixed;
     top: 9rem;
@@ -162,7 +183,8 @@ body {
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
     z-index: 1900;
-    transition: all .5s ease; }
+    transition: all .5s ease;
+    opacity: 0; }
   .container .tag-box {
     position: fixed;
     top: 9rem;
@@ -173,7 +195,8 @@ body {
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
     z-index: 1900;
-    transition: all .5s ease; }
+    transition: all .5s ease;
+    opacity: 0; }
   .container .bonus-box {
     width: 50%;
     margin-left: 25%;
@@ -185,12 +208,29 @@ body {
     z-index: 1900; }
   .container .content {
     width: 50%;
-    height: 1000px;
+    min-height: calc(100vh - 7rem);
     padding: 2rem;
     margin: 2rem 0 2rem 25%;
     border-radius: 12px;
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2); }
+    .container .content ul {
+      padding: .5rem; }
+      .container .content ul li {
+        list-style-type: circle;
+        margin-left: 2rem; }
+    .container .content code {
+      margin: 1rem 0;
+      padding: 1rem;
+      display: block;
+      background: #777;
+      color: #FAFAFA;
+      border-radius: 5px;
+      font-size: 1rem; }
+    .container .content h3 {
+      margin: 1rem 0; }
+    .container .content h4 {
+      margin: .5rem 0; }
     .container .content .title-box {
       position: relative;
       width: 100%;
@@ -208,14 +248,33 @@ body {
         top: 0;
         right: 0;
         font-size: .8rem; }
+    .container .content .depiction-box {
+      margin-bottom: 8rem;
+      height: 240px; }
+      .container .content .depiction-box .depiction {
+        width: 60%;
+        height: 240px;
+        padding: 1rem;
+        float: right; }
+      .container .content .depiction-box img {
+        width: 40%;
+        height: 240px;
+        padding: 1rem;
+        border-radius: 24px;
+        float: left;
+        background-size: 100% 100%;
+        background-position: 50% 50%;
+        margin: 0; }
     .container .content img {
       width: 100%;
-      border-radius: 8px; }
+      border-radius: 8px;
+      margin: .5rem 0; }
   .container .footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
+    height: 3rem;
     width: 100%;
     border-top: 1px dashed #b4b4b4;
-    background: rgba(66, 66, 66, 0.1); }
+    background: rgba(66, 66, 66, 0.1);
+    margin-top: 2rem; }

@@ -144,6 +144,14 @@ html(lang='zh-tw')
     section#page4
       .title
         p CONTACT
+      .content      
+        .communicate-box
+          form#mail_form(action='https://formspree.io/sasuke01260616@gmail.com', method='POST')
+            input(type='text', name='name', placeholder='Your Name')
+            input(type='email', name='_replyto', placeholder='Your Email')
+            textarea(name='content', placeholder='Message...')
+            .lang.my-button(data-key='send_button', onclick='send_mail()', style='width: 150px;') Send
+
     //-   h1.profile-title.lang(data-key='Itme_PROFILE')
     //-   .wave-box
     //-     .wave
