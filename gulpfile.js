@@ -59,31 +59,46 @@ gulp.task('extend', () => {
 gulp.task('markdown', () => {
   gulp.src('./src/articles/md/**/*.md')
     .pipe(md2json(marked, function(data, file) {
+      console.log(data)
+      console.log(file)
       delete data.body
       return data
     }))
     .pipe(gulp.dest('./src/articles/json'))
 });
 
+// 將md編譯成html
 gulp.task('json2html', () => {
-  fs.readdir('./src/articles/json/', function(err, files) {
+  fs.readdir('./src/articles/md/', function(err, files) {
     let pageList = [] 
     files.forEach((file, i) => {
-      var data = JSON.parse(fs.readFileSync('./src/articles/json/' + file, 'utf8'))
+      let data = {}
+      let content = fs.readFileSync('./src/articles/md/' + file, 'utf8')
+      content.split('---')[1].split('\r\n').forEach(e=> {
+        if (e != '') {
+          data[e.split(':')[0]] = e.split(':')[1].trim()
+        }
+      })
+      data.tag = data.tag.replace('[', '').replace(']', '').split(',').map(e=> {
+        return e.trim()
+      })
       data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
       data.index = i
       if (data.depiction.length > 80) {
         data.depiction = data.depiction.substring(0, 80) + '...'
       }
       pageList.push(data)
-      console.log(file)
-      gulp.src('./src/articles/md/'+ file.split('.')[0] + '.md')
+      gulp.src('./src/articles/md/'+ file)
         .pipe(frontMatter({
             remove: true
           }))
         .pipe(markdown({
           headerIds: false
         }))
+        .pipe(rename(function (path) {
+          path.extname = ".html"
+        }))
+        .pipe(replace('https://i.imgur.com', '.'))
         .pipe(gulp.dest('./src/articles/html/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)))
     })
     fs.writeFile('./dest/articles/pageList.json', JSON.stringify(pageList), function (err) {
