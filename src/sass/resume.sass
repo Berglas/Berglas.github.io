@@ -1,5 +1,6 @@
 $main-color: rgb(7, 233, 210)
 $font-color: rgba(255, 233, 210, 1)
+$background-color: rgba(48, 52, 55, 1)
 *
   box-sizing: border-box
   margin: 0
@@ -8,17 +9,17 @@ img
   border: 0
 ol, ul, li
   list-style: none
-input
+input, textarea
   outline: none
 h1, h2 ,h3 ,h4, h5, h6, span, p
   line-height: normal
 ::selection, ::-moz-selection
-  background: rgb(48, 52, 59)
+  background: $background-color
   color: #f6f9f7
 ::-webkit-scrollbar
   width: 6px
 ::-webkit-scrollbar-track
-  background: rgb(48, 52, 59)
+  background: $background-color
   width: 8px
 ::-webkit-scrollbar-thumb
   background: $font-color
@@ -73,8 +74,8 @@ body
   left: 50%
   bottom: 40%
   transform: translate(-50%, 0%)
-  width: 150px
-  height: 150px
+  width: 120px
+  height: 120px
   border-radius: 100%
   cursor: pointer
   .main
@@ -113,32 +114,32 @@ body
   animation: loading1 1S forwards, draw-main 3s forwards
 .icon-profile
   animation: loading2 .5S forwards, draw-main 3s forwards
-  animation-delay: .5s
+  animation-delay: .3s
   svg
     g
       .cls-1, .cls-2, .cls-4, .cls-6
         animation-delay: .5s
 .icon-skill
   animation: loading3 .5S forwards, draw-main 3s forwards
-  animation-delay: 1s
+  animation-delay: .6s
   svg
     g
       .cls-1, .cls-2, .cls-4, .cls-6
-        animation-delay: 1s
+        animation-delay: .6s
 .icon-portfolio
   animation: loading4 .5S forwards, draw-main 3s forwards
-  animation-delay: 1.5s
+  animation-delay: .9s
   svg
     g
       .cls-1, .cls-2, .cls-4, .cls-6
-        animation-delay: 1.5s
+        animation-delay: .9s
 .icon-contact
   animation: loading5 .5S forwards, draw-main 3s forwards
-  animation-delay: 2s
+  animation-delay: 1.2s
   svg
     g
       .cls-1, .cls-2, .cls-4, .cls-6
-        animation-delay: 2s
+        animation-delay: 1.2s
 
 @keyframes loading1
   0%
@@ -222,8 +223,8 @@ section
   position: relative
   height: 100vh
   width: 100%
-  overflow: hidden
-  background: rgba(48, 52, 55, 1)
+  overflow: hidden  
+  background: $background-color
   .title
     position: absolute
     font-size: 40rem
@@ -235,54 +236,305 @@ section
     z-index: 100
 #page1
   .content
+    position: relative
     z-index: 5000
-
+    width: 100%
+    height: 100%
     .introduction
       height: 50%
-      width: 360px
+      width: 50%
       padding: 1rem
-      background: rgba(7, 233, 210, .1)
       border-radius: 5px
-      // border: 4px solid rgba(7, 233, 210, .5)
       position: absolute
-      box-shadow: 0px 0px 50px 1px rgba(7, 233, 210, .1)
+      // border: .4rem dashed rgba(7, 233, 210, .3)
+      background: rgba(7, 233, 210, .1)
+      box-shadow: 0px 0px 50px 2px rgba(7, 233, 210, .2)
       top: 40%
       left: 50%
+#page2
+  .content
+    position: relative
+    z-index: 5000
+    width: 100%
+    height: 100%
+    padding: 2% 2% 8% 2%
+    display: flex
+    justify-content: space-around
+    align-items: center
+    .skill-box
+      width: 28%
+      height: 0%
+      border-radius: 10px
+      border: .3rem dashed rgba(7, 233, 210, .4)
+      background: rgba(7, 233, 210, .1)
+      box-shadow: 0px 0px 50px 2px rgba(7, 233, 210, .2)     
+      ul
+        padding: .5rem      
+        li 
+          list-style-type: circle
+          margin-top: .5rem
+      .bar-box
+        width: 100%
+        height: .8rem
+        box-shadow: 0px 0px 50px 2px rgba(255, 233, 210, .3)
+        margin-bottom: 1rem
+        .bar
+          height: 100%
+          width: 0%
+          padding: 1px
+          border-radius: 2px
+          background: $font-color
+          transition: all 1.5s
+        .h5
+          animation: wH5 2S forwards
+          animation-delay: .5s
+        @keyframes wH5
+          0%
+            width: 0%
+          35%
+            width: 90%
+          70%
+            width: 45%
+          100%
+            width: 80%
+        .css
+          animation: wCss 2S forwards
+          animation-delay: .5s
+        @keyframes wCss
+          0%
+            width: 0%
+          35%
+            width: 60%
+          70%
+            width: 95%
+          100%
+            width: 80%         
+        .js
+          animation: wJs 2S forwards
+          animation-delay: .5s
+        @keyframes wJs
+          0%
+            width: 0%
+          35%
+            width: 60%
+          70%
+            width: 45%
+          100%
+            width: 85%    
+        .svg
+          animation: wSvg 2S forwards
+          animation-delay: .5s
+        @keyframes wSvg
+          0%
+            width: 0%
+          35%
+            width: 35%
+          70%
+            width: 55%
+          100%
+            width: 70%
+        .vue
+          animation: wVue 2S forwards
+          animation-delay: .5s
+        @keyframes wVue
+          0%
+            width: 10%
+          35%
+            width: 00%
+          70%
+            width: 35%
+          100%
+            width: 75%
+        .wg
+          animation: wWg 2S forwards
+          animation-delay: .5s
+        @keyframes wWg
+          0%
+            width: 20%
+          35%
+            width: 10%
+          70%
+            width: 75%
+          100%
+            width: 60%
+        .c
+          animation: wC 2S forwards
+          animation-delay: .5s
+        @keyframes wC
+          0%
+            width: 0%
+          35%
+            width: 40%
+          70%
+            width: 85%
+          100%
+           width: 75%
+        .django
+          animation: wDjango 2S forwards
+          animation-delay: .5s
+        @keyframes wDjango
+          0%
+            width: 0%
+          35%
+            width: 20%
+          70%
+            width: 55%
+          100%
+            width: 70%
+        .go
+          animation: wGo 2S forwards
+          animation-delay: .5s
+        @keyframes wGo
+          0%
+            width: 10%
+          35%
+            width: 40%
+          70%
+            width: 75%
+          100%
+            width: 65%
+        .sql
+          animation: wSql 2S forwards
+          animation-delay: .5s
+        @keyframes wSql
+          0%
+            width: 0%
+          35%
+            width: 50%
+          70%
+            width: 65%
+          100%
+            width: 80%
+        .git
+          animation: wGit 2S forwards
+          animation-delay: .5s
+        @keyframes wGit
+          0%
+            width: 0%
+          35%
+            width: 30%
+          70%
+            width: 55%
+          100%
+            width: 70%
+        .docker
+          animation: wDocker 2S forwards
+          animation-delay: .5s
+        @keyframes wDocker
+          0%
+            width: 0%
+          35%
+            width: 45%
+          70%
+            width: 85%
+          100%
+            width: 60%
+        .arduino
+          animation: wArduino 2S forwards
+          animation-delay: .5s
+        @keyframes wArduino
+          0%
+            width: 20%
+          35%
+            width: 10%
+          70%
+            width: 75%
+          100%
+            width: 60%
+        .Illustrator
+          animation: wIllustrator 2S forwards
+          animation-delay: .5s
+        @keyframes wIllustrator
+          0%
+            width: 0%
+          35%
+            width: 35%
+          70%
+            width: 65%
+          100%
+            width: 45%
+        .Photoshop
+          animation: wPhotoshop 2S forwards
+          animation-delay: .5s
+        @keyframes wPhotoshop
+          0%
+            width: 20%
+          35%
+            width: 35%
+          70%
+            width: 75%
+          100%
+            width: 40%
+    .openSkill
+      animation: openSkill 1S forwards
+    @keyframes openSkill
+      0%
+        height: 0%
+      25%
+        padding: 2%
+      50%
+        height: 10%
+        padding: 2%
+        opacity: 1
+      100%
+        height: 100%
+        padding: 2%
+        opacity: 1
+          
 #page4
   .content
     position: relative
     z-index: 5000
     width: 100%
     height: 100%
-    background: rgba(7, 233, 210, .1)
-    .communicate-box
-      width: 100%
+    // background: rgba(7, 233, 210, .1)
+    .thx-box
+      float: right
+      width: 40%
       height: 100%
-      padding: 5% 25%
+      margin-right: 10%
+      padding: 5% 2%
+      font-size: 2rem
+      font-weight: 600
+    .communicate-box
+      float: left
+      width: 40%
+      height: 100%
+      padding: 5% 2%
+      margin-left: 10%
       form
         height: 100%
         width: 100%
       input
-        width: 40%
-        padding: .5rem        
+        width: 100%
+        padding: 1rem
+        margin-bottom: 5%
         border: 2px solid $font-color
-        border-radius: 5px
+        border-radius: 10px
       textarea
         resize: none
         width: 100%
-        height: 50%
-        margin-top: 1%
+        height: 40%
         padding: .5rem        
         border: 2px solid $font-color
-        border-radius: 5px
-      .my-button
-        margin-right: 2%
-        float: right
+        border-radius: 10px
+      .button
+        width: 100%
+        padding: 1rem
+        text-align: center
+        margin-top: 1rem
+        border: 2px solid $font-color
+        border-radius: 10px
+        cursor: pointer
+        &:hover
+          background: $font-color
+          color: $background-color
+
+    // border: 4px solid rgba(7, 233, 210, .5)
   // .communicate-box
   //   height: 80%
   //   width: 60%
   //   padding: 1rem
   //   border-radius: 5px
-  //   // border: 4px solid rgba(7, 233, 210, .5)
 
   //   box-shadow: 0px 0px 50px 1px rgba(7, 233, 210, .2)

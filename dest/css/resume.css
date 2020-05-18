@@ -9,21 +9,21 @@ img {
 ol, ul, li {
   list-style: none; }
 
-input {
+input, textarea {
   outline: none; }
 
 h1, h2, h3, h4, h5, h6, span, p {
   line-height: normal; }
 
 ::selection, ::-moz-selection {
-  background: #30343b;
+  background: #303437;
   color: #f6f9f7; }
 
 ::-webkit-scrollbar {
   width: 6px; }
 
 ::-webkit-scrollbar-track {
-  background: #30343b;
+  background: #303437;
   width: 8px; }
 
 ::-webkit-scrollbar-thumb {
@@ -87,8 +87,8 @@ body {
   left: 50%;
   bottom: 40%;
   transform: translate(-50%, 0%);
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 100%;
   cursor: pointer; }
   .icon .main {
@@ -127,27 +127,27 @@ body {
 
 .icon-profile {
   animation: loading2 .5S forwards, draw-main 3s forwards;
-  animation-delay: .5s; }
+  animation-delay: .3s; }
   .icon-profile svg g .cls-1, .icon-profile svg g .cls-2, .icon-profile svg g .cls-4, .icon-profile svg g .cls-6 {
     animation-delay: .5s; }
 
 .icon-skill {
   animation: loading3 .5S forwards, draw-main 3s forwards;
-  animation-delay: 1s; }
+  animation-delay: .6s; }
   .icon-skill svg g .cls-1, .icon-skill svg g .cls-2, .icon-skill svg g .cls-4, .icon-skill svg g .cls-6 {
-    animation-delay: 1s; }
+    animation-delay: .6s; }
 
 .icon-portfolio {
   animation: loading4 .5S forwards, draw-main 3s forwards;
-  animation-delay: 1.5s; }
+  animation-delay: .9s; }
   .icon-portfolio svg g .cls-1, .icon-portfolio svg g .cls-2, .icon-portfolio svg g .cls-4, .icon-portfolio svg g .cls-6 {
-    animation-delay: 1.5s; }
+    animation-delay: .9s; }
 
 .icon-contact {
   animation: loading5 .5S forwards, draw-main 3s forwards;
-  animation-delay: 2s; }
+  animation-delay: 1.2s; }
   .icon-contact svg g .cls-1, .icon-contact svg g .cls-2, .icon-contact svg g .cls-4, .icon-contact svg g .cls-6 {
-    animation-delay: 2s; }
+    animation-delay: 1.2s; }
 
 @keyframes loading1 {
   0% {
@@ -249,44 +249,309 @@ section {
     z-index: 100; }
 
 #page1 .content {
-  z-index: 5000; }
+  position: relative;
+  z-index: 5000;
+  width: 100%;
+  height: 100%; }
   #page1 .content .introduction {
     height: 50%;
-    width: 360px;
+    width: 50%;
     padding: 1rem;
-    background: rgba(7, 233, 210, 0.1);
     border-radius: 5px;
     position: absolute;
-    box-shadow: 0px 0px 50px 1px rgba(7, 233, 210, 0.1);
+    background: rgba(7, 233, 210, 0.1);
+    box-shadow: 0px 0px 50px 2px rgba(7, 233, 210, 0.2);
     top: 40%;
     left: 50%; }
+
+#page2 .content {
+  position: relative;
+  z-index: 5000;
+  width: 100%;
+  height: 100%;
+  padding: 2% 2% 8% 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  #page2 .content .skill-box {
+    width: 28%;
+    height: 0%;
+    border-radius: 10px;
+    border: 0.3rem dashed rgba(7, 233, 210, 0.4);
+    background: rgba(7, 233, 210, 0.1);
+    box-shadow: 0px 0px 50px 2px rgba(7, 233, 210, 0.2); }
+    #page2 .content .skill-box ul {
+      padding: .5rem; }
+      #page2 .content .skill-box ul li {
+        list-style-type: circle;
+        margin-top: .5rem; }
+    #page2 .content .skill-box .bar-box {
+      width: 100%;
+      height: .8rem;
+      box-shadow: 0px 0px 50px 2px rgba(255, 233, 210, 0.3);
+      margin-bottom: 1rem; }
+      #page2 .content .skill-box .bar-box .bar {
+        height: 100%;
+        width: 0%;
+        padding: 1px;
+        border-radius: 2px;
+        background: #ffe9d2;
+        transition: all 1.5s; }
+      #page2 .content .skill-box .bar-box .h5 {
+        animation: wH5 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wH5 {
+  0% {
+    width: 0%; }
+  35% {
+    width: 90%; }
+  70% {
+    width: 45%; }
+  100% {
+    width: 80%; } }
+      #page2 .content .skill-box .bar-box .css {
+        animation: wCss 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wCss {
+  0% {
+    width: 0%; }
+  35% {
+    width: 60%; }
+  70% {
+    width: 95%; }
+  100% {
+    width: 80%; } }
+      #page2 .content .skill-box .bar-box .js {
+        animation: wJs 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wJs {
+  0% {
+    width: 0%; }
+  35% {
+    width: 60%; }
+  70% {
+    width: 45%; }
+  100% {
+    width: 85%; } }
+      #page2 .content .skill-box .bar-box .svg {
+        animation: wSvg 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wSvg {
+  0% {
+    width: 0%; }
+  35% {
+    width: 35%; }
+  70% {
+    width: 55%; }
+  100% {
+    width: 70%; } }
+      #page2 .content .skill-box .bar-box .vue {
+        animation: wVue 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wVue {
+  0% {
+    width: 10%; }
+  35% {
+    width: 00%; }
+  70% {
+    width: 35%; }
+  100% {
+    width: 75%; } }
+      #page2 .content .skill-box .bar-box .wg {
+        animation: wWg 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wWg {
+  0% {
+    width: 20%; }
+  35% {
+    width: 10%; }
+  70% {
+    width: 75%; }
+  100% {
+    width: 60%; } }
+      #page2 .content .skill-box .bar-box .c {
+        animation: wC 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wC {
+  0% {
+    width: 0%; }
+  35% {
+    width: 40%; }
+  70% {
+    width: 85%; }
+  100% {
+    width: 75%; } }
+      #page2 .content .skill-box .bar-box .django {
+        animation: wDjango 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wDjango {
+  0% {
+    width: 0%; }
+  35% {
+    width: 20%; }
+  70% {
+    width: 55%; }
+  100% {
+    width: 70%; } }
+      #page2 .content .skill-box .bar-box .go {
+        animation: wGo 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wGo {
+  0% {
+    width: 10%; }
+  35% {
+    width: 40%; }
+  70% {
+    width: 75%; }
+  100% {
+    width: 65%; } }
+      #page2 .content .skill-box .bar-box .sql {
+        animation: wSql 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wSql {
+  0% {
+    width: 0%; }
+  35% {
+    width: 50%; }
+  70% {
+    width: 65%; }
+  100% {
+    width: 80%; } }
+      #page2 .content .skill-box .bar-box .git {
+        animation: wGit 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wGit {
+  0% {
+    width: 0%; }
+  35% {
+    width: 30%; }
+  70% {
+    width: 55%; }
+  100% {
+    width: 70%; } }
+      #page2 .content .skill-box .bar-box .docker {
+        animation: wDocker 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wDocker {
+  0% {
+    width: 0%; }
+  35% {
+    width: 45%; }
+  70% {
+    width: 85%; }
+  100% {
+    width: 60%; } }
+      #page2 .content .skill-box .bar-box .arduino {
+        animation: wArduino 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wArduino {
+  0% {
+    width: 20%; }
+  35% {
+    width: 10%; }
+  70% {
+    width: 75%; }
+  100% {
+    width: 60%; } }
+      #page2 .content .skill-box .bar-box .Illustrator {
+        animation: wIllustrator 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wIllustrator {
+  0% {
+    width: 0%; }
+  35% {
+    width: 35%; }
+  70% {
+    width: 65%; }
+  100% {
+    width: 45%; } }
+      #page2 .content .skill-box .bar-box .Photoshop {
+        animation: wPhotoshop 2S forwards;
+        animation-delay: .5s; }
+
+@keyframes wPhotoshop {
+  0% {
+    width: 20%; }
+  35% {
+    width: 35%; }
+  70% {
+    width: 75%; }
+  100% {
+    width: 40%; } }
+  #page2 .content .openSkill {
+    animation: openSkill 1S forwards; }
+
+@keyframes openSkill {
+  0% {
+    height: 0%; }
+  25% {
+    padding: 2%; }
+  50% {
+    height: 10%;
+    padding: 2%;
+    opacity: 1; }
+  100% {
+    height: 100%;
+    padding: 2%;
+    opacity: 1; } }
 
 #page4 .content {
   position: relative;
   z-index: 5000;
   width: 100%;
-  height: 100%;
-  background: rgba(7, 233, 210, 0.1); }
-  #page4 .content .communicate-box {
-    width: 100%;
+  height: 100%; }
+  #page4 .content .thx-box {
+    float: right;
+    width: 40%;
     height: 100%;
-    padding: 5% 25%; }
+    margin-right: 10%;
+    padding: 5% 2%;
+    font-size: 2rem;
+    font-weight: 600; }
+  #page4 .content .communicate-box {
+    float: left;
+    width: 40%;
+    height: 100%;
+    padding: 5% 2%;
+    margin-left: 10%; }
     #page4 .content .communicate-box form {
       height: 100%;
       width: 100%; }
     #page4 .content .communicate-box input {
-      width: 40%;
-      padding: .5rem;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 5%;
       border: 2px solid #ffe9d2;
-      border-radius: 5px; }
+      border-radius: 10px; }
     #page4 .content .communicate-box textarea {
       resize: none;
       width: 100%;
-      height: 50%;
-      margin-top: 1%;
+      height: 40%;
       padding: .5rem;
       border: 2px solid #ffe9d2;
-      border-radius: 5px; }
-    #page4 .content .communicate-box .my-button {
-      margin-right: 2%;
-      float: right; }
+      border-radius: 10px; }
+    #page4 .content .communicate-box .button {
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      border: 2px solid #ffe9d2;
+      border-radius: 10px;
+      cursor: pointer; }
+      #page4 .content .communicate-box .button:hover {
+        background: #ffe9d2;
+        color: #303437; }

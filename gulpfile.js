@@ -2,18 +2,16 @@ const fs           = require('fs')
 const gulp         = require('gulp')
 const pug          = require("gulp-pug")
 const sass         = require("gulp-sass")
-const minifyCSS    = require('gulp-minify-css')
-const concat       = require('gulp-concat')
-const uglify       = require('gulp-uglify')
+// const minifyCSS    = require('gulp-minify-css')
+// const concat       = require('gulp-concat')
+// const uglify       = require('gulp-uglify')
 const rename       = require("gulp-rename")
 const frontMatter  = require('gulp-front-matter')
-const autoprefixer = require('gulp-autoprefixer')
+// const autoprefixer = require('gulp-autoprefixer')
 const webserver    = require('gulp-webserver')
-const md2json      = require('gulp-markdown-to-json')
 const markdown     = require('gulp-markdown')
 const extender     = require('gulp-html-extend')
-const marked       = require('marked')
-const replace     = require('gulp-replace')
+const replace      = require('gulp-replace')
 
 function swallowError (error) {
   console.log(error.toString())
@@ -55,30 +53,23 @@ gulp.task('extend', () => {
     .pipe(gulp.dest('./dest/articles/'))
 })
 
-// 將markdown轉成json檔
-gulp.task('markdown', () => {
-  gulp.src('./src/articles/md/**/*.md')
-    .pipe(md2json(marked, function(data, file) {
-      console.log(data)
-      console.log(file)
-      delete data.body
-      return data
-    }))
-    .pipe(gulp.dest('./src/articles/json'))
-});
 
-// 將md編譯成html
-gulp.task('json2html', () => {
+// 將md編譯成html、json
+gulp.task('markdown', () => {
   fs.readdir('./src/articles/md/', function(err, files) {
     let pageList = [] 
     files.forEach((file, i) => {
       let data = {}
       let content = fs.readFileSync('./src/articles/md/' + file, 'utf8')
-      content.split('---')[1].split('\r\n').forEach(e=> {
+      content.split('---')[1].split('\n').forEach(e => {
+        
         if (e != '') {
-          data[e.split(':')[0]] = e.split(':')[1].trim()
+          console.log(e.split(':')[0])
+          console.log(e.split(':')[1])
+          data[(e.split(':')[0]).toString()] = (e.split(':')[1].trim()).toString()
         }
       })
+      
       data.tag = data.tag.replace('[', '').replace(']', '').split(',').map(e=> {
         return e.trim()
       })

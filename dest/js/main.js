@@ -1,4 +1,6 @@
 $(document).ready(() => {
+	let site = location.href
+	$('.fb-comments').attr('data-href=' + site)
 	$(window).bind('scroll', () => {
 		let navHeight = $('.header').height();
 		if ($(window).scrollTop() > navHeight / 2) {

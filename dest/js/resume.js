@@ -27,33 +27,55 @@ function deleteCookie(name) {
 }
 
 //滾動事件
-// $(window).scroll(function() {
-//     var page0 = $('#page0').offset().top;
-//     var page1 = $('#page1').offset().top;
-//     var page2 = $('#page2').offset().top;
-//     var page3 = $('#page3').offset().top;
-//     var page3run = false;
-//     if ($(this).scrollTop() >= page0 && $(this).scrollTop() <= page1 * 0.8) {
-//         // $('#home_menu')[0].classList.remove('show-bg');
-//     } else if ($(this).scrollTop() >= page1 * 0.8 && $(this).scrollTop() <= page2 * 0.8) {
-//         $('.profile-info')[0].classList.add('animation-text-show');
-//         setTimeout(function() { $('.profile-autobiography>div')[0].classList.add('animation-text-show'); }, 600);
-//         setTimeout(function() { $('.profile-experience>div')[0].classList.add('animation-text-show'); }, 1200);
-//     } else if ($(this).scrollTop() >= page2 * 0.8 && $(this).scrollTop() <= page3) {
-//         if (!page3run) {
-//             page3run = true;
-//             $('.skill-bar').each(function(e) {
-//                 $(this).find('div')[0].classList.add('animate-bar-run');
-//                 var barColor = $(this)[0].getAttribute('data-color');
-//                 var barValue = $(this)[0].getAttribute('data-value');
-//                 $(this).find('div').css("background-color", barColor);
-//                 $(this).find('div').css("width", barValue);
-//                 $(this).find('div').attr('content', barValue);
-//             });
-//         }
-//     }
+$(window).scroll(function() {
+  var page0 = $('#page0').offset().top;
+  var page1 = $('#page1').offset().top;
+  var page2 = $('#page2').offset().top;
+  var page3 = $('#page3').offset().top;
+  if ($(this).scrollTop() >= page0 && $(this).scrollTop() <= page1) {
+    page2animation(false)
+  } else if ($(this).scrollTop() >= page1 && $(this).scrollTop() <= page2) {
+    page2animation(true)
+  } else if ($(this).scrollTop() >= page2 && $(this).scrollTop() <= page3) {
+  }
+});
 
-// });
+function page2animation (toggle) {
+  if (toggle) {
+    $('.skill-box').addClass('openSkill')
+    $('#h5').addClass('h5')
+    $('#css').addClass('css')
+    $('#js').addClass('js')
+    $('#svg').addClass('svg')
+    $('#vue').addClass('vue')
+    $('#wg').addClass('wg')
+    $('#c').addClass('c')
+    $('#django').addClass('django')
+    $('#go').addClass('go')
+    $('#sql').addClass('sql')
+    $('#docker').addClass('docker')
+    $('#git').addClass('git')
+    $('#arduino').addClass('arduino')
+    $('#Illustrator').addClass('Illustrator')
+    $('#Photoshop').addClass('Photoshop')
+  } else {
+    $('#h5').removeClass('h5')
+    $('#css').removeClass('css')
+    $('#js').removeClass('js')
+    $('#svg').removeClass('svg')
+    $('#vue').removeClass('vue')
+    $('#wg').removeClass('wg')
+    $('#c').removeClass('c')
+    $('#django').removeClass('django')
+    $('#go').removeClass('go')
+    $('#sql').removeClass('sql')
+    $('#docker').removeClass('docker')
+    $('#git').removeClass('git')
+    $('#arduino').removeClass('arduino')
+    $('#Illustrator').removeClass('Illustrator')
+    $('#Photoshop').removeClass('Photoshop')
+  }
+}
 
 //設定錨點
 $(function() {

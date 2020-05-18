@@ -52,10 +52,9 @@ body
   font-family: 'Microsoft JhengHei'
   position: relative
   color: $font-color
-  // background: url('/dest/img/background.jpg')
-  background-size: 2rem 2rem
+  background-size: 1.8rem 1.8rem
   background-color: rgba(255, 233, 220, .1)
-  background-image: linear-gradient(0deg, transparent 90%, rgba(89, 135, 125, .07) 50%), linear-gradient(90deg, transparent 90%, rgba(89, 135, 125, .07) 50%)
+  background-image: linear-gradient(0deg, transparent 92%, rgba(89, 135, 125, .07) 50%), linear-gradient(90deg, transparent 92%, rgba(89, 135, 125, .07) 50%)
 
 .header
   position: fixed
@@ -63,10 +62,9 @@ body
   left: 0
   height: $header-height
   width: 100%
-  // background: url('/dest/img/background.jpg')
-  background-size: 2rem 2rem
+  background-size: 1.8rem 1.8rem
   background-color: rgba(250, 250, 250, 1)
-  background-image: linear-gradient(0deg, transparent 90%, rgba(119, 155, 145, .07) 50%), linear-gradient(90deg, transparent 90%, rgba(119, 155, 145, .07) 50%)
+  background-image: linear-gradient(0deg, transparent 92%, rgba(89, 135, 125, .07) 50%), linear-gradient(90deg, transparent 92%, rgba(89, 135, 125, .07) 50%)
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
   z-index: 3000
   transition: all .5s ease
@@ -86,10 +84,43 @@ body
     top: 1rem
     left: 1rem
     display: block
+    user-select: none
+    // color: #EEE
     h1
       font-size: 2rem
-    p
-      font-size: .8rem
+      position: relative
+      margin-bottom: .5rem
+      &:before
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        height: 105%
+        width: 105%
+        content: ''
+        background: rgba(232, 120, 142, .7)
+        border-bottom-left-radius: 100px 500px
+        border-bottom-right-radius: 100px 500px
+        border-top-left-radius: 500px 100px
+        border-top-right-radius: 500px 100px
+        z-index: -1
+    span
+      font-size: .9rem
+      position: relative
+      &:before
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        height: 105%
+        width: 105%
+        content: ''
+        background: rgba(232, 120, 142, .7)
+        border-bottom-left-radius: 100px 500px
+        border-bottom-right-radius: 100px 500px
+        border-top-left-radius: 500px 100px
+        border-top-right-radius: 500px 100px
+        z-index: -1
   .logo
     position: absolute
     top: 50%
@@ -112,10 +143,28 @@ body
     line-height: 1rem
     font-size: 1rem
     transition: all .4s ease
+    user-select: none
     li
-      margin: 0 .4rem
-    a
-      font-weight: 900
+      margin: 0 .8rem
+      position: relative
+      cursor: pointer
+      &:hover:before
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        height: 120%
+        width: 130%
+        content: ''
+        background: rgba(100, 185, 183, .4)
+        border-bottom-left-radius: 100px 500px
+        border-bottom-right-radius: 100px 500px
+        border-top-left-radius: 500px 100px
+        border-top-right-radius: 500px 100px
+        z-index: -1
+      a
+        position: relative        
+        font-weight: 900
 
 .reduce
   height: 3.5rem
@@ -130,7 +179,7 @@ body
     width: 3.5rem
   .menu-list      
     top: 1.25rem
-
+    
 .adjust
   .outline-box
     margin-top: -($header-height / 2)
@@ -154,8 +203,6 @@ body
     .cell
       width: calc(100% / 3 - 40px)      
       margin: 20px
-      // padding: .5rem
-      // box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
       .main
         width: 100%
         height: 100%
@@ -218,15 +265,45 @@ body
     margin-top: 2rem
     height: 120px
     border-radius: 12px
-    background: #FAFAFA
+    background: rgba(255, 255, 255, .5)
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
     z-index: 1900
+  .comments-box
+    position: relative
+    width: 50%
+    margin-left: 25%
+    margin-top: 2rem
+    padding: 1rem
+    box-shadow: 0px 0px 1px 12px rgba(0, 0, 0, .2)
+    z-index: 1900
+    background: #FDFDFD
+    border-top-left-radius: 12px 100%
+    border-bottom-right-radius: 12px 100%
+    border-bottom-left-radius: 5px 100px
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .2)
+    &:after
+      position: absolute
+      top: 0
+      left: 50%
+      height: 2rem
+      width: 8rem
+      content: ''
+      background: rgba(100, 185, 183, .6)
+      border-bottom-left-radius: 100px 500px
+      border-bottom-right-radius: 100px 500px
+      border-top-left-radius: 500px 100px
+      border-top-right-radius: 500px 100px
+      transform: translate(-50%, -50%) rotate(5deg)
   .content
     width: 50%
     min-height: calc(100vh - 7rem)
     padding: 2rem
     margin: 2rem 0 2rem 25%
-    border-radius: 12px
+    background: #FDFDFD
+    border-top-left-radius: 12px 100%
+    border-bottom-right-radius: 12px 100%
+    border-bottom-left-radius: 5px 100px
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .2)
     ul
       padding: .5rem      
       li 
@@ -236,8 +313,6 @@ body
       margin: 1rem 0
       padding: 1rem
       display: block
-      // background: #777
-      // color: #FAFAFA
       border-radius: 5px
       font-size: 1rem
       tab-size: 2
@@ -266,7 +341,6 @@ body
       position: relative
       margin: 3rem 0 4rem 0
       height: 240px
-      border-radius: 5px      
       background: #FDFDFD
       border-top-left-radius: 12px 100%
       border-bottom-right-radius: 12px 100%
@@ -342,4 +416,5 @@ body
         border-bottom-right-radius: 100px 500px
         border-top-left-radius: 500px 100px
         border-top-right-radius: 500px 100px
+        z-index: -1
 

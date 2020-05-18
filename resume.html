@@ -146,12 +146,85 @@
         <p>PROFILE</p>
       </div>
       <div class="content">
-        <div class="introduction">以往至今我是林建成，大學畢業於大葉大學資訊工程系，因從小對電腦方面等資訊有極大的興趣，進而使我選擇了資訊這條路。 我個性主動積極，所以在大學之間我讓自己從事行政單位的工讀以及企業的全職實習，增加我的社會經驗以及技能專長，在實習過程中不斷精進如HTML、CSS、JavaScript、C#、SQL等技能，也替公司開發了系統，後來因為能力適任轉而成為正職人員。 我擅長領域為網頁設計，包含前端程式設計(微美術設計、UI、UX)、後端程式開發(C#、golang)、資料庫管理與設計，網頁開發三年經驗。</div>
+        <div class="introduction">
+          <h2>About Me</h2>
+          <p>喜歡解決問題；致力於多元學習，目標成為數位整合型工程師。</p>
+          <p>擅長領域為自動化程式開發、網頁設計，前後端程式開發、站台管理、資料庫管理，實質程式開發經驗近五年，現今在學習日文、網路行銷。</p>
+          <p>現於德妮文教機構擔任「系統全端工程師」。</p>
+        </div>
       </div>
     </section>
     <section id="page2">
       <div class="title">
         <p>SKILL</p>
+      </div>
+      <div class="content">
+        <div class="skill-box"><span>HTML5</span>
+          <div class="bar-box">
+            <div class="bar" id="h5"></div>
+          </div><span>CSS3／LESS／SASS</span>
+          <div class="bar-box">
+            <div class="bar" id="css"></div>
+          </div><span>JavaScript ES6／Jquery</span>
+          <div class="bar-box">
+            <div class="bar" id="js"></div>
+          </div><span>SVG</span>
+          <div class="bar-box">
+            <div class="bar" id="svg"></div>
+          </div><span>Vue.js</span>
+          <div class="bar-box">
+            <div class="bar" id="vue"></div>
+          </div><span>Webpack／Gulp</span>
+          <div class="bar-box">
+            <div class="bar" id="wg"></div>
+          </div>
+          <ul>
+            <li>熟悉設計切版、Web APIs、RWD、多語系、AJAX。</li>
+            <li>擅長UI設計、模組化、可設計互動式網頁等動畫功能。</li>
+            <li>具備SEO、使用者體驗（UX）觀念。</li>
+          </ul>
+        </div>
+        <div class="skill-box"><span>ASP.NET MVC(C#)</span>
+          <div class="bar-box">
+            <div class="bar" id="c"></div>
+          </div><span>Django(Python)</span>
+          <div class="bar-box">
+            <div class="bar" id="django"></div>
+          </div><span>Gonlang</span>
+          <div class="bar-box">
+            <div class="bar" id="go"></div>
+          </div>
+          <ul>
+            <li>熟悉串接資料庫、串接／開發Web APIs之能力、物件導向、RESTful、MVC。</li>
+            <li>可以架設站台、伺服器管理。</li>
+          </ul>
+        </div>
+        <div class="skill-box"><span>SQL</span>
+          <div class="bar-box">
+            <div class="bar" id="sql"></div>
+          </div><span>Docker</span>
+          <div class="bar-box">
+            <div class="bar" id="docker"></div>
+          </div><span>Git／SVN</span>
+          <div class="bar-box">
+            <div class="bar" id="git"></div>
+          </div><span>Arduino</span>
+          <div class="bar-box">
+            <div class="bar" id="arduino"></div>
+          </div><span>Illustrator</span>
+          <div class="bar-box">
+            <div class="bar" id="Illustrator"></div>
+          </div><span>Photoshop</span>
+          <div class="bar-box">
+            <div class="bar" id="Photoshop"></div>
+          </div>
+          <ul>
+            <li>設計／管理資料庫(MS SQL、MySQL、SQLite、PostgreSQL)。</li>
+            <li>Arduino韌體設計。</li>
+            <li>簡單地修圖、素材製作。</li>
+            <li>具有Scrum之觀念和經驗。</li>
+          </ul>
+        </div>
       </div>
     </section>
     <section id="page3">
@@ -163,13 +236,19 @@
       <div class="title">
         <p>CONTACT</p>
       </div>
-      <div class="content">     
+      <div class="content">
+        <div class="thx-box">
+          <p>感謝您的拜訪，</p>
+          <p>如果您有相關問題或想與我合作，都歡迎與我聯繫。</p>
+          <p>祝您有愉快的一天。w</p>
+          <p>-林建成-</p>
+        </div>
         <div class="communicate-box">
           <form id="mail_form" action="https://formspree.io/sasuke01260616@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Your Name">
             <input type="email" name="_replyto" placeholder="Your Email">
             <textarea name="content" placeholder="Message..."></textarea>
-            <div class="lang my-button" data-key="send_button" onclick="send_mail()" style="width: 150px;">Send</div>
+            <div class="button" onclick="send_mail()">Send</div>
           </form>
         </div>
       </div>

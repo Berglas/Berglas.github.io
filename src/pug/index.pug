@@ -19,17 +19,17 @@ html(lang='zh-TW')
       .logo(onclick='javascript:location.href="/"')
       .title 
         h1 巴格.生活日記•學習筆記
-        p - 取之於網路，用之於網路 -
+        span - 取之於網路，用之於網路 -
       ul.menu-list
-        li(class='list' title='關於這裡')
+        li(title='關於這裡')
           a(href='/dest/articles/2020/4/origin.html') 
             sapn 關於這裡
-        //- li(class='list' title='所有文章')
-        //-   a(href='/dest/articles/1.html') 
-        //-     sapn 所有文章
-        //- li(class='list' title='聯絡我')
-        //-   a(href='/list.html') 
-        //-     sapn 聯絡我
+        li(title='所有文章')
+          a(href='/dest/articles/1.html') 
+            sapn 所有文章
+        li(title='聯絡我')
+          a(href='/resume.html') 
+            sapn 聯絡我
     .container
       #articles
         .cell(v-for='item in dataList')

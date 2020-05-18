@@ -12,19 +12,25 @@
     <link rel="stylesheet" type="text/css" href="/dest/css/main.css">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
-    <script src="/dest/js/main.js"></script><!---->    
+    <script src="/dest/js/main.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai-sublime.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad('Codepen Embed')</script><!---->    
 <!--@@placeholder=webTitle-->
   </head>
   <body>
     <div class="header">
       <div class="logo" onclick="javascript:location.href=&quot;/&quot;"></div>
       <div class="title"> 
-        <h1>巴格.生活日記•學習筆記</h1>
-        <p>- 取之於網路，用之於網路 -</p>
+        <h1>巴格.生活日記•學習筆記</h1><span>- 取之於網路，用之於網路 -</span>
       </div>
       <ul class="menu-list">
-        <li class="list" title="關於這裡"><a href="/dest/articles/first.html"> 
+        <li title="關於這裡"><a href="/dest/articles/first.html"> 
             <sapn>關於這裡</sapn></a></li>
+        <li title="所有文章"><a href="/dest/articles/1.html"> 
+            <sapn>所有文章</sapn></a></li>
+        <li class="list" title="聯絡我"><a href="/resume.html"> 
+            <sapn>聯絡我</sapn></a></li>
       </ul>
     </div>
     <div class="container">
@@ -39,7 +45,11 @@
 <!--@@placeholder=content-->
         </main>
       </div>
-      <div class="bonus-box"></div>
+      <div class="comments-box">
+        <div id="fb-root"></div>
+        <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v7.0&amp;appId=722056048603698&amp;autoLogAppEvents=1"></script>
+        <div class="fb-comments" data-numposts="5" data-width="100%"></div>
+      </div>
       <div class="footer">
         <div class="license">    </div>
       </div>
