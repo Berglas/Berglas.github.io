@@ -12,7 +12,7 @@ ol, ul, li {
   list-style: none; }
 
 h1, h2, h3, h4, h5, h6, span, p {
-  line-height: normal; }
+  line-height: 180%; }
 
 p {
   font-size: 1.1rem; }
@@ -22,7 +22,7 @@ ul, li, a {
 
 a {
   text-decoration: none;
-  color: #2f333a; }
+  color: #42474c; }
 
 blockquote {
   opacity: .8;
@@ -57,7 +57,7 @@ blockquote {
 body {
   font-family: 'Microsoft JhengHei';
   position: relative;
-  color: #2f333a;
+  color: #42474c;
   background-size: 1.8rem 1.8rem;
   background-color: rgba(255, 233, 220, 0.1);
   background-image: linear-gradient(0deg, transparent 92%, rgba(89, 135, 125, 0.07) 50%), linear-gradient(90deg, transparent 92%, rgba(89, 135, 125, 0.07) 50%); }
@@ -69,7 +69,7 @@ body {
   height: 7rem;
   width: 100%;
   background-size: 1.8rem 1.8rem;
-  background-color: #e6e6e6;
+  background-color: #fff8ee;
   background-image: linear-gradient(0deg, transparent 92%, rgba(89, 135, 125, 0.07) 50%), linear-gradient(90deg, transparent 92%, rgba(89, 135, 125, 0.07) 50%);
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
   z-index: 3000;
@@ -94,8 +94,7 @@ body {
     cursor: pointer; }
     .header .title h1 {
       font-size: 2rem;
-      position: relative;
-      margin-bottom: .5rem; }
+      position: relative; }
     .header .title span {
       font-size: .9rem;
       position: relative; }
@@ -168,23 +167,23 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%; }
-  .container #articles {
+  .container .articles {
     min-height: calc(100vh - 12rem);
     padding: 0 20%;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start; }
-    .container #articles .cell {
+    .container .articles .cell {
       position: relative;
-      width: calc(100% / 3 - 40px);
-      margin: 20px;
-      padding: 1rem;
-      background: #FDFDFD;
-      border-top-left-radius: 12px 100%;
-      border-bottom-right-radius: 12px 100%;
-      border-bottom-left-radius: 5px 100px;
-      box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); }
-      .container #articles .cell:after {
+      width: calc(100% / 3 - 2rem);
+      margin: 1.5rem 1rem;
+      padding: 1rem 1.5rem;
+      background: #f8f8f8;
+      border-top-right-radius: 16px 100%;
+      border-bottom-right-radius: 5px 100%;
+      border-bottom-left-radius: 12px 100px;
+      box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px 1px rgba(0, 0, 0, 0.2) inset; }
+      .container .articles .cell:after {
         position: absolute;
         top: 0;
         left: 50%;
@@ -197,38 +196,39 @@ body {
         border-top-left-radius: 500px 100px;
         border-top-right-radius: 500px 100px;
         transform: translate(-50%, -50%) rotate(2deg); }
-      .container #articles .cell .main {
+      .container .articles .cell .main {
         width: 100%;
         height: 100%;
         cursor: pointer; }
-      .container #articles .cell .title {
+      .container .articles .cell .title {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         width: 100%;
-        border-bottom: 0.2rem solid #e8788e; }
-      .container #articles .cell .time-mark {
+        padding-bottom: .5rem; }
+      .container .articles .cell .time-mark {
         width: 100%;
         text-align: right;
-        font-size: 1rem;
-        color: #7c7c7c; }
-      .container #articles .cell .preview {
-        height: 200px;
+        font-size: .8rem;
+        color: #a6a6a6; }
+      .container .articles .cell .preview {
+        height: 180px;
         width: 100%;
         margin-top: .5rem; }
-        .container #articles .cell .preview img {
-          border-radius: .5rem;
+        .container .articles .cell .preview img {
+          border: 4px solid rgba(235, 235, 235, 0.2);
           height: 100%;
           width: 100%;
           background-size: 100%; }
-      .container #articles .cell .depiction {
+      .container .articles .cell .depiction {
         padding: .5rem 0;
         height: 8rem;
         width: 100%;
         text-overflow: ellipsis;
         white-space: wrap;
         overflow: hidden;
-        font-weight: 600; }
+        font-size: 1.05rem;
+        font-weight: 500; }
   .container .float-box {
     position: fixed;
     top: 9rem;
@@ -348,7 +348,7 @@ body {
     border-bottom-left-radius: 5px 100px;
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); }
     .container .content p > code {
-      background: rgba(100, 185, 183, 0.6); }
+      background: rgba(100, 185, 183, 0.4); }
     .container .content img {
       display: block;
       width: 100%;
@@ -394,7 +394,7 @@ body {
     .container .content .depiction-box {
       position: relative;
       margin: 3rem 0 4rem 0;
-      height: 240px;
+      height: 14rem;
       background: #FDFDFD;
       border-top-left-radius: 12px 100%;
       border-bottom-right-radius: 12px 100%;
@@ -428,12 +428,12 @@ body {
         transform: rotate(55deg); }
       .container .content .depiction-box .depiction {
         width: 60%;
-        height: 240px;
-        padding: 1rem;
+        height: 100%;
+        padding: 1.5rem 1rem;
         float: right; }
       .container .content .depiction-box > img {
         width: 40%;
-        height: 240px;
+        height: 100%;
         padding: 1rem;
         border-radius: 24px;
         float: left;

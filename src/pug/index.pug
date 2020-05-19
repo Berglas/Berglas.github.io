@@ -35,13 +35,13 @@ html(lang='zh-TW')
         .float-box
           h2 文章分類
           .tag(v-for='item in allTag') {{item}}
-        #articles
+        .articles
           .cell(v-for='item in dataList')
             .main(@click='javascript:location.href=item.site + "/" +item.title + ".html"')
               h2.title {{item.cTitle}} 
               .preview
                 img(:src='item.site + "/" + item.title + ".jpg"' )
-              .depiction {{item.depiction}}
+              p.depiction {{item.depiction}}
               p.time-mark {{item.date.substring(0, 10)}}
         .footer
           .license 

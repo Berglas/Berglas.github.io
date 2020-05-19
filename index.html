@@ -36,12 +36,12 @@
           <h2>文章分類</h2>
           <div class="tag" v-for="item in allTag">{{item}}</div>
         </div>
-        <div id="articles">
+        <div class="articles">
           <div class="cell" v-for="item in dataList">
             <div class="main" @click="javascript:location.href=item.site + &quot;/&quot; +item.title + &quot;.html&quot;">
               <h2 class="title">{{item.cTitle}} </h2>
               <div class="preview"><img :src="item.site + &quot;/&quot; + item.title + &quot;.jpg&quot;"></div>
-              <div class="depiction">{{item.depiction}}</div>
+              <p class="depiction">{{item.depiction}}</p>
               <p class="time-mark">{{item.date.substring(0, 10)}}</p>
             </div>
           </div>

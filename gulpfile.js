@@ -72,8 +72,8 @@ gulp.task('markdown', () => {
       })
       data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
       data.index = i
-      if (data.depiction.length > 80) {
-        data.depiction = data.depiction.substring(0, 80) + '...'
+      if (data.depiction.length > 60) {
+        data.depiction = data.depiction.substring(0, 60) + '...'
       }
       pageList.push(data)
       gulp.src('./src/articles/md/'+ file)
