@@ -26,11 +26,11 @@
   <body>
     <div class="header">
       <div class="logo" onclick="javascript:location.href=&quot;/&quot;"></div>
-      <div class="title"> 
+      <div class="title" onclick="javascript:location.href=&quot;/&quot;">
         <h1>巴格.生活日記•學習筆記</h1><span>- 取之於網路，用之於網路 -</span>
       </div>
       <ul class="menu-list">
-        <li title="關於這裡"><a href="/dest/articles/first.html"> 
+        <li title="關於這裡"><a href="/dest/articles/origin.html"> 
             <sapn>關於這裡</sapn></a></li>
         <li title="所有文章"><a href="/dest/articles/1.html"> 
             <sapn>所有文章</sapn></a></li>
@@ -39,6 +39,12 @@
       </ul>
     </div>
     <div class="container">
+      <div class="float-box">
+        <h2>筆記重點</h2>
+        <div class="outline-box">
+          <ul></ul>
+        </div>
+      </div>
       <div class="content">
         <main>
           <div class="title-box"><!----> 
@@ -58,7 +64,7 @@
 
 <h3>關於這裡</h3>
 <p>我一直想要做一個部落格，希望這部落格能很簡單，簡單地分享、簡單地記錄，但礙於我太有病了，很多框架都不符合我想要的風格，所以就只好拿出自己所學來建構一個了，也就產生了這裡。</p>
-<h4>建立技術分享</h4>
+<h3>建立技術分享</h3>
 <ul>
 <li>GitHub(GitPage): 放置靜態網站空間，也順便管理Cdoe。</li>
 <li>pug + sass: 網頁排版加裝飾風格。</li>

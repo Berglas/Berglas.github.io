@@ -15,41 +15,46 @@ html(lang='zh-TW')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js')
     script(src='/dest/js/main.js')
   body
-    .header
-      .logo(onclick='javascript:location.href="/"')
-      .title 
-        h1 巴格.生活日記•學習筆記
-        span - 取之於網路，用之於網路 -
-      ul.menu-list
-        li(title='關於這裡')
-          a(href='/dest/articles/2020/4/origin.html') 
-            sapn 關於這裡
-        li(title='所有文章')
-          a(href='/dest/articles/1.html') 
-            sapn 所有文章
-        li(title='聯絡我')
-          a(href='/resume.html') 
-            sapn 聯絡我
-    .container
-      #articles
-        .cell(v-for='item in dataList')
-          .main(@click='javascript:location.href=item.site + "/" +item.title + ".html"')
-            h2.title {{item.cTitle}} 
-            .preview
-              img(:src='item.site + "/" + item.title + ".jpg"' )
-            .depiction {{item.depiction}}
-            p.time-mark {{item.date.substring(0, 10)}}
-      .footer
-        .license 
+    #app
+      .header
+        .logo(onclick='javascript:location.href="/"')
+        .title(onclick='javascript:location.href="/"')
+          h1 巴格.生活日記•學習筆記
+          span - 取之於網路，用之於網路 -
+        ul.menu-list
+          li(title='關於這裡')
+            a(href='/dest/articles/2020/4/origin.html') 
+              sapn 關於這裡
+          li(title='所有文章')
+            a(href='/dest/articles/1.html') 
+              sapn 所有文章
+          li(title='聯絡我')
+            a(href='/resume.html') 
+              sapn 聯絡我
+      .container
+        .float-box
+          h2 文章分類
+          .tag(v-for='item in allTag') {{item}}
+        #articles
+          .cell(v-for='item in dataList')
+            .main(@click='javascript:location.href=item.site + "/" +item.title + ".html"')
+              h2.title {{item.cTitle}} 
+              .preview
+                img(:src='item.site + "/" + item.title + ".jpg"' )
+              .depiction {{item.depiction}}
+              p.time-mark {{item.date.substring(0, 10)}}
+        .footer
+          .license 
     script.
       new Vue({
-        el: '#articles',
+        el: '#app',
         data () {
           return {
             pageList: [],
             dataList: [],
             index: 0,
-            amount: 9
+            amount: 9,
+            allTag: []
           }
         },
         watch: {
@@ -57,11 +62,40 @@ html(lang='zh-TW')
             handler (val) {
               this.loadData()
             }
+          },
+          pageList: {
+            handler (val) {
+              //- debugger
+              val.forEach(e => {
+                e.tag.forEach(tag => {
+                  if (this.allTag.indexOf(tag) === -1 && tag !== '') {
+                    this.allTag.push(tag)
+                  }
+                })
+              })
+              this.dataList = this.dataList.concat(val.slice(this.index * this.amount, (this.index + 1) * this.amount))
+
+            }
           }
         },
         methods: {
           loadData (tag, search) {
             this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          },
+          insertionSort (array, objName) { // 插入排序法(由大至小)
+            let length = array.length
+            let j
+            let temp
+            for (let i = 1; i < length; i++) {
+              j = i
+              temp = array[i]
+              while (j > 0 && array[j - 1][objName] < temp[objName]) {
+                array[j] = array[j - 1]
+                j--
+              }
+              array[j] = temp
+            }
+            return array
           }
         },
         mounted () {
@@ -70,9 +104,10 @@ html(lang='zh-TW')
               this.index += 1
             }
           }, false)
+
           $.getJSON("/dest/articles/pageList.json", e => {
             this.pageList = e
-            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+            this.insertionSort(this.pageList, 'date')
           })
         }
       })

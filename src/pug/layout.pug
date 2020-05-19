@@ -24,12 +24,12 @@ html(lang='zh-TW')
   body
     .header
       .logo(onclick='javascript:location.href="/"')
-      .title 
+      .title(onclick='javascript:location.href="/"')
         h1 巴格.生活日記•學習筆記
         span - 取之於網路，用之於網路 -
       ul.menu-list
         li(title='關於這裡')
-          a(href='/dest/articles/first.html') 
+          a(href='/dest/articles/origin.html') 
             sapn 關於這裡
         li(title='所有文章')
           a(href='/dest/articles/1.html') 
@@ -38,8 +38,10 @@ html(lang='zh-TW')
           a(href='/resume.html') 
             sapn 聯絡我
     .container
-      //- .outline-box
-      //- .tag-box
+      .float-box
+        h2 筆記重點
+        .outline-box
+          ul
       .content
         main
           .title-box

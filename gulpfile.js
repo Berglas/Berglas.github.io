@@ -61,11 +61,8 @@ gulp.task('markdown', () => {
     files.forEach((file, i) => {
       let data = {}
       let content = fs.readFileSync('./src/articles/md/' + file, 'utf8')
-      content.split('---')[1].split('\n').forEach(e => {
-        
+      content.split('---')[1].split('\n').forEach(e => {        
         if (e != '') {
-          console.log(e.split(':')[0])
-          console.log(e.split(':')[1])
           data[(e.split(':')[0]).toString()] = (e.split(':')[1].trim()).toString()
         }
       })
