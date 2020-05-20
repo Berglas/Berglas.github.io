@@ -2,23 +2,35 @@
 title: learn_fontend_1
 cTitle: 如何開始學程式-從零開始的工程師生活
 date: 2020-05-01
-depiction: 在這半虛擬化的世界裡，越來越多人想要學習寫程式。即便身為一個弱弱的工程師，不免俗還是會被周遭的人問說：「如果我從零開始學程式，應該先從哪些程式語言入門會比較沒難度、程式開發工具怎麼選擇；我應該要去上課還是自學；之後可以找到什麼工作...」。於是我將這些問題一一整理成一系列文章來替想學程式的人解惑。
+depiction: 在這半虛擬化的世代，越來越多人開始學習寫程式。很有人經常問說：「如果從零開始學程式，應該先從哪些程式語言入門比較好、程式開發工具怎麼選擇；應該要去上課還是自學；之後可以找到什麼工作...」。於是我將這些問題一一整理成一系列文章來替想學程式的人解惑。
 tag: [Teach, Web, HTML]
 ---
 <!--@@master=../../../../../layout.html-->
 
-<!--@@block=webTitle-->
-<title>如何開始學程式-從零開始的工程師生活~巴格.生活日記•學習筆記</title>
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="@@depiction">
+<meta itemprop="name" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="@@site.jpg">
+<meta itemprop="description" content="@@depiction">
+<meta property="og:title" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="@@site.html">
+<meta property="og:image" content="@@site.jpg">
+<meta property="og:description" content="@@depiction">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>@@cTitle｜巴格.生活日記•學習筆記</title>
 <!--@@close-->
 
-<!--@@block=contentTitle-->
-<p class='theme-title'>如何開始學程式-從零開始的工程師生活</p>
-<p class='time-mark'>2020-05-01</p>
+<!--@@block=title-->
+<p class='theme-title'>@@cTitle</p>
+<p class='time-mark'>@@date</p>
 <!--@@close-->
 
 <!--@@block=depiction-->
-<img src='./learn_fontend_1.jpg'>
-<p class='depiction'>在這半虛擬化的世界裡，越來越多人想要學習寫程式。即便身為一個弱弱的工程師，不免俗還是會被周遭的人問說：「如果我從零開始學程式，應該先從哪些程式語言入門會比較沒難度、程式開發工具怎麼選擇；我應該要去上課還是自學；之後可以找到什麼工作...」。於是我將這些問題一一整理成一系列文章來替想學程式的人解惑。</p>
+<img src='./@@title.jpg'>
+<p class='depiction'>@@depiction</p>
 <!--@@close-->
 
 <!--@@block=content-->

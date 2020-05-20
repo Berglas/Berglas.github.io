@@ -2,29 +2,35 @@
 title: learn_fontend_2
 cTitle: 網頁前端入門-認識HTML
 date: 2020-05-08
-depiction: 你想要設計網頁但始終不知道怎麼入門嗎？建議就從學習HTML開始，本篇會帶你/妳認識什麼是HTML、使用何種工具。現在就讓巴格帶你認識HTML，然後勇敢地踏出開發網頁的第一步吧!
+depiction: 想要設計網頁但始終不知道怎麼入門嗎？建議就從學習HTML開始，本篇會帶你/妳認識什麼是HTML、使用何種工具。現在就讓巴格帶你認識HTML，然後勇敢地踏出開發網頁的第一步吧!
 tag: [Teach, Web, HTML]
 ---
 <!--@@master=../../../../../layout.html-->
 
-<!--@@block=webTitle-->
-
-<title>網頁前端入門-認識HTML</title>
-
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="@@depiction">
+<meta itemprop="name" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="@@site.jpg">
+<meta itemprop="description" content="@@depiction">
+<meta property="og:title" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="@@site.html">
+<meta property="og:image" content="@@site.jpg">
+<meta property="og:description" content="@@depiction">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>@@cTitle｜巴格.生活日記•學習筆記</title>
 <!--@@close-->
 
-<!--@@block=contentTitle-->
-
-<p class='theme-title'>網頁前端入門-認識HTML</p>
-<p class='time-mark'>2020-05-08</p>
-
+<!--@@block=title-->
+<p class='theme-title'>@@cTitle</p>
+<p class='time-mark'>@@date</p>
 <!--@@close-->
 
 <!--@@block=depiction-->
-
-<img src='./learn_fontend_2.jpg'>
-<p class='depiction'>想要設計製作網頁但始終不知道怎麼入門嗎？建議就從學習HTML開始，本篇會帶你/妳認識什麼是HTML、使用何種工具。現在就讓巴格帶你/妳認識HTML，然後勇敢地踏出開發網頁的第一步吧!</p>
-
+<img src='./@@title.jpg'>
+<p class='depiction'>@@depiction</p>
 <!--@@close-->
 
 <!--@@block=content-->

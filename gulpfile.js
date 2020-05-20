@@ -82,6 +82,7 @@ gulp.task('markdown', () => {
       })
       data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
       data.index = i
+      data.rawDepiction = data.depiction
       if (data.depiction.length > 60) {
         data.depiction = data.depiction.substring(0, 60) + '...'
       }
@@ -97,6 +98,11 @@ gulp.task('markdown', () => {
           path.extname = ".html"
         }))
         .pipe(replace('https://i.imgur.com', '.'))
+        .pipe(replace('@@depiction', data.rawDepiction))
+        .pipe(replace('@@cTitle', data.cTitle))
+        .pipe(replace('@@title', data.title))
+        .pipe(replace('@@date', data.date))
+        .pipe(replace('@@site', 'https://berglas.github.io/dest/articles/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1) + '/' + data.title))
         .pipe(gulp.dest('./src/articles/html/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)))
     })
     fs.writeFile('./dest/articles/pageList.json', JSON.stringify(pageList), function (err) {
