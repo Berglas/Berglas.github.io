@@ -12,6 +12,7 @@ const webserver    = require('gulp-webserver')
 const markdown     = require('gulp-markdown')
 const extender     = require('gulp-html-extend')
 const replace      = require('gulp-replace')
+const sitemap = require('gulp-sitemap')
 
 function swallowError (error) {
   console.log(error.toString())
@@ -53,6 +54,15 @@ gulp.task('extend', () => {
     .pipe(gulp.dest('./dest/articles/'))
 })
 
+gulp.task('sitemap', function () {
+  gulp.src('./dest/articles/**/*.html', {
+          read: false
+      })
+      .pipe(sitemap({
+          siteUrl: 'https://berglas.github.io'
+      }))
+      .pipe(gulp.dest('./dest'));
+});
 
 // 將md編譯成html、json
 gulp.task('markdown', () => {
@@ -149,3 +159,4 @@ gulp.task('compile_markdown',['markdown'])
 gulp.task('compile_pug',['pug'])
 gulp.task('compile_sass',['sass'])
 gulp.task('compile_json2html',['json2html'])
+gulp.task('compile_sitemap', ['sitemap'])
