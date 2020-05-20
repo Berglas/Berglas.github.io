@@ -61,7 +61,7 @@ gulp.task('sitemap', function () {
       .pipe(sitemap({
           siteUrl: 'https://berglas.github.io'
       }))
-      .pipe(gulp.dest('./dest'));
+      .pipe(gulp.dest('./'));
 });
 
 // 將md編譯成html、json
