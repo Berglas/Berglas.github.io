@@ -14,6 +14,13 @@ html(lang='zh-TW')
     script(src='https://code.jquery.com/jquery-3.5.0.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js')
     script(src='/dest/js/main.js')
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-166944924-1')
+    script.
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'UA-166944924-1')
   body
     #app
       .header
@@ -33,14 +40,17 @@ html(lang='zh-TW')
               sapn 聯絡我
       .container
         .float-box
-          h2 文章分類
-          .tag(v-for='item in allTag') {{item}}
+          h2 文章分類: {{searchTag}}
+          template(v-for='item in allTag')
+            .tag(@click='setSearchTag(item)')  {{item}}
         .articles
           .cell(v-for='item in dataList')
             .main(@click='javascript:location.href=item.site + "/" +item.title + ".html"')
               h2.title {{item.cTitle}} 
               .preview
                 img(:src='item.site + "/" + item.title + ".jpg"' )
+              template(v-for="tag in item.tag")
+                p.tag # {{tag}}
               p.depiction {{item.depiction}}
               p.time-mark {{item.date.substring(0, 10)}}
         .footer
@@ -50,11 +60,13 @@ html(lang='zh-TW')
         el: '#app',
         data () {
           return {
-            pageList: [],
+            allPageList: [],
+            searchPageList: [],
             dataList: [],
             index: 0,
             amount: 9,
-            allTag: []
+            allTag: [],
+            searchTag: null
           }
         },
         watch: {
@@ -63,9 +75,9 @@ html(lang='zh-TW')
               this.loadData()
             }
           },
-          pageList: {
+          allPageList: {
             handler (val) {
-              //- debugger
+              this.searchPageList = JSON.parse(JSON.stringify(val))
               val.forEach(e => {
                 e.tag.forEach(tag => {
                   if (this.allTag.indexOf(tag) === -1 && tag !== '') {
@@ -73,14 +85,32 @@ html(lang='zh-TW')
                   }
                 })
               })
-              this.dataList = this.dataList.concat(val.slice(this.index * this.amount, (this.index + 1) * this.amount))
-
+            }
+          },
+          searchPageList: {
+            handler (val) {
+              this.loadData()              
+            }
+          },
+          searchTag: {
+            handler (val) {
+              this.index = 0
+              this.dataList = []
+              let temp = JSON.parse(JSON.stringify(this.allPageList))
+              this.searchPageList = temp.filter(e => {
+                if (e.tag.find(tag => { return tag == this.searchTag})) {
+                  return e
+                }
+              })
             }
           }
         },
         methods: {
-          loadData (tag, search) {
-            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          loadData () {
+            this.dataList = this.dataList.concat(this.searchPageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          },
+          setSearchTag (val) {
+            this.searchTag = val
           },
           insertionSort (array, objName) { // 插入排序法(由大至小)
             let length = array.length
@@ -106,8 +136,8 @@ html(lang='zh-TW')
           }, false)
 
           $.getJSON("/dest/articles/pageList.json", e => {
-            this.pageList = e
-            this.insertionSort(this.pageList, 'date')
+            this.allPageList = e
+            this.insertionSort(this.allPageList, 'date')
           })
         }
       })

@@ -14,6 +14,14 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="/dest/js/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-166944924-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'UA-166944924-1')
+    </script>
   </head>
   <body>
     <div id="app">
@@ -33,14 +41,19 @@
       </div>
       <div class="container">
         <div class="float-box">
-          <h2>文章分類</h2>
-          <div class="tag" v-for="item in allTag">{{item}}</div>
+          <h2>文章分類: {{searchTag}}</h2>
+          <template v-for="item in allTag">
+            <div class="tag" @click="setSearchTag(item)"> {{item}}</div>
+          </template>
         </div>
         <div class="articles">
           <div class="cell" v-for="item in dataList">
             <div class="main" @click="javascript:location.href=item.site + &quot;/&quot; +item.title + &quot;.html&quot;">
               <h2 class="title">{{item.cTitle}} </h2>
               <div class="preview"><img :src="item.site + &quot;/&quot; + item.title + &quot;.jpg&quot;"></div>
+              <template v-for="tag in item.tag">
+                <p class="tag"># {{tag}}</p>
+              </template>
               <p class="depiction">{{item.depiction}}</p>
               <p class="time-mark">{{item.date.substring(0, 10)}}</p>
             </div>
@@ -56,11 +69,13 @@
         el: '#app',
         data () {
           return {
-            pageList: [],
+            allPageList: [],
+            searchPageList: [],
             dataList: [],
             index: 0,
             amount: 9,
-            allTag: []
+            allTag: [],
+            searchTag: null
           }
         },
         watch: {
@@ -69,9 +84,9 @@
               this.loadData()
             }
           },
-          pageList: {
+          allPageList: {
             handler (val) {
-              //- debugger
+              this.searchPageList = JSON.parse(JSON.stringify(val))
               val.forEach(e => {
                 e.tag.forEach(tag => {
                   if (this.allTag.indexOf(tag) === -1 && tag !== '') {
@@ -79,14 +94,32 @@
                   }
                 })
               })
-              this.dataList = this.dataList.concat(val.slice(this.index * this.amount, (this.index + 1) * this.amount))
-      
+            }
+          },
+          searchPageList: {
+            handler (val) {
+              this.loadData()              
+            }
+          },
+          searchTag: {
+            handler (val) {
+              this.index = 0
+              this.dataList = []
+              let temp = JSON.parse(JSON.stringify(this.allPageList))
+              this.searchPageList = temp.filter(e => {
+                if (e.tag.find(tag => { return tag == this.searchTag})) {
+                  return e
+                }
+              })
             }
           }
         },
         methods: {
-          loadData (tag, search) {
-            this.dataList = this.dataList.concat(this.pageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          loadData () {
+            this.dataList = this.dataList.concat(this.searchPageList.slice(this.index * this.amount, (this.index + 1) * this.amount))
+          },
+          setSearchTag (val) {
+            this.searchTag = val
           },
           insertionSort (array, objName) { // 插入排序法(由大至小)
             let length = array.length
@@ -112,8 +145,8 @@
           }, false)
       
           $.getJSON("/dest/articles/pageList.json", e => {
-            this.pageList = e
-            this.insertionSort(this.pageList, 'date')
+            this.allPageList = e
+            this.insertionSort(this.allPageList, 'date')
           })
         }
       })

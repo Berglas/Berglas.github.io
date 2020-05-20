@@ -200,35 +200,43 @@ body {
         width: 100%;
         height: 100%;
         cursor: pointer; }
-      .container .articles .cell .title {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-        padding-bottom: .5rem; }
-      .container .articles .cell .time-mark {
-        width: 100%;
-        text-align: right;
-        font-size: .8rem;
-        color: #a6a6a6; }
-      .container .articles .cell .preview {
-        height: 180px;
-        width: 100%;
-        margin-top: .5rem; }
-        .container .articles .cell .preview img {
-          border: 4px solid rgba(235, 235, 235, 0.2);
-          height: 100%;
+        .container .articles .cell .main .title {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           width: 100%;
-          background-size: 100%; }
-      .container .articles .cell .depiction {
-        padding: .5rem 0;
-        height: 8rem;
-        width: 100%;
-        text-overflow: ellipsis;
-        white-space: wrap;
-        overflow: hidden;
-        font-size: 1.05rem;
-        font-weight: 500; }
+          padding-bottom: .5rem; }
+        .container .articles .cell .main .tag {
+          padding: .1rem .2rem;
+          font-size: .6rem;
+          float: left;
+          margin-right: .4rem;
+          border: 1px solid #dddddd;
+          border-radius: 5px;
+          background: rgba(100, 185, 183, 0.3); }
+        .container .articles .cell .main .time-mark {
+          width: 100%;
+          text-align: right;
+          font-size: .8rem;
+          color: #a6a6a6; }
+        .container .articles .cell .main .preview {
+          height: 180px;
+          width: 100%;
+          margin-top: .5rem; }
+          .container .articles .cell .main .preview img {
+            border: 4px solid rgba(235, 235, 235, 0.2);
+            height: 100%;
+            width: 100%;
+            background-size: 100%; }
+        .container .articles .cell .main .depiction {
+          padding: .5rem 0;
+          height: 8rem;
+          width: 100%;
+          text-overflow: ellipsis;
+          white-space: wrap;
+          overflow: hidden;
+          font-size: 1.05rem;
+          font-weight: 500; }
   .container .float-box {
     position: fixed;
     top: 9rem;
