@@ -1,3 +1,4 @@
+const https         = require('https')
 const fs           = require('fs')
 const gulp         = require('gulp')
 const pug          = require("gulp-pug")
@@ -70,9 +71,17 @@ gulp.task('markdown', () => {
     let pageList = [] 
     files.forEach((file, i) => {
       let data = {}
+      let imgUrlList = []
       let content = fs.readFileSync('./src/articles/md/' + file, 'utf8')
+      //讀取內文中所有圖片路徑
+      content.split('![]').forEach(e => {
+        if (e.substring(1, 21) === 'https://i.imgur.com/') {
+          imgUrlList.push(e.replace('(', '').split(')')[0])
+        }
+      })
+      // 讀取frontMatter部分
       content.split('---')[1].split('\n').forEach(e => {        
-        if (e != '') {
+        if (e != '' && e != undefined && e != null) {
           data[(e.split(':')[0]).toString()] = (e.split(':')[1].trim()).toString()
         }
       })
@@ -86,7 +95,22 @@ gulp.task('markdown', () => {
       if (data.depiction.length > 60) {
         data.depiction = data.depiction.substring(0, 60) + '...'
       }
-      pageList.push(data)
+      pageList.push(data)      
+      imgUrlList.forEach(e => {
+        let s = e.split('/')
+        if (!fs.existsSync('./dest/articles/' + (new Date(data.date).getFullYear()))) {
+          fs.mkdirSync('./dest/articles/' + (new Date(data.date).getFullYear()))
+          if (!fs.existsSync('./dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1))) {
+            fs.mkdirSync('./dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1))
+          }
+        } else if (!fs.existsSync('./dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1))) {
+          fs.mkdirSync('./dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1))
+        }
+        const file = fs.createWriteStream('./dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1) + '/' + s[s.length - 1]);
+        const request = https.get(e, function(response) {
+          response.pipe(file)
+        })
+      })
       gulp.src('./src/articles/md/'+ file)
         .pipe(frontMatter({
             remove: true
@@ -103,8 +127,9 @@ gulp.task('markdown', () => {
         .pipe(replace('@@title', data.title))
         .pipe(replace('@@date', data.date))
         .pipe(replace('@@site', 'https://berglas.github.io/dest/articles/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1) + '/' + data.title))
-        .pipe(gulp.dest('./src/articles/html/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)))
+        .pipe(gulp.dest('./src/articles/html/'+ (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)))      
     })
+
     fs.writeFile('./dest/articles/pageList.json', JSON.stringify(pageList), function (err) {
       if (err)
         console.log(err)

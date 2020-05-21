@@ -34,7 +34,6 @@ tag: [Teach, Web, HTML]
 <!--@@close-->
 
 <!--@@block=content-->
-
 ### 什麼是HTML？
 HTML全名為HyperText Markup Language，中文翻譯為「超文本標記語言」。
 
@@ -117,7 +116,4 @@ HTML是透過定義的標記語言(以下稱為標籤)，告知瀏覽器如何�
 這樣就大功告成啦！恭喜你/妳邁出了第一步，下一篇我們來初戰HTML吧！
 關於**CSS**以及**JavaScript**也是網頁開發三大將其中兩員大將，剩下一員就是我們現在要學習的**HTML**，之後這系列會循序漸進地講解，然後這系列最後會教導大家認識使用工程師們常用的開發工具以及檔案管理。
 Coming soon, stay tuned.
-
-
-
 <!--@@close-->
