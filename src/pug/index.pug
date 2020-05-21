@@ -56,10 +56,10 @@ html(lang='zh-TW')
             .tag(@click='setSearchTag(item)')  {{item}}
         .articles
           .cell(v-for='item in dataList')
-            .main(@click='javascript:location.href=item.site + "/" +item.title + ".html"')
+            .main(@click='javascript:location.href=item.site')
               h2.title {{item.cTitle}} 
               .preview
-                img(:src='item.site + "/" + item.title + ".jpg"' )
+                img(:src='item.img')
               template(v-for="tag in item.tag")
                 p.tag # {{tag}}
               p.depiction {{item.depiction}}

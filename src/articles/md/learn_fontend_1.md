@@ -29,7 +29,7 @@ tag: [Teach, Web, HTML]
 <!--@@close-->
 
 <!--@@block=depiction-->
-<img src='./@@title.jpg'>
+![](https://i.imgur.com/SFz2RbF.jpg)
 <p class='depiction'>@@depiction</p>
 <!--@@close-->
 

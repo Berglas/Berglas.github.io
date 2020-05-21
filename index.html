@@ -59,9 +59,9 @@
         </div>
         <div class="articles">
           <div class="cell" v-for="item in dataList">
-            <div class="main" @click="javascript:location.href=item.site + &quot;/&quot; +item.title + &quot;.html&quot;">
+            <div class="main" @click="javascript:location.href=item.site">
               <h2 class="title">{{item.cTitle}} </h2>
-              <div class="preview"><img :src="item.site + &quot;/&quot; + item.title + &quot;.jpg&quot;"></div>
+              <div class="preview"><img :src="item.img"></div>
               <template v-for="tag in item.tag">
                 <p class="tag"># {{tag}}</p>
               </template>

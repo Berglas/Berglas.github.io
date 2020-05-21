@@ -89,8 +89,10 @@ gulp.task('markdown', () => {
       data.tag = data.tag.replace('[', '').replace(']', '').split(',').map(e=> {
         return e.trim()
       })
-      data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1)
+      data.site = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1) + '/' + data.title + '.html'
       data.index = i
+      let cp = imgUrlList[0].split('/')      
+      data.img = '/dest/articles/' + (new Date(data.date).getFullYear()) + '/' + (new Date(data.date).getMonth() + 1) + '/' + cp[cp.length - 1]
       data.rawDepiction = data.depiction
       if (data.depiction.length > 60) {
         data.depiction = data.depiction.substring(0, 60) + '...'
