@@ -104,12 +104,27 @@ function send_mail() {
 
 //初始化skill-bar
 $(function() {
-    $('.skill-bar').each(function(index, el) {
-        $(this).append("<div></div>");
-        // var barColor = $(this)[0].getAttribute('data-color');
-        // var barValue = $(this)[0].getAttribute('data-value');
-        // $(this).find('div').css("background-color", barColor);
-        // $(this).find('div').css("width", barValue);
-        // $(this).find('div').attr('content', barValue);
-    });
+  const next = $('#slider-next')[0];
+  const prev = $('#slider-prev')[0];
+  const element = $('#slider')[0];
+  const transformValue = $('#slider > ul')[0].offsetWidth
+  const length = $('#slider > ul > li').length;
+  let nextCount = 0;
+
+  function changePrev() {
+    nextCount -= 1;
+    if (nextCount == -1) {
+      nextCount = length - 1
+    }
+    element.style.transform = `translateX(${transformValue * nextCount * -1}px)`;
+  }
+  function changeNext() {
+    nextCount += 1;
+    if (Math.abs(nextCount) > length - 1) {
+      nextCount = 0;
+    }
+    element.style.transform = `translateX(${transformValue * nextCount * -1}px)`;
+  }
+  prev.addEventListener('click', changePrev);
+  next.addEventListener('click', changeNext);
 });
