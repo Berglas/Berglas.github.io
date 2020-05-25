@@ -14,6 +14,7 @@ const markdown     = require('gulp-markdown')
 const extender     = require('gulp-html-extend')
 const replace      = require('gulp-replace')
 const sitemap = require('gulp-sitemap')
+const changed = require('gulp-changed')
 
 function swallowError (error) {
   console.log(error.toString())
@@ -50,7 +51,10 @@ gulp.task('autoprefixer', () => {
 })
 
 gulp.task('extend', () => {
-  gulp.src('./src/articles/html/**/*.html')
+  gulp.src('./src/articles/html/**/*')
+    .pipe(changed('./src/articles/html/**/*', {
+      extension: '.html'
+    }))
     .pipe(extender({annotations:false,verbose:false}))
     .pipe(gulp.dest('./dest/articles/'))
 })
@@ -60,7 +64,7 @@ gulp.task('sitemap', function () {
           read: false
       })
       .pipe(sitemap({
-          siteUrl: 'https://berglas.github.io'
+          siteUrl: 'https://berglas.github.io/dest/articles'
       }))
       .pipe(gulp.dest('./'));
 });
@@ -117,6 +121,9 @@ gulp.task('markdown', () => {
         .pipe(frontMatter({
             remove: true
           }))
+        .pipe(changed('./src/articles/md', {
+          extension: '.html'
+        }))
         .pipe(markdown({
           headerIds: false
         }))
