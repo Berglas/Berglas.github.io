@@ -7,6 +7,7 @@ html(lang='zh-tw')
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     link(rel='stylesheet', type='text/css', href='/dest/css/resume.css')
     script(src='https://code.jquery.com/jquery-3.5.0.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js')    
     script(src='/dest/js/resume.js')
   body
     .header-menu      
@@ -129,11 +130,12 @@ html(lang='zh-tw')
     section#page0
       .title
         p HOME
-      .content      
+      .content
+        div(id='radar')      
         .container
           - for (var i = 0; i < 30; i++)
             .particle
-    section#page1
+    //- section#page1
       .title
         p PROFILE
       .content
@@ -143,7 +145,14 @@ html(lang='zh-tw')
 
         | 十二月 2018 ~ 現在1 年6 個月
 
-        | 開發維護ERP系統。
+        P 開發維護ERP系統。
+        ol         
+          li 獨立製作系統權限、收費袋自動計算、自動排班等功能。
+          li 組件模組化、優化使用者體驗。
+          li 發現且解決Call API呼叫順序
+          li 發現且解決伺服器被外部攻擊以及被當成礦機之情形。
+          li 重新設計製作打卡機(硬體、韌體設計)。
+          li
         | 1.發現且修正系統漏洞
         | 　1.前端呼叫Api錯誤
         | 　2.系統權限、系統資料結構之問題。
@@ -163,11 +172,10 @@ html(lang='zh-tw')
         .introduction
           h2 About Me
           p 我是林建成，畢業於大葉大學資訊工程系，因從小對電腦方面等資訊有極大的興趣，進而使我選擇了資訊這條路。
-          p 個性主動積極，所以在大學期間從事行政單位的工讀以及企業的全職實習，以便增加我的社會經驗以及技能專長，
-          p 在實習過程中不斷精進如HTML、CSS、JavaScript、C#、SQL等技能，也實質開發了許多系統功能，後來因為能力適任轉而成為正職人員。
+          p 個性主動積極，就學期間主動爭取企業全職實習，在實習過程中不斷精進程式開發技能，也實質開發了許多系統功能，因此後來能力適任轉而成為正職人員。
           p 擅長領域為自動化程式開發、網頁設計，前後端程式開發、站台管理、資料庫管理，實質程式開發經驗近五年。
           p 喜歡解決問題；致力於多元學習，現今在學習日文、數位行銷，目標成為數位整合型工程師。
-    section#page2
+    //- section#page2
       .title
         p SKILL
       .content
@@ -231,7 +239,7 @@ html(lang='zh-tw')
             li Arduino韌體設計。
             li 簡單地修圖、素材製作。
             li 具有Scrum之觀念和經驗。
-    section#page3
+    //- section#page3
       .title
         p PORTFOLIO
       .content
@@ -291,7 +299,7 @@ html(lang='zh-tw')
         //-   g
         //-     path(d='M0,0,8.86,8.86,0,17.72', fill='none', stroke-width='3')
 
-    section#page4
+    //- section#page4
       .title
         p CONTACT
       .content
@@ -306,173 +314,148 @@ html(lang='zh-tw')
             input(type='email', name='_replyto', placeholder='Your Email')
             textarea(name='content', placeholder='Message...')
             .button(onclick='send_mail()') Send
-
-    //-   h1.profile-title.lang(data-key='Itme_PROFILE')
-    //-   .wave-box
-    //-     .wave
-    //-     .wave
-    //-   .profile-info
-    //-     .profile-photo
-    //-     .profile-about
-    //-       h2.lang(data-key='PROFILE_Hi')
-    //-       p.lang(data-key='PROFILE_AboutMe')
-    //-   .profile-autobiography
-    //-     div
-    //-       h2.lang(data-key='PROFILE_Autobiography_title')
-    //-       h3.lang(data-key='PROFILE_Autobiography_now_title')
-    //-       p.lang(data-key='PROFILE_Autobiography_now_1')
-    //-       p.lang(data-key='PROFILE_Autobiography_now_2')
-    //-       p.lang(data-key='PROFILE_Autobiography_now_3')
-    //-       h3.lang(data-key='PROFILE_Autobiography_future_title')
-    //-       p.lang(data-key='PROFILE_Autobiography_future')
-    //-   .profile-experience
-    //-     div
-    //-       //
-    //-         <h2 class='lang' data-key="PROFILE_Education_title"></h2>
-    //-         <p class='lang' data-key="PROFILE_Education1"></p>
-    //-       h2.lang(data-key='PROFILE_Experience_title')
-    //-       h3.lang(data-key='RESUME_Experience_4')
-    //-       p.lang(data-key='RESUME_Experience_4_content_1')
-    //-       p.lang(data-key='RESUME_Experience_4_content_2')
-    //-       h3.lang(data-key='RESUME_Experience_3')
-    //-       h3.lang(data-key='RESUME_Experience_2')
-    //-       p.lang(data-key='RESUME_Experience_2_content_1')
-    //-       p.lang(data-key='RESUME_Experience_2_content_2')
-    //-       h3.lang(data-key='RESUME_Experience_1')
-    //-       p.lang(data-key='RESUME_Experience_1_content')
-    //- section#page2
-    //-   h1.skill-title.lang(data-key='Itme_SKILLS')
-    //-   .skill-box
-    //-     .expanded-box
-    //-       .expanded-switch
-    //-       .expanded-content
-    //-         .content-title.lang(data-key='SKILLS_frontend')
-    //-         .skill-img(style='background: url(image/front-end.jpg);')
-    //-         .skill-content
-    //-           .skill-bar-box
-    //-             .skill-bar(data-value='80%', data-color='#A174B4')
-    //-               p HTML5
-    //-             br
-    //-             .skill-bar(data-value='80%', data-color='#A174B4')
-    //-               p CSS/LESS
-    //-             br
-    //-             .skill-bar(data-value='75%', data-color='#A174B4')
-    //-               p JavaScript/JQuery
-    //-             br
-    //-             .skill-bar(data-value='40%', data-color='#A174B4')
-    //-               p Vue.js
-    //-             br
-    //-             p.lang(data-key='SKILLS_frontend_content_1')
-    //-             p.lang(data-key='SKILLS_frontend_content_2')
-    //-             p.lang(data-key='SKILLS_frontend_content_3')
-    //-             .expanded-button.skill-button.lang(data-key='READ_MORE')
-    //-     .expanded-box
-    //-       .expanded-switch
-    //-       .expanded-content
-    //-         .content-title.lang(data-key='SKILLS_backend')
-    //-         .skill-img(style='background: url(image/back-end.jpg);')
-    //-         .skill-content
-    //-           .skill-bar-box
-    //-             .skill-bar(data-value='70%', data-color='#A174B4')
-    //-               p ASP.NET MVC(C#)
-    //-             br
-    //-             .skill-bar(data-value='60%', data-color='#A174B4')
-    //-               p Golang
-    //-             br
-    //-             p.lang(data-key='SKILLS_backend_content_1')
-    //-             p.lang(data-key='SKILLS_backend_content_2')
-    //-             .expanded-button.skill-button.lang(data-key='READ_MORE')
-    //-     .expanded-box
-    //-       .expanded-switch
-    //-       .expanded-content
-    //-         .content-title.lang(data-key='SKILLS_others')
-    //-         .skill-img(style='background: url(image/others.jpg);')
-    //-         .skill-content
-    //-           .skill-bar-box
-    //-             .skill-bar(data-value='75%', data-color='#A174B4')
-    //-               p MS SQL/PostgreSQL
-    //-             br
-    //-             .skill-bar(data-value='60%', data-color='#A174B4')
-    //-               p Git
-    //-             br
-    //-             .skill-bar(data-value='75%', data-color='#A174B4')
-    //-               p SVN
-    //-             br
-    //-             p.lang(data-key='SKILLS_others_content_1')
-    //-             p.lang(data-key='SKILLS_others_content_2')
-    //-             .expanded-button.skill-button.lang(data-key='READ_MORE')
-    //- section#page3
-    //-   h1.protfolio-title.lang(data-key='Itme_PORTFOLIO')
-    //-   .protfolio-item-box
-    //-     #protfolio_carousel.carousel.slide
-    //-       ul.carousel-indicators
-    //-       .carousel-inner
-    //-         .carousel-item.active
-    //-           .protfolio-img(style='background: url(image/protfolio-resume.png)')
-    //-           .protfolio-info
-    //-             h3.lang(data-key='PORTFOLIO_item_title_1')
-    //-             p.lang(data-key='PORTFOLIO_item_description_1')
-    //-             .lang.my-button-2.lang(data-key='READ_MORE', style='width: 120px;', onclick="window.open('https://github.com/Berglas/my-resume-heroku')")
-    //-         .carousel-item
-    //-           .protfolio-img(style='background: url(image/marry.png)')
-    //-           .protfolio-info
-    //-             h3.lang(data-key='PORTFOLIO_item_title_2')
-    //-             p.lang(data-key='PORTFOLIO_item_description_2')
-    //-             .lang.my-button-2.lang(data-key='READ_MORE', style='width: 120px;', onclick="window.open('https://berglas-resume-two.herokuapp.com/game')")
-    //-         .carousel-item
-    //-           .protfolio-img(style='background: url(image/DataGenerator.jpg)')
-    //-           .protfolio-info
-    //-             h3.lang(data-key='PORTFOLIO_item_title_3')
-    //-             p.lang(data-key='PORTFOLIO_item_description_3')
-    //-             .lang.my-button-2.lang(data-key='READ_MORE', style='width: 120px;', onclick="window.open('https://github.com/Berglas/DataGenerator')")
-    //-         .carousel-item
-    //-           .protfolio-img(style='background: url(image/web-crawler.jpg)')
-    //-           .protfolio-info
-    //-             h3.lang(data-key='PORTFOLIO_item_title_4')
-    //-             p.lang(data-key='PORTFOLIO_item_description_4')
-    //-             .lang.my-button-2.lang(data-key='READ_MORE', style='width: 120px;', onclick="window.open('https://github.com/Berglas/Crawler')")
-    //-         .carousel-item
-    //-           .protfolio-img(style='background: url(image/mycodepen.png)')
-    //-           .protfolio-info
-    //-             h3.lang(data-key='PORTFOLIO_item_title_5')
-    //-             p.lang(data-key='PORTFOLIO_item_description_5')
-    //-             .lang.my-button-2.lang(data-key='READ_MORE', style='width: 120px;', onclick="window.open('https://codepen.io/berglas')")
-    //-       a.carousel-control-prev.remove-bootstrap-carousel-control(href='#protfolio_carousel', data-slide='prev')
-    //-         span.carousel-control-prev-icon
-    //-       a.carousel-control-next.remove-bootstrap-carousel-control(href='#protfolio_carousel', data-slide='next')
-    //-         span.carousel-control-next-icon
-    //- section#page4
-    //-   .communicate-box
-    //-     h1.title.lang(data-key='Itme_CONTACT')
-    //-     form#mail_form(action='https://formspree.io/sasuke01260616@gmail.com', method='POST')
-    //-       input(type='text', name='name', placeholder='Your Name')
-    //-       input(type='email', name='_replyto', placeholder='Your Email')
-    //-       textarea(name='content', placeholder='Message...')
-    //-       .lang.my-button(data-key='send_button', onclick='send_mail()', style='width: 150px;')
-    //-   .thx-box
-    //-     div
-    //-       p.lang(data-key='CONTACT_thx_info_content_1')
-    //-       p.lang(data-key='CONTACT_thx_info_content_2')
-    //-       p.lang(data-key='CONTACT_thx_info_signature')
-    //-     div
-    //-       a.fa.fa-envelope-o.fa-3x(href='mailto:sasuke01260616@gmail.com')
-    //-       a.fa.fa-github.fa-3x(href='https://github.com/Berglas', target='_blank')
-    //-       a.fa.fa-codepen.fa-3x(href='https://codepen.io/berglas', target='_blank')
-    //-     h3 Copyright © Kevin Lin 2018
     script(type='text/javascript').
-      //- $(document).ready(function() {
-      //- var language = getCookie("language");
-      //- if (language == null || language == "") {
-      //- language = "zh-tw";
-      //- }
-      //- $('#' + language)[0].classList.add("language-select");
-      //- $('.lang').each(function(index, element) {
-      //- $(this).text(arrLang[language][$(this).attr('data-key')]);
-      //- });
-      //- $("#protfolio_carousel").swiperight(function() {
-      //- $(this).carousel('prev');
-      //- });
-      //- $("#protfolio_carousel").swipeleft(function() {
-      //- $(this).carousel('next');
-      //- });
-      //- });
+      
+      let sketch = p => {
+        let t=0
+        let count=1
+        let angle=0
+        let time = {};
+        function d() {
+          const d = new Date();
+          const h = d.getHours();
+          const m = d.getMinutes();
+          const s = d.getSeconds();
+          const result = '+00:' + h + ':' + m + ':' + s;
+          time.h = h;
+          time.m = m;
+          time.s = s;
+          return result;
+        }
+        p.setup = () => {
+          p.createCanvas(800, 800);
+        }
+        p.draw = () => {
+          p.clear()
+          const w = 600;
+          const h = 600;
+          const mx = p.mouseX / 5;
+          const my = p.mouseY / 5;
+          p.background('rgba(255, 255, 255, 0)');
+
+          // 十字線
+          p.stroke('rgba(7, 233, 210, .1)');
+          p.strokeWeight(1);
+          p.line(0, h / 2, w, h / 2);
+          p.line(w / 2, 0, w / 2, h);
+
+          // 旋轉圓
+          let r1 = w / 2.5;
+          p.stroke('rgba(7, 233, 210, .3)');
+          p.strokeWeight(2);
+          p.push();
+          p.translate(w / 2, h / 2);
+          p.translate(w / 100 - mx / 50, h / 100 - my / 50);
+          p.beginShape();
+          p.arc(0, 0, 80, 80, p.QUARTER_PI + t / 500, p.PI+p.QUARTER_PI + t / 500); 
+          p.noFill();
+
+          // 時針
+          const r5 = 110;
+          const cp5 = p.PI / 180 * (30 * (t / 60)) - p.HALF_PI;
+          const x5 = r5 * p.cos(cp5);
+          const y5 = r5 * p.sin(cp5);
+          p.strokeWeight(4);
+          p.stroke('rgba(7, 233, 210, .3)');
+          p.line(0, 0, x5, y5);
+          
+          for (let i = 0; i < r1 + 1; i++) {
+            let x = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.cos(p.TWO_PI / r1 * i);
+            let y = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.sin(p.TWO_PI / r1 * i);
+            p.vertex(x, y);
+          }
+          p.endShape();
+          
+          // 內刻度
+          let r2 = w / 5;
+          let num2 = w / 10;
+          p.strokeWeight(1);
+          p.stroke('rgba(7, 233, 210, .1)');
+          for (let i = 0; i < num2; i++) {
+            let cp = p.TWO_PI / num2 * i + t / 1000;
+            let x1 = r2 * p.cos(cp);
+            let y1 = r2 * p.sin(cp);
+            let x2 = (r2 + 5) * p.cos(cp);
+            let y2 = (r2 + 5) * p.sin(cp);
+            p.line(x1, y1, x2, y2);
+          }
+          p.stroke('rgba(7, 233, 210, .3)');
+          p.strokeWeight(2);
+          for (let i = 0; i < 8; i++) {
+            let cp = p.TWO_PI / 8 * i + t / 2000;
+            let x1 = (r2 - 3.5) * p.cos(cp);
+            let y1 = (r2 - 3.5) * p.sin(cp);
+            let x2 = (r2 + 7) * p.cos(cp);
+            let y2 = (r2 + 7) * p.sin(cp);
+            p.line(x1, y1, x2, y2);
+          }
+
+          // 外刻度
+          let r3 = w / 3.5;
+          let num3 = 60;
+          p.stroke('rgba(7, 233, 210, .1)');
+          p.strokeWeight(2);
+          for (let i = 0; i < num3; i++) {
+            let cp = p.TWO_PI / num3 * i;
+            let x1 = r3 * p.cos(cp);
+            let y1 = r3 * p.sin(cp);
+            let x2 = (r3 + 7) * p.cos(cp);
+            let y2 = (r3 + 7) * p.sin(cp);
+            p.line(x1, y1, x2, y2);
+          }
+          p.strokeWeight(2);
+          p.stroke('rgba(7, 233, 210, .3)');
+          for (let i = 0; i < 4; i++) {
+            let cp = p.TWO_PI / 4 * i;
+            let x1 = (r3 - 6) * p.cos(cp);
+            let y1 = (r3 - 6) * p.sin(cp);
+            let x2 = (r3 + 12) * p.cos(cp);
+            let y2 = (r3 + 12) * p.sin(cp);
+            p.line(x1, y1, x2, y2);
+          }
+
+          // 內兩側弧
+          const r4 = w / 1.2;
+          const angle4 = angle / 80 * (p.PI / 180) + t / 500;
+          p.strokeWeight(4);
+          p.stroke('rgba(7, 233, 210, .3)');
+          p.strokeCap(p.SQUARE);
+          p.arc(0, 0, r4, r4, 0 + angle4, p.HALF_PI + angle4);
+          p.arc(0, 0, r4, r4, p.PI + angle4, p.PI + p.HALF_PI + angle4);         
+
+
+          //- // 分針
+          //- const r6 = 170;
+          //- const cp6 = p.PI / 180 * (6 * time.m) - p.HALF_PI;
+          //- const x6 = r6 * p.cos(cp6);
+          //- const y6 = r6 * p.sin(cp6);
+          //- p.strokeWeight(1);
+          //- p.line(0, 0, x6, y6);
+
+          //- // 秒針
+          //- const r7 = 330;
+          //- const cp7 = p.PI / 180 * (6 * time.s) - p.HALF_PI;
+          //- const x7 = r7 * p.cos(cp7);
+          //- const y7 = r7 * p.sin(cp7);
+          //- p.line(0, 0, x7, y7);
+          p.pop();
+          t++;
+          angle += count;
+          if (angle === 300) {
+            count = -1;
+          } else if (angle === 0) {
+            count = 1;
+          } 
+        };
+      };
+      new p5(sketch, window.document.getElementById('radar'));

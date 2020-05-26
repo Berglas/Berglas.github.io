@@ -74,8 +74,6 @@ body
   left: 50%
   bottom: 40%
   transform: translate(-50%, 0%)
-  width: 120px
-  height: 120px
   border-radius: 100%
   cursor: pointer
   .main
@@ -143,45 +141,66 @@ body
 
 @keyframes loading1
   0%
+    width: 480px
+    height: 480px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
     left: 50%
     bottom: 40%
     transform: translate(-50%, 0%)
-  50%
-    left: calc(100% / 6 * 1)
-    bottom: 20%
+  30%
+    width: 120px
+    height: 120px
+    box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
+    left: 50%
+    bottom: 40%
     transform: translate(-50%, 0%)
   100%
+    width: 120px
+    height: 120px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
     left: calc(100% / 6 * 1)
     bottom: 0
     transform: translate(-50%, 35%)
+    
 @keyframes loading2
   0%
+    width: 480px
+    height: 480px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
     left: 50%
     bottom: 40%
     transform: translate(-50%, 0%)
-  50%
-    left: calc(100% / 6 * 2)
-    bottom: 20%
-    transform: translate(-50%, 0%)
+  30%
+    width: 120px
+    height: 120px
+    box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
+    left: 50%
+    bottom: 40%
   100%
+    width: 120px
+    height: 120px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
     left: calc(100% / 6 * 2)
     bottom: 0
     transform: translate(-50%, 35%)
 @keyframes loading3
   0%
+    width: 480px
+    height: 480px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
     left: 50%
     bottom: 40%
     transform: translate(-50%, 0%)
-  50%
-    left: calc(100% / 6 * 3)
-    bottom: 20%
+  30%
+    width: 120px
+    height: 120px
+    box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
+    left: 50%
+    bottom: 40%
     transform: translate(-50%, 0%)
   100%
+    width: 120px
+    height: 120px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
     left: calc(100% / 6 * 3)
     bottom: 0
@@ -189,15 +208,22 @@ body
     opacity: 1
 @keyframes loading4
   0%
+    width: 480px
+    height: 480px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
     left: 50%
     bottom: 40%
     transform: translate(-50%, 0%)
-  50%
-    left: calc(100% / 6 * 4)
-    bottom: 20%
+  30%
+    width: 120px
+    height: 120px
+    box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
+    left: 50%
+    bottom: 40%
     transform: translate(-50%, 0%)
   100%
+    width: 120px
+    height: 120px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
     left: calc(100% / 6 * 4)
     bottom: 0
@@ -205,15 +231,22 @@ body
     opacity: 1
 @keyframes loading5
   0%
+    width: 480px
+    height: 480px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .0) inset
     left: 50%
     bottom: 40%
     transform: translate(-50%, 0%)
-  50%
-    left: calc(100% / 6 * 5)
-    bottom: 20%
+  30%
+    width: 120px
+    height: 120px
+    box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
+    left: 50%
+    bottom: 40%
     transform: translate(-50%, 0%)
   100%
+    width: 120px
+    height: 120px
     box-shadow: 0px 0px 50px 5px rgba(7, 233, 210, .1) inset
     left: calc(100% / 6 * 5)
     bottom: 0
@@ -533,7 +566,6 @@ section
             position: relative
             width: 100%
             height: 100%
-            // padding: 50%
             padding: 2rem
             border-radius: .3rem
             border: 5px solid rgba(7, 233, 210, .5)
@@ -564,7 +596,6 @@ section
               position: relative
               width: 100%
               height: 100%
-              // border-radius: .3rem
             .depiction
               position: absolute
               bottom: 5rem
@@ -572,23 +603,23 @@ section
               width: 50%
               height: 15rem
               padding: 1rem
-              // transform: rotate(30deg)
               background: rgba(48, 52, 55, .8)
+              > ul
+                > li
+                  margin-left:  1.5rem
+                  list-style: disc
               a
                 display: inline
                 position: absolute
                 bottom: 1rem
                 right: 5rem
-                // width: 100%
                 padding: .5rem
                 text-align: center
-                // margin-top: 1rem
                 font-size: .9rem
                 border: 2px solid $font-color
                 border-radius: 5px
                 cursor: pointer
                 color: $font-color
-
                 &:hover
                   background: $font-color
                   color: $background-color
