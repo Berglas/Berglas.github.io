@@ -131,7 +131,7 @@ html(lang='zh-tw')
       .title
         p HOME
       .content
-        div(id='radar')      
+        #radar    
         .container
           - for (var i = 0; i < 30; i++)
             .particle
@@ -315,7 +315,6 @@ html(lang='zh-tw')
             textarea(name='content', placeholder='Message...')
             .button(onclick='send_mail()') Send
     script(type='text/javascript').
-      
       let sketch = p => {
         let t=0
         let count=1
@@ -333,12 +332,12 @@ html(lang='zh-tw')
           return result;
         }
         p.setup = () => {
-          p.createCanvas(800, 800);
+          p.createCanvas(240, 240);
         }
         p.draw = () => {
           p.clear()
-          const w = 600;
-          const h = 600;
+          const w = 240;
+          const h = 240;
           const mx = p.mouseX / 5;
           const my = p.mouseY / 5;
           p.background('rgba(255, 255, 255, 0)');
@@ -357,7 +356,7 @@ html(lang='zh-tw')
           p.translate(w / 2, h / 2);
           p.translate(w / 100 - mx / 50, h / 100 - my / 50);
           p.beginShape();
-          p.arc(0, 0, 80, 80, p.QUARTER_PI + t / 500, p.PI+p.QUARTER_PI + t / 500); 
+          p.arc(0, 0, 80, 80, p.QUARTER_PI + t / 500, p.PI-p.QUARTER_PI + t / 500); 
           p.noFill();
 
           // 時針
@@ -372,7 +371,7 @@ html(lang='zh-tw')
           for (let i = 0; i < r1 + 1; i++) {
             let x = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.cos(p.TWO_PI / r1 * i);
             let y = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.sin(p.TWO_PI / r1 * i);
-            p.vertex(x, y);
+            //- p.vertex(x, y);
           }
           p.endShape();
           
