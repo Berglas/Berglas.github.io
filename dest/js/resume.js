@@ -93,48 +93,28 @@ function send_mail() {
   } else {}
 }
 
+$(function() {  
+  const next = $('#slider-next')[0];
+  const prev = $('#slider-prev')[0];
+  const element = $('#slider')[0];
+  const transformValue = $('#slider > ul')[0].offsetWidth
+  const length = $('#slider > ul > li').length;
+  let nextCount = 0;
 
-
-// let sketch = p => {
-//   p.setup = () => {
-//     p.createCanvas(100, 100);
-//     p.background(0);
-//   }
-// }
-
-// let node = document.createElement('div');
-// $('#page0')[0].append(node);
-// new p5(sketch, node);
-
-// console.clear();
-// // source -- https://codepen.io/frank890417/pen/RpmZrz?editors=0010
-
-// function setup() {
-//   // let cnv = createCanvas(windowWidth, windowHeight, 'fixed');
-//   // cnv.id('radar');
-// }
-
-// function windowResized() {
-//   // resizeCanvas(windowWidth, windowHeight);
-// }
-
-// let t = 0;
-// let count = 1;
-// let angle = 0;
-// const tDom = document.getElementsByClassName('title__date')[0];
-// let time = {};
-// function d() {
-//   const d = new Date();
-//   const h = d.getHours();
-//   const m = d.getMinutes();
-//   const s = d.getSeconds();
-//   const result = '+00:' + h + ':' + m + ':' + s;
-//   time.h = h;
-//   time.m = m;
-//   time.s = s;
-//   return result;
-// }
-// tDom.innerText = d();
-// setInterval(() => {
-//   tDom.innerText = d();
-// }, 1000);
+  function changePrev() {
+    nextCount -= 1;
+    if (nextCount == -1) {
+      nextCount = length - 1
+    }
+    element.style.transform = `translateX(${transformValue * nextCount * -1}px)`;
+  }
+  function changeNext() {
+    nextCount += 1;
+    if (Math.abs(nextCount) > length - 1) {
+      nextCount = 0;
+    }
+    element.style.transform = `translateX(${transformValue * nextCount * -1}px)`;
+  }
+  prev.addEventListener('click', changePrev);
+  next.addEventListener('click', changeNext);
+}); 

@@ -135,47 +135,39 @@ html(lang='zh-tw')
         .container
           - for (var i = 0; i < 30; i++)
             .particle
-    //- section#page1
+    section#page1
       .title
         p PROFILE
       .content
-      
-        | 系統工程師
-        | 德妮文教機構
-
-        | 十二月 2018 ~ 現在1 年6 個月
-
-        P 開發維護ERP系統。
-        ol         
-          li 獨立製作系統權限、收費袋自動計算、自動排班等功能。
-          li 組件模組化、優化使用者體驗。
-          li 發現且解決Call API呼叫順序
-          li 發現且解決伺服器被外部攻擊以及被當成礦機之情形。
-          li 重新設計製作打卡機(硬體、韌體設計)。
-          li
-        | 1.發現且修正系統漏洞
-        | 　1.前端呼叫Api錯誤
-        | 　2.系統權限、系統資料結構之問題。
-        | 　3.伺服器被外部攻擊以及被當成礦機之情形。
-        | 2.開發排班、自動計算收費袋、支出收入財報...等功能。
-        | 3.設計模組化組件，增加使用者優良體驗。
-        | 4.Arduino打卡機設計開發應用。
-        |工程師
-        | 捷普綠點科技
-        | 七月 2015 ~ 十一月 20183 年5 個月
-
-        | 1.企業入口網站開發(前端、後端、資料庫設計規劃)。
-        | 2.MES中網頁介面(前端、後端、資料庫設計規劃)。
-        | 3.MES中底層資料收集程式開發。
-        | 4.MES網頁介面響應式化、多語系化。
-        | 5.KEYENCE PLC讀寫程式。
+        .experience
+          .element
+            .period Dec. 2018
+            .company 德妮文教機構
+              .position 全端系統工程師
+              ol         
+                li 獨立製作系統權限、收費袋自動計算、支出、收入、財報、自動排班等功能。
+                li 組件模組化、優化使用者體驗。
+                li 發現且修正或優化「系統登入錯誤」、「部分邏輯錯誤」、「資料結構」、「Restful Api」等。
+                li 發現且解決伺服器被外部攻擊以及被當成礦機之情形。
+                li 重新結構化Call API問題。
+                li 重新設計製作打卡機(硬體配置、韌體設計)。          
+          .element          
+            .period Jul. 2015
+            .company 捷普綠點科技
+              .position 工程師
+              ol 
+                li 整合多個系統網站，統一入口登入。
+                li 維護開發ERP系統。
+                li 製作特定產品MES系統，底層數據收集、數據視覺化。
+                li 將各個系統導入改有RWD、多語系等功能。
+                li 開發KEYENCE PLC數據讀寫程式。
         .introduction
           h2 About Me
           p 我是林建成，畢業於大葉大學資訊工程系，因從小對電腦方面等資訊有極大的興趣，進而使我選擇了資訊這條路。
           p 個性主動積極，就學期間主動爭取企業全職實習，在實習過程中不斷精進程式開發技能，也實質開發了許多系統功能，因此後來能力適任轉而成為正職人員。
           p 擅長領域為自動化程式開發、網頁設計，前後端程式開發、站台管理、資料庫管理，實質程式開發經驗近五年。
           p 喜歡解決問題；致力於多元學習，現今在學習日文、數位行銷，目標成為數位整合型工程師。
-    //- section#page2
+    section#page2
       .title
         p SKILL
       .content
@@ -239,7 +231,7 @@ html(lang='zh-tw')
             li Arduino韌體設計。
             li 簡單地修圖、素材製作。
             li 具有Scrum之觀念和經驗。
-    //- section#page3
+    section#page3
       .title
         p PORTFOLIO
       .content
@@ -291,22 +283,14 @@ html(lang='zh-tw')
           path(d='M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z')
         svg#slider-next(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 320 512')
           path( d='M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z')
-
-        //- svg#slider-prev(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='60', height='60', viewBox='0 0 60 60')           
-        //-   g
-        //-     path(d='M0,0,8.86,8.86,0,17.72', transform='rotate(180)', fill='none', stroke-width='3')
-        //- svg#slider-next(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='60', height='60', viewBox='0 0 60 60')
-        //-   g
-        //-     path(d='M0,0,8.86,8.86,0,17.72', fill='none', stroke-width='3')
-
-    //- section#page4
+    section#page4
       .title
         p CONTACT
       .content
         .thx-box
           p 感謝您的拜訪，
           p 如果您有相關問題或想與我合作，都歡迎與我聯繫。
-          p 祝您有愉快的一天。w
+          p 祝您有愉快的一天。
           p -林建成-
         .communicate-box
           form#mail_form(action='https://formspree.io/sasuke01260616@gmail.com', method='POST')
@@ -332,14 +316,12 @@ html(lang='zh-tw')
           return result;
         }
         p.setup = () => {
-          p.createCanvas(240, 240);
+          p.createCanvas(360, 360);
         }
         p.draw = () => {
           p.clear()
-          const w = 240;
-          const h = 240;
-          const mx = p.mouseX / 5;
-          const my = p.mouseY / 5;
+          const w = 360;
+          const h = 360;
           p.background('rgba(255, 255, 255, 0)');
 
           // 十字線
@@ -354,31 +336,17 @@ html(lang='zh-tw')
           p.strokeWeight(2);
           p.push();
           p.translate(w / 2, h / 2);
-          p.translate(w / 100 - mx / 50, h / 100 - my / 50);
+          p.translate(w / 100 / 50, h / 100 / 50);
           p.beginShape();
-          p.arc(0, 0, 80, 80, p.QUARTER_PI + t / 500, p.PI-p.QUARTER_PI + t / 500); 
-          p.noFill();
+          p.fill('rgba(7, 233, 210, .3)');
 
-          // 時針
-          const r5 = 110;
-          const cp5 = p.PI / 180 * (30 * (t / 60)) - p.HALF_PI;
-          const x5 = r5 * p.cos(cp5);
-          const y5 = r5 * p.sin(cp5);
-          p.strokeWeight(4);
-          p.stroke('rgba(7, 233, 210, .3)');
-          p.line(0, 0, x5, y5);
-          
-          for (let i = 0; i < r1 + 1; i++) {
-            let x = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.cos(p.TWO_PI / r1 * i);
-            let y = (r1 + p.cos(p.PI * (i / 5) + t / 20) * 2) * p.sin(p.TWO_PI / r1 * i);
-            //- p.vertex(x, y);
-          }
-          p.endShape();
+          p.arc(0, 0, 150, 150, p.QUARTER_PI + t / 50, p.PI - p.QUARTER_PI * 2 + t / 50); 
+          p.noFill();
           
           // 內刻度
           let r2 = w / 5;
-          let num2 = w / 10;
-          p.strokeWeight(1);
+          let num2 = w / 3;
+          p.strokeWeight(2);
           p.stroke('rgba(7, 233, 210, .1)');
           for (let i = 0; i < num2; i++) {
             let cp = p.TWO_PI / num2 * i + t / 1000;
@@ -430,23 +398,7 @@ html(lang='zh-tw')
           p.stroke('rgba(7, 233, 210, .3)');
           p.strokeCap(p.SQUARE);
           p.arc(0, 0, r4, r4, 0 + angle4, p.HALF_PI + angle4);
-          p.arc(0, 0, r4, r4, p.PI + angle4, p.PI + p.HALF_PI + angle4);         
-
-
-          //- // 分針
-          //- const r6 = 170;
-          //- const cp6 = p.PI / 180 * (6 * time.m) - p.HALF_PI;
-          //- const x6 = r6 * p.cos(cp6);
-          //- const y6 = r6 * p.sin(cp6);
-          //- p.strokeWeight(1);
-          //- p.line(0, 0, x6, y6);
-
-          //- // 秒針
-          //- const r7 = 330;
-          //- const cp7 = p.PI / 180 * (6 * time.s) - p.HALF_PI;
-          //- const x7 = r7 * p.cos(cp7);
-          //- const y7 = r7 * p.sin(cp7);
-          //- p.line(0, 0, x7, y7);
+          p.arc(0, 0, r4, r4, p.PI + angle4, p.PI + p.HALF_PI + angle4);
           p.pop();
           t++;
           angle += count;
