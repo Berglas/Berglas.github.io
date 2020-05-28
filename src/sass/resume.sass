@@ -303,56 +303,97 @@ section
     .experience
       position: absolute
       top: 5%
-      left: 40%
+      left: calc(5% + 36rem)
       height: 80%
       width: 50%
       padding: 1rem
       > .element
         position: relative
-        display: block
         width: 100%
-        height: 24rem
+        height: 20rem
         .period
           position: absolute
+          display: flex          
           width: 50%
-          height: auto
-        .campany
-          position: absolute
+          height: 100%
+          padding: 1rem
+          span
+            position: relative
+            padding: .5rem
+            background: rgba(7, 233, 210, .5)            
+            border-radius: 5px  
+            &:after
+              position: absolute     
+              content: '' 
+              width: .8rem
+              height: .8rem
+              border-radius: 100%
+              border: 2px solid rgba(7, 233, 210, .3) 
+              background: $font-color
+              z-index: 7000              
+        .company
           width: 50%
-          height: auto          
+          height: 100%     
+          padding: 2rem
+          display: flex          
+          flex-flow: column nowrap
+          justify-content: center
+          font-size: 1.5rem
+          *
+            font-size: 1rem
+          > ol
+              li
+                list-style: decimal
+          // align-items: center
         &:nth-child(odd)
           .period
-            background: red
             position: absolute
             top: 0
             left: 0
+            justify-content: flex-end
+            align-items: center
+            span
+              &:after
+                right: -1.6rem 
           .company
-            background: #00F            
             position: absolute
             top: 0
             right: 0
+            border-left: 3px solid $font-color           
         &:nth-child(even)
           .period
-            background: red
             position: absolute
             top: 0
             right: 0
+            justify-content: flex-start
+            align-items: center       
+            border-left: 3px solid $font-color
+            span
+              &:after
+                left: -1.6rem               
           .company
-            background: #00F
             position: absolute
             top: 0
             left: 0
-
     .introduction
       position: absolute
       top: 5%
       left: 5%
       height: 80%
-      width: 30%
-      padding: 1rem
+      width: 30rem
+      padding: 3rem
       border-radius: 5px
       background: rgba(7, 233, 210, .1)
       box-shadow: 0px 0px 50px 2px rgba(7, 233, 210, .2)
+      .my
+        height: 22rem
+        width: 22rem
+        background: url('../../dest/img/my.jpg')
+        background-repeat: no-repeat
+        background-size: 100% 120%
+        background-position: 50% 10%
+        // border: 10px solid #FFF
+        border-radius: 100%
 #page2
   .content
     position: relative
