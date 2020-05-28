@@ -46,6 +46,28 @@ HTML元素是構建網站的基石。HTML允許嵌入圖像與物件，並且可
 <h1>【詩詞賞析】 念天地之悠悠 獨愴然而涕下</h1>
 
 <p>諸如此類的標籤就是HTML的要素，眾多標籤排列組合就會變成是一個網頁了。</p>
+<h3>HTML標籤組成</h3>
+<p>以這段為範例：</p>
+<pre><code>&lt;p&gt;念天地之悠悠&lt;/p&gt;</code></pre><p>HTML標籤主要由三個東西組成：</p>
+<ol>
+<li>起始標籤：起始標籤代表這HTML從這裡開始。寫法為大於、小於符號中間放置<strong>定義關鍵字</strong>，以上例為<code>&lt;p&gt;</code>。</li>
+<li>結尾標籤：結尾標籤代表這HTML從這裡結束。寫法為大於、小於符號中間放置<strong>定義關鍵字</strong>，且在之前加入「/」，以上例為<code>&lt;/p&gt;</code>。</li>
+<li>內容：這個標籤所包含的內容，以上例來說，內容就是這句文字「<strong>念天地之悠悠</strong>」。</li>
+</ol>
+<p>由以上三種所組成我們稱之為元素。</p>
+<h3>巢狀元素(Nesting Element)</h3>
+<p>我們是可以在元素A裡面的內容放進另一個元素B，當這種情況成立時稱為「巢狀元素」，且這時元素A會成為元素B的父層；反之元素B會成為元素A的子層。
+舉例：「我看倒像塊綠豆糕」。這時想強調「綠豆糕」，想把「綠豆糕」這詞設定為粗體元素，我們就可以使用這巢狀結構。</p>
+<pre><code>&lt;p&gt;我看倒像塊&lt;strong&gt;綠豆糕&lt;/strong&gt;&lt;/p&gt;</code></pre><p>以上那段程式碼就會像是這樣：</p>
+<p>我看倒像塊<strong>綠豆糕</strong></p>
+
+<h3>空元素(Empty Element)</h3>
+<p>雖然我們說元素的組成為起始標籤、結尾標籤、內容，但HTML裡有種叫做「空元素」的存在。
+它只有起始標籤而沒有結尾標籤、內容。
+常見的空元素有：<code>&lt;br&gt; &lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</code></p>
+<p>舉例：以<code>&lt;img&gt;</code>為例(圖片)，它這樣寫</p>
+<pre><code>&lt;img src=&#39;./S2V0o00.jpg&#39;&gt;</code></pre><p>以上那段程式碼就會顯現為一張圖片如下：
+<img src='./S2V0o00.jpg'></p>
 <h3>常用標籤介紹</h3>
 <p>我們先來大致介紹幾個設計網頁上常會用到標籤，之後實作時再做詳細功能介紹。
 <code>&lt;br&gt;</code>： 換行。</p>
@@ -59,27 +81,9 @@ HTML元素是構建網站的基石。HTML允許嵌入圖像與物件，並且可
 <p><code>&lt;label&gt;</code>： 為<code>&lt;input&gt;</code>設定說明標籤。</p>
 <p><code>&lt;a&gt;</code>： 超連結。</p>
 <p><code>&lt;ol&gt;&lt;ul&gt;&lt;li&gt;</code>： 數字、列舉項目標籤，之後會介紹用法。</p>
-<p><code>&lt;p&gt;</code>： 文字段落。</p>
+<p><code>&lt;p&gt;</code>： 段落。</p>
 <p><code>&lt;span&gt;</code>： 區域，只會佔用自己本身的空間。</p>
-<h3>開發工具介紹</h3>
-<p>知道什麼是HTML之後我們就要來著手開發它了，至於要用什麼工具開發呢？我想先降低對於大家的工具難度，這邊我推薦使用<a href="https://codepen.io/">CodePen</a>這個線上工具，不用安裝任何程式以及即時顯示畫面(註冊帳號即可使用)，事不宜遲我們就先來註冊一個帳號吧!
-<br></p>
-<p><code>STEP1</code> 到官網點選「Sign Up」。
-<img src="./PRaA2wq.jpg" alt="">
-<br></p>
-<p><code>STEP2</code> 選擇快速註冊，或者使用信箱認證註冊。
-<img src="./Hw45quT.jpg" alt="">
-<br></p>
-<p><code>STEP3</code> 註冊完後登入，選擇「New Pen」(建立一個全新空白檔案)
-<img src="./Gs7uyHE.jpg" alt="">
-<br></p>
-<p><code>STEP4</code> 完成囉，開始開發囉~
-<img src="./FHUGPIX.jpg" alt="">
-<br></p>
-<p>如<code>STEP4</code>示意圖。這就是CodePen的專案開發介面，主要有四大區塊HTML、CSS、JS(JavaScript)、即時顯示畫面(最大區塊的部分)，有些人的畫面可能是上下排版(如下圖)，這方面我們可以透過上方的「Change View」做切換，看自己喜歡做選擇：
-<img src="./Omy3LM7.jpg" alt="">
-<br></p>
-<p>這樣就大功告成啦！恭喜你/妳邁出了第一步，下一篇我們來初戰HTML吧！
-關於<strong>CSS</strong>以及<strong>JavaScript</strong>也是網頁開發三大將其中兩員大將，剩下一員就是我們現在要學習的<strong>HTML</strong>，之後這系列會循序漸進地講解，然後這系列最後會教導大家認識使用工程師們常用的開發工具以及檔案管理。
-Coming soon, stay tuned.</p>
+<h3>小結</h3>
+<p><strong>HTML</strong>是網頁前端的三大元素之一，剩下兩個是<strong>CSS</strong>以及<strong>JavaScript</strong>，這系列會漸漸地帶大家瞭解以及學習它們，也會教導大家認識使用工程師們常用的開發工具以及檔案管理。
+現在我們認識完HTML後，下一篇我們來初戰HTML吧！</p>
 <!--@@close-->
