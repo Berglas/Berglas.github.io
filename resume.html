@@ -142,39 +142,7 @@
         <p>HOME</p>
       </div>
       <div class="content">
-        <div id="radar">   </div>
-        <div class="container">
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-          <div class="particle"></div>
-        </div>
+        <div id="radar"> </div>
       </div>
     </section>
     <section id="page1">
@@ -213,7 +181,7 @@
         </div>
         <div class="introduction">
           <div class="my"></div>
-          <h2>About Me</h2>
+          <h2>關於我</h2><br>
           <p>我是林建成，畢業於大葉大學資訊工程系，因從小對電腦方面等資訊有極大的興趣，進而使我選擇了資訊這條路。</p>
           <p>個性主動積極，就學期間主動爭取企業全職實習，在實習過程中不斷精進程式開發技能，也實質開發了許多系統功能，因此後來能力適任轉而成為正職人員。</p>
           <p>擅長領域為自動化程式開發、網頁設計，前後端程式開發、站台管理、資料庫管理，實質程式開發經驗近五年。</p>
@@ -350,12 +318,6 @@
         <p>CONTACT</p>
       </div>
       <div class="content">
-        <div class="thx-box">
-          <p>感謝您的拜訪，</p>
-          <p>如果您有相關問題或想與我合作，都歡迎與我聯繫。</p>
-          <p>祝您有愉快的一天。</p>
-          <p>-林建成-</p>
-        </div>
         <div class="communicate-box">
           <form id="mail_form" action="https://formspree.io/sasuke01260616@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Your Name">
@@ -364,6 +326,13 @@
             <div class="button" onclick="send_mail()">Send</div>
           </form>
         </div>
+        <div class="thx-box">
+          <p>感謝您的拜訪，</p>
+          <p>如果您有相關問題或想與我合作，</p>
+          <p>都歡迎與我聯繫。</p>
+          <p>祝您有愉快的一天。</p><br>
+          <p>-林建成-</p>
+        </div>
       </div>
     </section>
     <script type="text/javascript">
@@ -371,25 +340,13 @@
         let t=0
         let count=1
         let angle=0
-        let time = {};
-        function d() {
-          const d = new Date();
-          const h = d.getHours();
-          const m = d.getMinutes();
-          const s = d.getSeconds();
-          const result = '+00:' + h + ':' + m + ':' + s;
-          time.h = h;
-          time.m = m;
-          time.s = s;
-          return result;
-        }
         p.setup = () => {
-          p.createCanvas(360, 360);
+          p.createCanvas(240, 240);
         }
         p.draw = () => {
           p.clear()
-          const w = 360;
-          const h = 360;
+          const w = 240;
+          const h = 240;
           p.background('rgba(255, 255, 255, 0)');
       
           // 十字線
@@ -398,17 +355,17 @@
           p.line(0, h / 2, w, h / 2);
           p.line(w / 2, 0, w / 2, h);
       
-          // 旋轉圓
+          // 最外雙四分之一圓
           let r1 = w / 2.5;
-          p.stroke('rgba(7, 233, 210, .3)');
+          p.stroke('rgba(7, 233, 210, .1)');
           p.strokeWeight(2);
           p.push();
           p.translate(w / 2, h / 2);
-          p.translate(w / 100 / 50, h / 100 / 50);
-          p.beginShape();
-          p.fill('rgba(7, 233, 210, .3)');
+          //- p.translate(w / 100 / 50, h / 100 / 50);
+          //- p.beginShape();
+          p.fill('rgba(7, 233, 210, .1)');
       
-          p.arc(0, 0, 150, 150, p.QUARTER_PI + t / 50, p.PI - p.QUARTER_PI * 2 + t / 50); 
+          p.arc(0, 0, w / 1.5, w / 1.5, p.QUARTER_PI + t / 200, p.PI - p.QUARTER_PI * 2 + t / 200); 
           p.noFill();
           
           // 內刻度
@@ -424,7 +381,7 @@
             let y2 = (r2 + 5) * p.sin(cp);
             p.line(x1, y1, x2, y2);
           }
-          p.stroke('rgba(7, 233, 210, .3)');
+          p.stroke('rgba(7, 233, 210, .1)');
           p.strokeWeight(2);
           for (let i = 0; i < 8; i++) {
             let cp = p.TWO_PI / 8 * i + t / 2000;
@@ -449,7 +406,7 @@
             p.line(x1, y1, x2, y2);
           }
           p.strokeWeight(2);
-          p.stroke('rgba(7, 233, 210, .3)');
+          p.stroke('rgba(7, 233, 210, .1)');
           for (let i = 0; i < 4; i++) {
             let cp = p.TWO_PI / 4 * i;
             let x1 = (r3 - 6) * p.cos(cp);
@@ -463,7 +420,7 @@
           const r4 = w / 1.2;
           const angle4 = angle / 80 * (p.PI / 180) + t / 500;
           p.strokeWeight(4);
-          p.stroke('rgba(7, 233, 210, .3)');
+          p.stroke('rgba(7, 233, 210, .1)');
           p.strokeCap(p.SQUARE);
           p.arc(0, 0, r4, r4, 0 + angle4, p.HALF_PI + angle4);
           p.arc(0, 0, r4, r4, p.PI + angle4, p.PI + p.HALF_PI + angle4);

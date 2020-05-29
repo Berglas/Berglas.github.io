@@ -42,7 +42,6 @@ $(window).scroll(function() {
 
 function page2animation (toggle) {
   if (toggle) {
-    $('.skill-box').addClass('openSkill')
     $('#h5').addClass('h5')
     $('#css').addClass('css')
     $('#js').addClass('js')
