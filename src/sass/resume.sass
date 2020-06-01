@@ -281,11 +281,52 @@ section
 #page0
   .content
     @include info-background
+    .main-title
+      position: absolute
+      top: 0
+      left: 1rem
+      width: 80%
+      height: 100%
+      path    
+        fill: none
+        stroke: none
+        stroke-width: .2rem
+        stroke-dasharray: 800px
+        animation: show 3s forwards
+      @keyframes show
+        0%
+          fill: none
+          stroke: rgba(255, 233, 210, .1)
+          stroke-dashoffset: 1800px
+        40%
+          fill: none
+        60%
+          fill: none
+          stroke: rgba(255, 233, 210, .2)
+        80%
+          fill: rgba(255, 233, 210, .3)
+          stroke: rgba(255, 233, 210, .3)
+        100%
+          fill: rgba(255, 233, 210, .1)
+          stroke: rgba(255, 233, 210, .4)
+          stroke-dashoffset: 0px
+    #banner
+      position: absolute
+      bottom: 2rem
+      right: 2rem
+      font-size: 3rem
+      font-weight: 600
+      border-right: 2px solid transparent
+      animation: caret 1s steps(1) infinite
+      padding: 0 .3rem
+      @keyframes caret
+        50%  
+          border-right-color: $font-color
+      
     #radar
       position: absolute
-      top: 0%
-      right: 0%
-      // transform: translate(-50%, -50%)
+      top: 1rem
+      right: 1rem
 #page1
   .content
     @include info-background
@@ -621,7 +662,6 @@ section
             height: 100%
             padding: 2rem
             border-radius: .3rem
-            // border: 5px solid rgba(7, 233, 210, .5)
             overflow: hidden
             @include info-background
             &:after
