@@ -292,10 +292,53 @@ section {
   background-color: rgba(7, 233, 210, 0.1);
   background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 50%, transparent 0);
   box-shadow: 0px 0px 30px 2px rgba(7, 233, 210, 0.2); }
+  #page0 .content .main-title {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 80%;
+    height: 100%; }
+    #page0 .content .main-title path {
+      fill: none;
+      stroke: none;
+      stroke-width: .2rem;
+      stroke-dasharray: 800px;
+      animation: show 3s forwards; }
+
+@keyframes show {
+  0% {
+    fill: none;
+    stroke: rgba(255, 233, 210, 0.1);
+    stroke-dashoffset: 1800px; }
+  40% {
+    fill: none; }
+  60% {
+    fill: none;
+    stroke: rgba(255, 233, 210, 0.2); }
+  80% {
+    fill: rgba(255, 233, 210, 0.3);
+    stroke: rgba(255, 233, 210, 0.3); }
+  100% {
+    fill: rgba(255, 233, 210, 0.1);
+    stroke: rgba(255, 233, 210, 0.4);
+    stroke-dashoffset: 0px; } }
+  #page0 .content #banner {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+    border-right: 2px solid transparent;
+    animation: caret 1s steps(1) infinite;
+    padding: 0 .3rem; }
+
+@keyframes caret {
+  50% {
+    border-right-color: #ffe9d2; } }
   #page0 .content #radar {
     position: absolute;
-    top: 0%;
-    right: 0%; }
+    top: 1rem;
+    right: 1rem; }
 
 #page1 .content {
   border-radius: 10px;
