@@ -169,5 +169,6 @@ $(function() {
   typewriterList[2] = 'I like programming.';
   typewriterList[3] = 'I like solving the problems.';
   typewriterList[4] = 'Hello world！';
-  typewriter();
+  // window.setTimeout(typewriter(), 3000);
+  setTimeout(() => typewriter(), 4500);
 });

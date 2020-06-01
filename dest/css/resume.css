@@ -295,7 +295,7 @@ section {
   #page0 .content .main-title {
     position: absolute;
     top: 0;
-    left: 1rem;
+    left: 2rem;
     width: 80%;
     height: 100%; }
     #page0 .content .main-title path {
@@ -303,13 +303,14 @@ section {
       stroke: none;
       stroke-width: .2rem;
       stroke-dasharray: 800px;
-      animation: show 3s forwards; }
+      animation: show 3s forwards;
+      animation-delay: 2s; }
 
 @keyframes show {
   0% {
     fill: none;
     stroke: rgba(255, 233, 210, 0.1);
-    stroke-dashoffset: 1800px; }
+    stroke-dashoffset: 800px; }
   40% {
     fill: none; }
   60% {

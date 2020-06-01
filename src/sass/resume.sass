@@ -284,7 +284,7 @@ section
     .main-title
       position: absolute
       top: 0
-      left: 1rem
+      left: 2rem
       width: 80%
       height: 100%
       path    
@@ -293,11 +293,12 @@ section
         stroke-width: .2rem
         stroke-dasharray: 800px
         animation: show 3s forwards
+        animation-delay: 2s
       @keyframes show
         0%
           fill: none
           stroke: rgba(255, 233, 210, .1)
-          stroke-dashoffset: 1800px
+          stroke-dashoffset: 800px
         40%
           fill: none
         60%
@@ -321,8 +322,7 @@ section
       padding: 0 .3rem
       @keyframes caret
         50%  
-          border-right-color: $font-color
-      
+          border-right-color: $font-color      
     #radar
       position: absolute
       top: 1rem
