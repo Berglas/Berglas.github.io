@@ -2,6 +2,7 @@
 $main-color1: rgb(232, 120, 142)
 $main-color2: rgb(100, 185, 183)
 $header-height: 7rem
+$header-height-mobile: 3.5rem
 $font-color: rgb(66, 71, 76)
 /*------------------------------------------------------------------------------------------------------*/  
 *
@@ -61,20 +62,9 @@ body
   background-size: 1.8rem 1.8rem
   background-color: rgb(255, 248, 238)
   background-image: linear-gradient(0deg, transparent 92%, rgba(89, 135, 125, .07) 50%), linear-gradient(90deg, transparent 92%, rgba(89, 135, 125, .07) 50%)
-  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
   z-index: 3000
   transition: all .5s ease
-  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)
-  &:after
-    position: absolute
-    top: 0
-    left: 0
-    content: ''
-    height: 100%
-    width: 100%
-    background: rgba(255, 255, 255, .1)
-    z-index: 2000
-    pointer-events: none
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, .2)  
   .title
     position: absolute
     top: 1rem
@@ -197,7 +187,6 @@ body
           width: 100%
           padding-bottom: .5rem
         .tag
-          // height: .6rem
           padding: .1rem .2rem
           font-size: .6rem
           float: left
@@ -352,10 +341,8 @@ body
     img
       display: block
       width: 100%
-      margin: .5rem 0
-      border-top-left-radius: 12px 100%
-      border-bottom-right-radius: 12px 100%
-      border-bottom-left-radius: 5px 100px
+      margin: .5rem 0      
+      border-radius: 5px
     ul
       padding: .5rem      
       li 
@@ -378,14 +365,15 @@ body
       position: relative
       width: 100%
       height: 3rem
-      border-bottom: 1px dashed rgb(180, 180, 180)
       padding: .3rem
       margin-bottom: 1rem
       .theme-title
         position: absolute
         top: 0
         left: 0
+        width: 100%
         font-size: 2rem
+        border-bottom: 1px dashed rgb(180, 180, 180)
       .time-mark
         position: absolute
         top: 0
@@ -393,13 +381,13 @@ body
         font-size: .8rem
     .depiction-box
       position: relative
-      margin: 3rem 0 4rem 0
-      height: 14rem
-      background: #FDFDFD
+      margin: 4rem 0 4rem 0
+      background: rgba(255, 248, 238, .2)
       border-top-left-radius: 12px 100%
       border-bottom-right-radius: 12px 100%
       border-bottom-left-radius: 5px 100px
       box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .2)
+      float: left
       &:after
         position: absolute
         top: -.5rem
@@ -467,4 +455,164 @@ body
         border-top-left-radius: 500px 100px
         border-top-right-radius: 500px 100px
         z-index: -1
+@media screen and (min-width: 0px) and (max-width: 414px)
+  .header
+    height: $header-height-mobile
+    .title
+      top: .5rem
+      left: .5rem
+      h1
+        font-size: .9rem
+        position: relative
+        line-height: 150%
+      span
+        font-size: .3rem
+        position: relative
+        line-height: 150%
+    .logo
+      width: $header-height-mobile
+      height: $header-height-mobile
+    .menu-list      
+      display: none
+  .reduce
+    height: 3.5rem
+    .title
+      display: none
+    .logo
+      position: absolute
+      top: 50%
+      left: 1rem
+      transform: translate(0%, -50%)
+    .menu-list      
+      display: flex
+      top: 1.25rem    
+  .container
+    top: $header-height-mobile
+    .articles
+      padding: 0 3%
+      .cell
+        width: calc(100% - 2rem)
+    .float-box
+      display: none   
+    .comments-box
+      position: relative
+      width: 94%
+      margin-left: 3%
+    .content
+      width: 94%
+      margin: 2rem 0 2rem 3%
+      .title-box
+        height: 8vmin
+        padding: 0
+        margin: 0
+        .theme-title
+          font-size: 5.5vmin
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+        .time-mark
+          position: absolute
+          top: calc(100% + .5rem)
+          right: 0
+          height: 1rem
+      .depiction-box
+        height: 100%
+        background: rgba(255, 248, 238, .2)
+        border-top-left-radius: 12px 100%
+        border-bottom-right-radius: 12px 100%
+        border-bottom-left-radius: 5px 50px
+        &:after
+          position: absolute
+          top: -.5rem
+          right: -2.5rem
+          height: 1.3rem
+          width: 5.5rem
+          content: ''
+          background: rgba(100, 185, 183, .6)
+          border-bottom-left-radius: 100px 500px
+          border-bottom-right-radius: 100px 500px
+          border-top-left-radius: 500px 100px
+          border-top-right-radius: 500px 100px
+          transform: rotate(35deg)
+        &:before      
+          position: absolute
+          bottom: .5rem
+          left: -3rem
+          height: 1.3rem
+          width: 5.5rem
+          content: ''
+          background: rgba(100, 185, 183, .6)
+          border-bottom-left-radius: 100px 500px
+          border-bottom-right-radius: 100px 500px
+          border-top-left-radius: 500px 100px
+          border-top-right-radius: 500px 100px
+          transform: rotate(55deg)
+        p
+          &:nth-child(1)
+            width: 100%
+            height: 100%
+            float: none
+            img
+              width: 100%
+              height: 100%
+          &:nth-child(2)
+            width: 100%
+            height: 100%
+            float: none
 
+@media screen and (min-width: 415px) and (max-width: 1366px)
+ .container
+    .articles
+      padding: 0 3%
+      .cell
+        width: calc(100% / 2 - 2rem)
+    .float-box
+      display: none   
+    .comments-box
+      position: relative
+      width: 94%
+      margin-left: 3%
+    .content
+      width: 94%
+      margin: 2rem 0 2rem 3%
+      .title-box
+        height: 3rem
+        padding: 0
+        margin: 0
+        .theme-title
+          font-size: 2rem
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+        .time-mark
+          position: absolute
+          top: calc(100% + .5rem)
+          right: 0
+          height: 1rem
+      .depiction-box
+        &:after
+          position: absolute
+          top: -.5rem
+          right: -2.5rem
+          height: 1.5rem
+          width: 6rem
+          content: ''
+          background: rgba(100, 185, 183, .6)
+          border-bottom-left-radius: 100px 500px
+          border-bottom-right-radius: 100px 500px
+          border-top-left-radius: 500px 100px
+          border-top-right-radius: 500px 100px
+          transform: rotate(35deg)
+        &:before      
+          position: absolute
+          bottom: .5rem
+          left: -3rem
+          height: 1.5rem
+          width: 6rem
+          content: ''
+          background: rgba(100, 185, 183, .6)
+          border-bottom-left-radius: 100px 500px
+          border-bottom-right-radius: 100px 500px
+          border-top-left-radius: 500px 100px
+          border-top-right-radius: 500px 100px
+          transform: rotate(55deg)
