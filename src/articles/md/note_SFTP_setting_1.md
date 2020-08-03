@@ -1,6 +1,6 @@
 ---
 title: note_SFTP_setting_1
-cTitle: 在Windows10架設SSH FTP Server
+cTitle: 在Windows10架設SFTP(SSH Server)
 date: 2020-07-31
 depiction: 最近因為實作上需要用到STFP(SSH File Transfer Protocol)的Server，所以在此記錄一下怎麼設定，以免之後忘記也順便分享給有需要的朋友們。
 tag: [Note]
