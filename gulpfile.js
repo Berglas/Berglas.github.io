@@ -85,8 +85,9 @@ gulp.task('markdown', () => {
       })
       // 讀取frontMatter部分
       content.split('---')[1].split('\n').forEach(e => {        
-        if (e != '' && e != undefined && e != null) {
-          data[(e.split(':')[0]).toString()] = (e.split(':')[1].trim()).toString()
+        
+        if (e != '' && e != undefined && e != null && e.trim() != '') {
+          data[(e.split(':')[0]).toString()] = (e.split(':')[1]).toString().trim()
         }
       })
       
