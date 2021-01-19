@@ -54,6 +54,16 @@ blockquote {
   border-radius: 5px;
   background-color: #e8788e; }
 
+ol li {
+  list-style: decimal-leading-zero !important;
+  list-style-position: inside !important;
+  margin-top: 1rem; }
+
+ol li::marker {
+  color: #e8788e;
+  font-size: 1.4rem;
+  font-weight: 600; }
+
 body {
   font-family: 'Microsoft JhengHei';
   position: relative;
@@ -149,6 +159,19 @@ body {
 .adjust .float-box {
   margin-top: -3.5rem;
   opacity: 1 !important; }
+
+.self-article {
+  display: inline;
+  width: 90%;
+  height: 110%;
+  position: relative;
+  margin: .5rem 0;
+  padding: .2rem .5rem;
+  background: rgba(100, 185, 183, 0.4);
+  border-bottom-left-radius: 100px 500px;
+  border-bottom-right-radius: 100px 500px;
+  border-top-left-radius: 500px 100px;
+  border-top-right-radius: 500px 100px; }
 
 .container {
   position: relative;
@@ -266,7 +289,7 @@ body {
       position: relative;
       min-height: 15rem;
       width: 100%;
-      padding: 1rem;
+      padding: 1remg;
       margin-top: 2rem;
       margin-bottom: 3rem;
       border-radius: 12px;
@@ -365,7 +388,7 @@ body {
       tab-size: 2; }
     .container .content h3 {
       font-size: 1.3rem;
-      margin: 3rem 0 1rem 0; }
+      margin: 2rem 0 1rem 0; }
     .container .content h4 {
       font-size: 1.2rem;
       margin: .5rem 0; }
@@ -380,13 +403,13 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.8rem;
         border-bottom: 1px dashed #b4b4b4; }
       .container .content .title-box .time-mark {
         position: absolute;
-        top: 0;
+        top: -1rem;
         right: 0;
-        font-size: .8rem; }
+        font-size: .9rem; }
     .container .content .depiction-box {
       position: relative;
       margin: 4rem 0 4rem 0;

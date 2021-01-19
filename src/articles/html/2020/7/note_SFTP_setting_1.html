@@ -3,14 +3,14 @@
 <!--@@block=meta-->
 <meta name="author" content="Berglas">
 <meta name="copyright" content="Berglas">
-<meta name="description" content="最近因為實作上需要用到SFTP(SSH File Transfer Protocol)功能，需要自己架設Server測試功能，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
+<meta name="description" content="最近因為工作需求，要在Windows系統上架設安裝SFTP(SSH File Transfer Protocol)Server，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
 <meta itemprop="name" content="在Windows 10架設SFTP(SSH Server)｜巴格.生活日記•學習筆記">
 <meta itemprop="image" content="https://berglas.github.io/dest/articles/2020/7/note_SFTP_setting_1.jpg">
-<meta itemprop="description" content="最近因為實作上需要用到SFTP(SSH File Transfer Protocol)功能，需要自己架設Server測試功能，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
+<meta itemprop="description" content="最近因為工作需求，要在Windows系統上架設安裝SFTP(SSH File Transfer Protocol)Server，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
 <meta property="og:title" content="在Windows 10架設SFTP(SSH Server)｜巴格.生活日記•學習筆記">
 <meta property="og:url" content="https://berglas.github.io/dest/articles/2020/7/note_SFTP_setting_1.html">
 <meta property="og:image" content="https://berglas.github.io/dest/articles/2020/7/note_SFTP_setting_1.jpg">
-<meta property="og:description" content="最近因為實作上需要用到SFTP(SSH File Transfer Protocol)功能，需要自己架設Server測試功能，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
+<meta property="og:description" content="最近因為工作需求，要在Windows系統上架設安裝SFTP(SSH File Transfer Protocol)Server，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。">
 <meta property="og:site_name" content="巴格.生活日記•學習筆記">
 <meta property="og:type" content="article">
 <title>在Windows 10架設SFTP(SSH Server)｜巴格.生活日記•學習筆記</title>
@@ -22,8 +22,8 @@
 <!--@@close-->
 
 <!--@@block=depiction-->
-<p><img src="./7SVhbTb.jpg" alt=""></p>
-<p class='depiction'>最近因為實作上需要用到SFTP(SSH File Transfer Protocol)功能，需要自己架設Server測試功能，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。</p>
+<p><img src="./HlhMxS2.jpg" alt=""></p>
+<p class='depiction'>最近因為工作需求，要在Windows系統上架設安裝SFTP(SSH File Transfer Protocol)Server，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。</p>
 <!--@@close-->
 
 <!--@@block=content-->
@@ -33,67 +33,85 @@
 <p>在Windows 10裡，官方已經推出內建擴充的應用方式「OpenSSH」所以接下來將會使用這套來做SSH Server的架設。</p>
 <h3>安裝OpenSSH</h3>
 <ol>
-<li><p>進入Windows 設定 
-<img src="./Us5usrX.png" alt=""></p>
+
+<li>
+進入Windows 設定 
+
+<p><img src="./yjir6pW.png" alt=""></p>
 </li>
-<li><p>進入應用程式
-<img src="./bIQCDWS.png" alt=""></p>
+<li>
+進入應用程式
+
+<p><img src="./qJ2JMnm.png" alt=""></p>
 </li>
-<li><p>選用功能
-<img src="./GZrcgCQ.png" alt=""></p>
+<li>
+選用功能
+
+<p><img src="./tkNjVdV.png" alt=""></p>
+</li>
+<li>
+新增功能
+
+<p><img src="./Vuwol1i.png" alt=""></p>
+</li>
+<li>
+OpenSSH 伺服器(點選安裝)
+
+<p><img src="./zkqj9vj.png" alt=""></p>
+</li>
+<li>
+返回上一頁(等待安裝完畢)
+
+<p><img src="./hFj6UDt.png" alt=""></p>
+</li>
+<li>
+安裝完成後請重新啟動電腦(重開機)。
 </li>
 </ol>
-<ol start="4">
-<li><p>新增功能
-<img src="./Cu66xtA.png" alt=""></p>
-</li>
-<li><p>OpenSSH 伺服器(點選安裝)
-<img src="./eRpydnQ.png" alt=""></p>
-</li>
-<li><p>返回上一頁(等待安裝完畢)
-<img src="./HA0NuPI.png" alt=""></p>
-</li>
-<li><p>安裝完成後請重新啟動電腦(重開機)。</p>
-</li>
-</ol>
+
 <h3>啟動服務</h3>
-<p>這邊使用PowerShell來下指令啟動服務，記得以系統管理員身分啟動PowerShell。
-<img src="./aR3y092.png" alt=""></p>
 <ol>
-<li><p>啟動「OpenSSH SSH Server」服務，指令如下：</p>
-<pre><code>Start-Service sshd</code></pre>
+
+<li>
+以系統管理員身分啟動PowerShell。
+
+<p><img src="./rutDVgs.png" alt=""></p>
 </li>
-<li><p>將「OpenSSH SSH Server」服務設為自動啟用(建議但非必要)，指令如下：</p>
-<pre><code>Set-Service -Name sshd -StartupType &#39;Automatic&#39;</code></pre>
-<p><img src="./qnKblcw.png" alt=""></p>
+
+<li>
+啟動「OpenSSH SSH Server」服務，在終端機輸入指令：
+
+<pre><code>Start-Service sshd</code></pre></li>
+<li>
+將「OpenSSH SSH Server」服務設為自動啟用(建議但非必要)，在終端機輸入指令：
+
+<pre><code>Set-Service -Name sshd -StartupType &#39;Automatic&#39;</code></pre><p><img src="./BqYSNzK.png" alt=""></p>
 </li>
-<li><p>確認當前防火牆規則，指令如下：</p>
-<pre><code>Get-NetFirewallRule -Name *ssh*</code></pre>
-<p><img src="./sSVe4wW.png" alt=""></p>
+<li>
+確認當前防火牆規則，指令如下：
+
+<pre><code>Get-NetFirewallRule -Name *ssh*</code></pre><p><img src="./sSVe4wW.png" alt=""></p>
 </li>
-<li><p>新建立防火牆規則指令如下：</p>
-<pre><code>New-NetFirewallRule -Name sshd -DisplayName &#39;OpenSSH Server (sshd)&#39; -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></pre>
-<p><img src="./Myi3qO2.png" alt=""></p>
+<li>
+新建立防火牆規則指令如下：
+
+<pre><code>New-NetFirewallRule -Name sshd -DisplayName &#39;OpenSSH Server (sshd)&#39; -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></pre><p><img src="./JxyBFIO.png" alt=""></p>
 </li>
+這樣Server就啟動完成了，現在測試看看。
 </ol>
-<p>這樣Server就啟動完成了，現在測試看看。</p>
+
 <h3>測試</h3>
-<ol start="5">
-<li>開啟命令提示字元輸入<pre><code>ssh username@servername </code></pre>
-username：電腦使用者帳號
-servername：電腦IP</li>
-</ol>
+<p>開啟命令提示字元，在內輸入：</p>
+<pre><code>ssh username@servername </code></pre><p>username：電腦使用者帳號，servername：電腦IP</p>
 <p>連線時會要你輸入密碼，密碼為電腦使用者的密碼，輸入時會沒有任何反應是正常的，為了保密。</p>
 <p>第一次連線到伺服器時，應該會看到類似下列的訊息：</p>
 <pre><code>The authenticity of host &#39;servername (10.00.00.001)&#39; can&#39;t be established.
 ECDSA key fingerprint is SHA256:(&lt;a large string&gt;).
-Are you sure you want to continue connecting (yes/no)?</code></pre>
-<p>這邊輸入<code>yes</code></p>
-<p><img src="./3InbPJl.png" alt=""></p>
+Are you sure you want to continue connecting (yes/no)?</code></pre><p>這邊輸入<code>yes</code></p>
+<p><img src="./AM3S5rj.png" alt=""></p>
 <p>由於這我ftpUser這使用者有設定讀取權限，所以我用另外一組連線，取得成功畫面供參考，
 連線成功後會看到類似下方的標頭，這時候就可以輸入<code>dir</code>去觀看路徑內的檔案了。</p>
-<pre><code>domain\username@SERVERNAME C:\Users\username&gt;</code></pre>
-<p><img src="./xe9Rkep.png" alt=""></p>
+<pre><code>domain\username@SERVERNAME C:\Users\username&gt;</code></pre><p><img src="./0I3Nch5.png" alt=""></p>
 <p>大功告成囉~</p>
 <h3>總結</h3>
 <p>在Windows 10裡已經內建OpenSSH擴充服務，不用在像之前依靠第三方軟體去設定，在安裝的過程也沒遭遇到太多問題跟困難，因為官方就有設定文件了，個人覺得快速便利，如果有需要的朋友可以參考，也請各前輩可以留言討論更好的方法來跟大家一起分享。</p>

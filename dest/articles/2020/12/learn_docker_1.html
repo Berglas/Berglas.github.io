@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="max-age" content="864000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/dest/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="/dest/js/main.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai-sublime.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-166944924-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'UA-166944924-1')
+    </script>
+    <meta content="100002164450594" property="fb:admins">
+    <meta content="722056048603698" property="fb:app_id"><!---->    
+
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="在Windows上詳細的Docker安装。相信工程師在安裝開發環境常常遇到作業系統版本不同、環境變數不同、相依套件未正確安裝，導致程式無法正常執行，處理這些環境設定往往浪費了許多時間，自從有了Docker，我考試都考一百分，痾...我是說這些問題都可以輕鬆解決了，現在我就來教大家快速的安裝使用Docker吧!">
+<meta itemprop="name" content="Docker教學1：在Windows Docker安装教學、初步設定｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_1.jpg">
+<meta itemprop="description" content="在Windows上詳細的Docker安装。相信工程師在安裝開發環境常常遇到作業系統版本不同、環境變數不同、相依套件未正確安裝，導致程式無法正常執行，處理這些環境設定往往浪費了許多時間，自從有了Docker，我考試都考一百分，痾...我是說這些問題都可以輕鬆解決了，現在我就來教大家快速的安裝使用Docker吧!">
+<meta property="og:title" content="Docker教學1：在Windows Docker安装教學、初步設定｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_1.html">
+<meta property="og:image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_1.jpg">
+<meta property="og:description" content="在Windows上詳細的Docker安装。相信工程師在安裝開發環境常常遇到作業系統版本不同、環境變數不同、相依套件未正確安裝，導致程式無法正常執行，處理這些環境設定往往浪費了許多時間，自從有了Docker，我考試都考一百分，痾...我是說這些問題都可以輕鬆解決了，現在我就來教大家快速的安裝使用Docker吧!">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>Docker教學1：在Windows Docker安装教學、初步設定｜巴格.生活日記•學習筆記</title>
+
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo" onclick="javascript:location.href=&quot;/&quot;"></div>
+      <div class="title" onclick="javascript:location.href=&quot;/&quot;">
+        <h1>巴格.生活日記•學習筆記</h1><span>- 取之於網路，用之於網路 -</span>
+      </div>
+      <ul class="menu-list">
+        <li title="所有文章"><a href="/"> 
+            <sapn>所有文章</sapn></a></li>
+        <li title="關於這裡"><a href="/dest/articles/2020/4/origin.html"> 
+            <sapn>關於這裡</sapn></a></li>
+        <li class="list" title="聯絡我"><a href="/resume.html"> 
+            <sapn>聯絡我</sapn></a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="float-box">
+        <h2>筆記重點</h2>
+        <div class="outline-box">
+          <ul></ul>
+        </div>
+      </div>
+      <div class="content">
+        <main>
+          <div class="title-box"><!----> 
+
+<p class='theme-title'>Docker教學1：在Windows Docker安装教學、初步設定</p>
+<p class='time-mark'>2020-12-04</p>
+
+          </div>
+          <div class="depiction-box"><!----> 
+
+<p><img src="./o4wo0mb.jpg" alt=""></p>
+<p class='depiction'>在Windows上詳細的Docker安装。相信工程師在安裝開發環境常常遇到作業系統版本不同、環境變數不同、相依套件未正確安裝，導致程式無法正常執行，處理這些環境設定往往浪費了許多時間，自從有了Docker，我考試都考一百分，痾...我是說這些問題都可以輕鬆解決了，現在我就來教大家快速的安裝使用Docker吧!</p>
+
+          </div><!----> 
+
+<h3>前言</h3>
+<h4>什麼是Docker？</h4>
+<p>轉至維基百科</p>
+<blockquote>
+<p>Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應用、交付（shipping）應用、執行應用。 Docker允許使用者將基礎設施（Infrastructure）中的應用單獨分割出來，形成更小的顆粒（容器），從而提高交付軟體的速度。</p>
+<p>Docker容器與虛擬機器類似，但二者在原理上不同。Docker容器是將作業系統層虛擬化，虛擬機器則是虛擬化硬體，因此容器更具有可攜式性、高效地利用伺服器。 容器更多的用於表示 軟體的一個標準化單元。由於容器的標準化，因此它可以無視基礎設施（Infrastructure）的差異，部署到任何一個地方。另外，Docker也為容器提供更強的業界的隔離相容。</p>
+</blockquote>
+<p>有興趣的可以點 <a href="https://zh.wikipedia.org/wiki/Docker">Docker(維基百科)</a> 瞭解完整說明。</p>
+<p>簡單說使用Docker可以快速地建立開發、測試環境，或是直接作為應用程式部署之環境。</p>
+<h3>如何安裝Docker</h3>
+<ol>
+<li>
+前往官網去下載安裝檔
+
+<p><a href="https://www.docker.com/products/docker-desktop">點我前往官網</a>
+<img src="./yFGAz7X.png" alt="">
+▲官網示意圖</p>
+</li>
+
+<li>
+下載後開始安裝吧！勾選三個選項
+
+<p><img src="./GZCKAVm.png" alt=""></p>
+</li>
+
+<li>
+等待安裝完成...
+
+<p><img src="./hvv6IVI.png" alt=""></p>
+</li>
+
+<li>安裝完成後開啟Docker，看到以下畫面表示安裝完成
+
+<p><img src="./CslIBgH.png" alt=""></p>
+</li>
+
+<li>
+General設定，按照以下選項勾選
+
+<p><img src="./I2vwQRz.png" alt=""></p>
+</li>
+
+<li>
+ADVANCED設定，這邊是設定Docker的資源
+
+<p><img src="./TyGcfQT.png" alt=""></p>
+</li>
+
+<li>FILE SHARING設定，設定Docker使用空間，開放路徑權限給Docker存取
+
+<p><img src="./2uKFYWM.png" alt=""></p>
+</li>
+</ol>
+
+<h3>結論</h3>
+<p>這樣Docker就安裝完成囉，接下來可以開始建立開發環境的容器了，接下來會推出一篇教學如何建立容器的文章，敬請期待。</p>
+
+        </main>
+      </div>
+      <div class="comments-box">
+        <div id="fb-root"></div>
+        <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v7.0&amp;appId=722056048603698&amp;autoLogAppEvents=1"></script>
+        <div class="fb-comments" data-numposts="5" data-width="100%"></div>
+      </div>
+      <div class="footer">
+        <div class="license"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!--@@master=../../../../../layout.html-->
+
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="上一篇我們教學如何使用安裝Docker建置了一個，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta itemprop="name" content="Docker教學3：在Docker內解決MySQL發生大小寫敏感問題｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_3.jpg">
+<meta itemprop="description" content="上一篇我們教學如何使用安裝Docker建置了一個，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta property="og:title" content="Docker教學3：在Docker內解決MySQL發生大小寫敏感問題｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_3.html">
+<meta property="og:image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_3.jpg">
+<meta property="og:description" content="上一篇我們教學如何使用安裝Docker建置了一個，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>Docker教學3：在Docker內解決MySQL發生大小寫敏感問題｜巴格.生活日記•學習筆記</title>
+<!--@@close-->
+
+<!--@@block=title-->
+<p class='theme-title'>Docker教學3：在Docker內解決MySQL發生大小寫敏感問題</p>
+<p class='time-mark'>2020-12-18</p>
+<!--@@close-->
+
+<!--@@block=depiction-->
+<p><img src="./o4wo0mb.jpg" alt=""></p>
+<p class='depiction'>上一篇我們教學如何使用安裝Docker建置了一個，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。</p>
+<!--@@close-->
+
+<!--@@block=content-->
+<h3>前言</h3>
+<p>還沒學過安裝Docker、以及建置容器的的可以參考前兩篇。</p>
+<p><a class='self-article' href ='./dest/articles/2020/12/learn_docker_1.html'>Docker教學1：在Windows Docker安装教學、初步設定</a>
+<br>
+<a class='self-article' href ='./dest/articles/2020/12/learn_docker_2.html'>Docker教學2：如何使用Docker建立MySQL 8的環境以及管理連線設定</a></p>
+<p>MySQL在Windows中是不區分大小寫(lower_case_tables_names屬性預設為1)，但在Linux(lower_case_tables_names屬性預設為0)中是區分大小寫。</p>
+<p><strong>Docker裏頭就是Linux核心！！！<br>Docker裏頭就是Linux核心！！！<br>Docker裏頭就是Linux核心！！！</strong><br>
+<del>因為很重要所以講三次(老梗)</del></p>
+<p>所以可能會遭遇到SQL語法在執行時遇到大小寫敏感而產生錯誤，現在就讓我們來解決它吧!</p>
+<h3>注意事項</h3>
+<p><strong>※ 優先注意，以下操作必須「初始化資料庫」，所以資料庫內容會被清空，請記得做備份的動作，還有像上一篇教學內，創建帳號開放對外連線的號也會跟著初始化而消失，需要再重新創建一次。</strong></p>
+<h3>教學步驟</h3>
+<ol>
+
+<li>
+快按兩下打開容器後，點選右上CLI按鈕，開啟容器終端環境(bash)快按兩下打開容器後，點選右上CLI按鈕，開啟容器終端環境(bash)
+</li>
+
+<p><img src="./9AKKzoY.jpg" alt=""></p>
+<li>
+先安裝編輯文件的套件，才能進行修改config(屬性配置檔)設定，在終端畫面中輸入指令：
+
+<pre><code>apt-get update;</code></pre><p>▲更新軟體的最新資訊及列表</p>
+<pre><code>apt-get install vim;</code></pre><p>▲安裝vim套件，這指令途中會確認輸入，請輸入<code>Y</code></p>
+</li>
+
+
+<p><img src="./aPKzuZx.jpg" alt=""></p>
+<li>
+修改檔案路徑，在終端畫面中依序輸入指令：
+
+<pre><code>mkdir  -p /home/data;
+mkdir  -p /home/logs;
+chown -R mysql:mysql /home/data;
+chown -R mysql:mysql /home/logs;
+chmod -R 755 /home;
+chmod -R 755 /home/data;
+chmod -R 755 /home/logs;</code></pre><p><img src="./L1Rde17.jpg" alt=""></p>
+</li>
+
+<li>
+修改config(屬性配置檔)，在終端畫面中輸入指令：
+
+<pre><code>cd /etc/mysql/</code></pre><p>▲進入檔案路徑</p>
+<pre><code>vim my.cnf</code></pre><p>▲編輯my.cnf檔</p>
+</li>
+<br>
+
+<li>
+按i進入編輯模式，找到檔案中[mysqld]區塊，修改以及新增以下屬性(有的修改、沒有的就新增)
+
+<pre><code>[mysqld]
+datadir=/home/data
+log-error=/home/logs/error.log
+lower_case_table_names=1</code></pre><p>輸入完後按ESC退出編輯模式，之後輸入：<br></p>
+<pre><code>:wq</code></pre><p>▲存檔並關閉檔案</p>
+<p>參考如下圖：</p>
+</li>
+
+<p><img src="./DrSWBCT.jpg" alt=""></p>
+<p><strong>請注意！執行到這邊後請勿重新開啟Docker，重啟後容器將無法啟動(因為設定與初始不一致的關係)</strong>
+接下來我們馬上來解決這問題。</p>
+<li>
+重新初始化資料庫設定，在終端畫面中輸入指令：
+
+<pre><code>/usr/sbin/mysqld --user=mysql --lower-case-table-names=1 --initialize-insecure --basedir=/usr/local/mysql --datadir=/home/data</code></pre><p><img src="./hSbPWIi.jpg" alt="">
+▲這邊需要點時間，請耐心等候。</p>
+</li>
+
+<li>
+查看是否有初始化成功，在終端畫面中輸入指令：
+
+<pre><code>vi /home/logs/error.log</code></pre></li>
+
+<p><img src="./uOnvHzh.jpg" alt="">
+▲看到is created with an empty password(密碼為空值)等字眼，表示成功了。</p>
+<li>
+重新啟動Docker，確認是否真的有修改成功，重新開啟CLI，在終端畫面中輸入指令：
+
+<pre><code>mysql -u root -p</code></pre><p>▲登入root帳號，請注意！因重新初始化資料庫，root帳號變為空，密碼直接Enter就好</p>
+<pre><code>show variables like &#39;%table_names&#39;;</code></pre></li>
+
+<p><img src="./rGRH7wb.jpg" alt="">
+看到以上畫面表示成功囉。</p>
+</ol>
+
+<h3>結論</h3>
+<p>MySQL這坑也是害人不淺，不少人踩過，當然包括我。哈哈哈~
+特別寫一篇來紀錄步驟以免忘記，也分享給大家來避免採坑或者幫忙解決。</p>
+<!--@@close-->

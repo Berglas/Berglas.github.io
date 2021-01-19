@@ -2,7 +2,7 @@
 title: note_SFTP_setting_1
 cTitle: 在Windows 10架設SFTP(SSH Server)
 date: 2020-07-31
-depiction: 最近因為實作上需要用到SFTP(SSH File Transfer Protocol)功能，需要自己架設Server測試功能，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。
+depiction: 最近因為工作需求，要在Windows系統上架設安裝SFTP(SSH File Transfer Protocol)Server，所以在此記錄一下怎麼架設與設定，以免忘記之餘也順便分享給有需要的朋友們。
 tag: [Note]
 ---
 <!--@@master=../../../../../layout.html-->
@@ -29,7 +29,7 @@ tag: [Note]
 <!--@@close-->
 
 <!--@@block=depiction-->
-![](https://i.imgur.com/7SVhbTb.jpg)
+![](https://i.imgur.com/HlhMxS2.jpg)
 <p class='depiction'>@@depiction</p>
 <!--@@close-->
 
@@ -43,62 +43,94 @@ SFTP全名為SSH File Transfer Protocol，中文翻譯「安全檔案傳送協�
 
 ### 安裝OpenSSH
 
-1. 進入Windows 設定 
-![](https://i.imgur.com/Us5usrX.png)
+<ol>
 
-2. 進入應用程式
-![](https://i.imgur.com/bIQCDWS.png)
+<li>
+進入Windows 設定 
 
-3. 選用功能
-![](https://i.imgur.com/GZrcgCQ.png)
+![](https://i.imgur.com/yjir6pW.png)
+</li>
+<li>
+進入應用程式
 
+![](https://i.imgur.com/qJ2JMnm.png)
+</li>
+<li>
+選用功能
 
-4. 新增功能
-![](https://i.imgur.com/Cu66xtA.png)
+![](https://i.imgur.com/tkNjVdV.png)
+</li>
+<li>
+新增功能
 
-5. OpenSSH 伺服器(點選安裝)
-![](https://i.imgur.com/eRpydnQ.png)
+![](https://i.imgur.com/Vuwol1i.png)
+</li>
+<li>
+OpenSSH 伺服器(點選安裝)
 
-6. 返回上一頁(等待安裝完畢)
-![](https://i.imgur.com/HA0NuPI.png)
+![](https://i.imgur.com/zkqj9vj.png)
+</li>
+<li>
+返回上一頁(等待安裝完畢)
 
-7. 安裝完成後請重新啟動電腦(重開機)。
-
+![](https://i.imgur.com/hFj6UDt.png)
+</li>
+<li>
+安裝完成後請重新啟動電腦(重開機)。
+</li>
+</ol>
 
 ### 啟動服務
-這邊使用PowerShell來下指令啟動服務，記得以系統管理員身分啟動PowerShell。
-![](https://i.imgur.com/aR3y092.png)
+<ol>
 
-1. 啟動「OpenSSH SSH Server」服務，指令如下：
+<li>
+以系統管理員身分啟動PowerShell。
+
+![](https://i.imgur.com/rutDVgs.png)
+</li>
+
+<li>
+啟動「OpenSSH SSH Server」服務，在終端機輸入指令：
+
 ```
 Start-Service sshd
 ```
-2. 將「OpenSSH SSH Server」服務設為自動啟用(建議但非必要)，指令如下：
+</li>
+<li>
+將「OpenSSH SSH Server」服務設為自動啟用(建議但非必要)，在終端機輸入指令：
+
 ```
 Set-Service -Name sshd -StartupType 'Automatic'
 ```
-![](https://i.imgur.com/qnKblcw.png)
-3. 確認當前防火牆規則，指令如下：
+![](https://i.imgur.com/BqYSNzK.png)
+</li>
+<li>
+確認當前防火牆規則，指令如下：
+
 ```
 Get-NetFirewallRule -Name *ssh*
 ```
 ![](https://i.imgur.com/sSVe4wW.png)
-
-4. 新建立防火牆規則指令如下：
+</li>
+<li>
+新建立防火牆規則指令如下：
+ 
 ```
 New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
 ```
-![](https://i.imgur.com/Myi3qO2.png)
 
+
+![](https://i.imgur.com/JxyBFIO.png)
+</li>
 這樣Server就啟動完成了，現在測試看看。
+</ol>
 
 ### 測試
-5. 開啟命令提示字元輸入
+開啟命令提示字元，在內輸入：
 ```
 ssh username@servername 
 ```
-username：電腦使用者帳號
-servername：電腦IP
+username：電腦使用者帳號，servername：電腦IP
 
 連線時會要你輸入密碼，密碼為電腦使用者的密碼，輸入時會沒有任何反應是正常的，為了保密。
 
@@ -110,8 +142,7 @@ Are you sure you want to continue connecting (yes/no)?
 ```
 這邊輸入`yes`
 
-
-![](https://i.imgur.com/3InbPJl.png)
+![](https://i.imgur.com/AM3S5rj.png)
 
 由於這我ftpUser這使用者有設定讀取權限，所以我用另外一組連線，取得成功畫面供參考，
 連線成功後會看到類似下方的標頭，這時候就可以輸入```dir```去觀看路徑內的檔案了。
@@ -119,10 +150,7 @@ Are you sure you want to continue connecting (yes/no)?
 domain\username@SERVERNAME C:\Users\username>
 ```
 
-
-
-![](https://i.imgur.com/xe9Rkep.png)
-
+![](https://i.imgur.com/0I3Nch5.png)
 
 大功告成囉~
 

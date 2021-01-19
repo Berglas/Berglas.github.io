@@ -38,25 +38,43 @@ tag: [Teach, Web, HTML]
 知道什麼是HTML之後我們就要來著手開發它了，至於要用什麼工具開發呢？我想先降低對於大家的工具難度，這邊我推薦使用[CodePen](https://codepen.io/)這個線上工具，不用安裝任何程式以及即時顯示畫面(註冊帳號即可使用)，事不宜遲我們就先來註冊一個帳號吧!
 <br>
 
-`STEP1` 到官網點選「Sign Up」。
-![](https://i.imgur.com/PRaA2wq.jpg)
+<ol>
+
+<li> 
+到官網點選「Sign Up」。
 <br>
 
-`STEP2` 選擇快速註冊，或者使用信箱認證註冊。
+![](https://i.imgur.com/PRaA2wq.jpg)
+</li>
+
+<li> 
+選擇快速註冊，或者使用信箱認證註冊。
+<br>
+
 ![](https://i.imgur.com/Hw45quT.jpg)
 <br>
+</li>
 
-`STEP3` 註冊完後登入，選擇「New Pen」(建立一個全新空白檔案)
+<li> 
+註冊完後登入，選擇「New Pen」(建立一個全新空白檔案)
+<br>
+
 ![](https://i.imgur.com/Gs7uyHE.jpg)
 <br>
+</li>
 
-`STEP4` 完成囉，開始開發囉~
-![](https://i.imgur.com/FHUGPIX.jpg)
+<li> 
+完成囉，開始開發吧!
 <br>
 
-如`STEP4`示意圖。這就是CodePen的專案開發介面，主要有四大區塊HTML、CSS、JS(JavaScript)、即時顯示畫面(最大區塊的部分)，有些人的畫面可能是上下排版(如下圖)，這方面我們可以透過上方的「Change View」做切換，看自己喜歡做選擇：
+![](https://i.imgur.com/FHUGPIX.jpg)
+</li>
+
+如上示意圖。這就是CodePen的專案開發介面，主要有四大區塊HTML、CSS、JS(JavaScript)、即時顯示畫面(最大區塊的部分)，有些人的畫面可能是上下排版(如下圖)，這方面我們可以透過上方的「Change View」做切換，看自己喜歡做選擇。
+
 ![](https://i.imgur.com/Omy3LM7.jpg)
 <br>
+</ol>
 
 這樣就大功告成啦！恭喜你/妳邁出了第一步，接下來我們來初戰HTML吧！
 
@@ -159,6 +177,6 @@ href：連結網址，href為hypertext reference(超文本索引)的縮寫。
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-### 小結
+### 結論
 現在你/妳已經會蓋房子了，但還不美觀，所以接下來要開始教導大家如何裝潢你/妳的家，沒錯~我們要開始學CSS了，CSS就是用來把你網頁美化的程式語言，下一篇我們來認識什麼是CSS吧!
 <!--@@close-->

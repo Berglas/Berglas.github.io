@@ -1,0 +1,118 @@
+<!--@@master=../../../../../layout.html-->
+
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="在Windows上詳細的Docker容器建置。上一篇我們教學如何安裝Docker，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta itemprop="name" content="Docker教學2：如何使用Docker建立MySQL 8的環境以及管理連線設定｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_2.jpg">
+<meta itemprop="description" content="在Windows上詳細的Docker容器建置。上一篇我們教學如何安裝Docker，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta property="og:title" content="Docker教學2：如何使用Docker建立MySQL 8的環境以及管理連線設定｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_2.html">
+<meta property="og:image" content="https://berglas.github.io/dest/articles/2020/12/learn_docker_2.jpg">
+<meta property="og:description" content="在Windows上詳細的Docker容器建置。上一篇我們教學如何安裝Docker，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>Docker教學2：如何使用Docker建立MySQL 8的環境以及管理連線設定｜巴格.生活日記•學習筆記</title>
+<!--@@close-->
+
+<!--@@block=title-->
+<p class='theme-title'>Docker教學2：如何使用Docker建立MySQL 8的環境以及管理連線設定</p>
+<p class='time-mark'>2020-12-11</p>
+<!--@@close-->
+
+<!--@@block=depiction-->
+<p><img src="./o4wo0mb.jpg" alt=""></p>
+<p class='depiction'>在Windows上詳細的Docker容器建置。上一篇我們教學如何安裝Docker，本篇會教學如何使用Docker找到鏡像檔(image)、下載鏡像檔(image)、啟動鏡像檔(image)封裝成容器(container)，以安裝MySQL 8為例實際詳細的步驟，也會順便教導如何在Docker內開啟MySQL遠端訪問許可權(對外連線)。</p>
+<!--@@close-->
+
+<!--@@block=content-->
+<h3>前言</h3>
+<p>還沒學過安裝Docker的可以參考上一篇。</p>
+<p><a class='self-article' href ='./dest/articles/2020/12/learn_docker_2.html'>Docker教學1：在Windows Docker安装教學、初步設定</a></p>
+<p>在開始安裝前我們會用到以下指令，這邊簡單介紹指令。
+docker search，在docker hub中找尋鏡像檔(image)，XXX為鏡像檔名。</p>
+<pre><code>docker search XXX</code></pre><p>docker pull，在docker hub中下載名為XXX之鏡像檔(image)。</p>
+<pre><code>docker pull XXX</code></pre><p>docler images，列出本機內已安裝的鏡像檔(image)。</p>
+<pre><code>docler images</code></pre><p>docker run，將鏡像檔建置為容器，下方會以MySQL作範例詳細介紹。</p>
+<pre><code>docker run ~省略</code></pre><h3>如何建置一個容器</h3>
+<ol>
+<li>
+使用系統管理者身分開啟命令提示字元
+<br>
+</li>
+
+<li>
+在Docker Hub中尋找鏡像檔(image)，這邊我們要找尋MySQL，在終端畫面中輸入指令：
+
+<pre><code>docker search mysql</code></pre><p>找尋結果如下圖：
+<img src="./4ldyrBl.jpg" alt=""></p>
+</li>
+
+<li>
+找到我們要的鏡像檔(image)後，在終端畫面中輸入指令：
+
+<pre><code>docker pull mysql</code></pre><p>等待下載後，在終端畫面中輸入指令：</p>
+<pre><code>docker images</code></pre><p>結果如下圖：</p>
+<p><img src="./Es9gmHm.jpg" alt=""></p>
+</li>
+
+<li>
+下載完成後，接下來我們就要來啟動它製作成容器(container)，在終端畫面中輸入指令：
+
+<pre><code>docker run --name mysql-latest -v D:/Docker/mysql/mysql-latest/custom:/etc/mysql/conf.d -v D:/Docker/mysql/mysql-latest/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest</code></pre><p><img src="./17Y7HFn.jpg" alt="">
+Port開通會要求防火牆權限，選擇允許存取。</p>
+<p>補充說明：</p>
+<pre><code>--name mysql-latest
+▲ --name xxxx 為容器名稱，可自定義。
+
+-v D:/Docker/mysql/mysql-latest/custom:/etc/mysql/conf.d
+▲ -v 為放置鏡像檔的路徑(本機)，與要鏡像出來的檔案(容器內)，以「:」分隔。
+
+-p 3306:3306
+▲ -p 將本機內的port關聯至容器內的port。
+
+-e MYSQL_ROOT_PASSWORD=123456
+▲ -e 容器環境參數變數設定。
+
+-d mysql:latest
+▲ -d 讓Container在背景執行。</code></pre></li>
+
+<li>
+這樣容器(container)就完成了，初次建立完後會自動啟用容器(container)，這時候MySQL的服務就可以開始使用了，但因為MySQL 8改為需要自行建立使用者和設定密碼，然後才能遠端連線，所以下一步會教大家怎麼設定。
+
+<p><img src="./L3M6lgn.jpg" alt=""></p>
+</li>
+
+<li> 
+快按兩下打開容器後，點選右上CLI按鈕，開啟容器終端環境(bash)
+
+<p><img src="./9AKKzoY.jpg" alt=""></p>
+</li>
+
+<li> 
+使用root權限登入，在終端畫面中輸入指令：
+
+<pre><code>mysql -u root -p</code></pre><p>此時會請你輸入密碼，密碼為一開始docker run指令所輸入的，本文為123456，輸入密碼時沒有任何反應產生是正常的，請安心輸入後按Enter。</p>
+<p><img src="./CcZaLlS.jpg" alt=""></p>
+</li>
+
+<li>
+建立新帳號且對外開放連線，在終端畫面中依序輸入指令：
+
+<p>帳號/密碼，test/test123(可自定義)。</p>
+<pre><code>CREATE USER &#39;test&#39;@&#39;%&#39; IDENTIFIED BY &#39;test123&#39;;</code></pre><pre><code>GRANT ALL ON *.* TO &#39;test&#39;@&#39;%&#39;  WITH GRANT OPTION;</code></pre><pre><code>ALTER USER &#39;test&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;test123&#39;;</code></pre><p><img src="./xvsbIvc.jpg" alt="">
+三個都OK之後，我們就可以開始使用MySQL資料庫囉。</p>
+</li>
+
+<li>測試連線，參考如下圖：
+
+<p><img src="./iGfqfdt.jpg" alt="">
+完成囉~</p>
+</li>
+</ol>
+
+<h3>結論</h3>
+<p>這樣就完成一個Docker的容器囉，快去嘗試著建置吧！
+下篇會補充教學在MySQL遇到資料表、欄位發生大小寫敏感時的解決方式。</p>
+<!--@@close-->
