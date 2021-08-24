@@ -335,6 +335,7 @@ section
       left: 40%
       height: 100%
       width: 60%
+      overflow: auto
       > .element
         position: relative
         width: 100%
@@ -581,9 +582,21 @@ section
           35%
             width: 30%
           70%
-            width: 55%
+            width: 65%
           100%
-            width: 70%
+            width: 80%
+        .elk
+          animation: wElk 2S forwards
+          animation-delay: .5s
+        @keyframes wElk
+          0%
+            width: 0%
+          35%
+            width: 35%
+          70%
+            width: 100%
+          100%
+            width: 60%
         .docker
           animation: wDocker 2S forwards
           animation-delay: .5s
@@ -593,9 +606,9 @@ section
           35%
             width: 45%
           70%
-            width: 85%
+            width: 100%
           100%
-            width: 60%
+            width: 85%
         .arduino
           animation: wArduino 2S forwards
           animation-delay: .5s

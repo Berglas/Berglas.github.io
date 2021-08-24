@@ -54,6 +54,7 @@ function page2animation (toggle) {
     $('#sql').addClass('sql');
     $('#docker').addClass('docker');
     $('#git').addClass('git');
+    $('#elk').addClass('elk');
     $('#arduino').addClass('arduino');
     $('#Illustrator').addClass('Illustrator');
     $('#Photoshop').addClass('Photoshop');
@@ -70,6 +71,7 @@ function page2animation (toggle) {
     $('#sql').removeClass('sql');
     $('#docker').removeClass('docker');
     $('#git').removeClass('git');
+    $('#elk').removeClass('elk');
     $('#arduino').removeClass('arduino');
     $('#Illustrator').removeClass('Illustrator');
     $('#Photoshop').removeClass('Photoshop');
