@@ -41,12 +41,9 @@ tag: [JavaScript]
 
 ![](https://i.imgur.com/PrTeLQG.png)
 
-
-
-### 程式運作：
+### 程式運作
 #### 程式（Program）:
 Program就是工程師撰寫的程式碼的集合，舉例Chrome、Line等這些稱為Program，而他們的特點是還沒有被執行，因此也就還沒有被載入至記憶體中，而是存放在次級儲存裝置中（硬碟）。
-
 
 #### 進程（行程；Process）
 Process是作業系統分配資源的最小單位，可以從作業系統得到如CPU Time、Memory...等相關資源，這意思是說這個Process在被執行時會消耗多少CPU與Memory。
@@ -89,7 +86,6 @@ JavaScript其實是一種單線程語言，也就是說，同一個時間只能�
 
 #### Event Loop（事件循環）模型：
 
-
 ![](https://i.imgur.com/U9RcGnj.png)
 
 1. 從任務佇列裡選擇當前要執行的macro-task，如果任佇列爲空，則跳轉執行微任務（micro-task）。
@@ -98,4 +94,5 @@ JavaScript其實是一種單線程語言，也就是說，同一個時間只能�
 
 ### 結論
 JavaScript是單線程語言，但是透過同步任務(宏任務)與異步任務（微任務）加上Event Loop的機制所模擬多線程的功能。
+
 <!--@@close-->
