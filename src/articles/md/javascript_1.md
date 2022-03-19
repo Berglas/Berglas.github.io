@@ -1,6 +1,6 @@
 ---
 title: javascript_1
-cTitle: 網頁前端入門-認識HTML
+cTitle: JavaScript 是多線程還是單線程的語言？
 date: 2022-03-03
 depiction: 本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分
 tag: [JavaScript]
@@ -9,7 +9,7 @@ tag: [JavaScript]
 在我們講到單線程與多線程之前，我們必須要先暸解什麼是線程、線程內部的機制是怎麼運作的。
 
 
-![](https://i.imgur.com/TwxuagP.png)
+![](https://i.imgur.com/PrTeLQG.png)
 
 
 ### 程式運作：
