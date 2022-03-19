@@ -1,15 +1,46 @@
 ---
+tags: 完成
 title: javascript_1
 cTitle: JavaScript 是多線程還是單線程的語言？
 date: 2022-03-03
 depiction: 本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分
 tag: [JavaScript]
 ---
+<!--@@master=../../../../../layout.html-->
+
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="@@depiction">
+<meta itemprop="name" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="@@site.jpg">
+<meta itemprop="description" content="@@depiction">
+<meta property="og:title" content="@@cTitle｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="@@site.html">
+<meta property="og:image" content="@@site.jpg">
+<meta property="og:description" content="@@depiction">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>@@cTitle｜巴格.生活日記•學習筆記</title>
+<!--@@close-->
+
+<!--@@block=title-->
+<p class='theme-title'>@@cTitle</p>
+<p class='time-mark'>@@date</p>
+<!--@@close-->
+
+<!--@@block=depiction-->
+![](https://i.imgur.com/OpLMdUD.png)
+
+<p class='depiction'>@@depiction</p>
+<!--@@close-->
+
+<!--@@block=content-->
 ### 前言
 在我們講到單線程與多線程之前，我們必須要先暸解什麼是線程、線程內部的機制是怎麼運作的。
 
-
 ![](https://i.imgur.com/PrTeLQG.png)
+
 
 
 ### 程式運作：
@@ -64,3 +95,7 @@ JavaScript其實是一種單線程語言，也就是說，同一個時間只能�
 1. 從任務佇列裡選擇當前要執行的macro-task，如果任佇列爲空，則跳轉執行微任務（micro-task）。
 1. 將所有微任務執行完成。
 1. 返回第一步。
+
+### 結論
+JavaScript是單線程語言，但是透過同步任務(宏任務)與異步任務（微任務）加上Event Loop的機制所模擬多線程的功能。
+<!--@@close-->

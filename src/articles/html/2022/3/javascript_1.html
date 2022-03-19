@@ -1,3 +1,32 @@
+<!--@@master=../../../../../layout.html-->
+
+<!--@@block=meta-->
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta itemprop="name" content="JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.jpg">
+<meta itemprop="description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta property="og:title" content="JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.html">
+<meta property="og:image" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.jpg">
+<meta property="og:description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記</title>
+<!--@@close-->
+
+<!--@@block=title-->
+<p class='theme-title'>JavaScript 是多線程還是單線程的語言？</p>
+<p class='time-mark'>2022-03-03</p>
+<!--@@close-->
+
+<!--@@block=depiction-->
+<p><img src="./OpLMdUD.png" alt=""></p>
+<p class='depiction'>本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分</p>
+<!--@@close-->
+
+<!--@@block=content-->
 <h3>前言</h3>
 <p>在我們講到單線程與多線程之前，我們必須要先暸解什麼是線程、線程內部的機制是怎麼運作的。</p>
 <p><img src="./PrTeLQG.png" alt=""></p>
@@ -45,3 +74,6 @@ JavaScript其實是一種單線程語言，也就是說，同一個時間只能�
 <li>將所有微任務執行完成。</li>
 <li>返回第一步。</li>
 </ol>
+<h3>結論</h3>
+<p>JavaScript是單線程語言，但是透過同步任務(宏任務)與異步任務（微任務）加上Event Loop的機制所模擬多線程的功能。</p>
+<!--@@close-->

@@ -1,3 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="max-age" content="864000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/dest/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="/dest/js/main.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai-sublime.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-166944924-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'UA-166944924-1')
+    </script>
+    <meta content="100002164450594" property="fb:admins">
+    <meta content="722056048603698" property="fb:app_id"><!---->    
+
+<meta name="author" content="Berglas">
+<meta name="copyright" content="Berglas">
+<meta name="description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta itemprop="name" content="JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記">
+<meta itemprop="image" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.jpg">
+<meta itemprop="description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta property="og:title" content="JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記">
+<meta property="og:url" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.html">
+<meta property="og:image" content="https://berglas.github.io/dest/articles/2022/3/javascript_1.jpg">
+<meta property="og:description" content="本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分">
+<meta property="og:site_name" content="巴格.生活日記•學習筆記">
+<meta property="og:type" content="article">
+<title>JavaScript 是多線程還是單線程的語言？｜巴格.生活日記•學習筆記</title>
+
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo" onclick="javascript:location.href=&quot;/&quot;"></div>
+      <div class="title" onclick="javascript:location.href=&quot;/&quot;">
+        <h1>巴格.生活日記•學習筆記</h1><span>- 取之於網路，用之於網路 -</span>
+      </div>
+      <ul class="menu-list">
+        <li title="所有文章"><a href="/"> 
+            <sapn>所有文章</sapn></a></li>
+        <li title="關於這裡"><a href="/dest/articles/2020/4/origin.html"> 
+            <sapn>關於這裡</sapn></a></li>
+        <li class="list" title="聯絡我"><a href="/resume.html"> 
+            <sapn>聯絡我</sapn></a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="float-box">
+        <h2>筆記重點</h2>
+        <div class="outline-box">
+          <ul></ul>
+        </div>
+      </div>
+      <div class="content">
+        <main>
+          <div class="title-box"><!----> 
+
+<p class='theme-title'>JavaScript 是多線程還是單線程的語言？</p>
+<p class='time-mark'>2022-03-03</p>
+
+          </div>
+          <div class="depiction-box"><!----> 
+
+<p><img src="./OpLMdUD.png" alt=""></p>
+<p class='depiction'>本篇記錄介紹什麼是多線程還是單線程，JavaScript 是多線程還是單線程的語言？以及宏任務、微任務、Event Loop的部分</p>
+
+          </div><!----> 
+
 <h3>前言</h3>
 <p>在我們講到單線程與多線程之前，我們必須要先暸解什麼是線程、線程內部的機制是怎麼運作的。</p>
 <p><img src="./PrTeLQG.png" alt=""></p>
@@ -45,3 +123,19 @@ JavaScript其實是一種單線程語言，也就是說，同一個時間只能�
 <li>將所有微任務執行完成。</li>
 <li>返回第一步。</li>
 </ol>
+<h3>結論</h3>
+<p>JavaScript是單線程語言，但是透過同步任務(宏任務)與異步任務（微任務）加上Event Loop的機制所模擬多線程的功能。</p>
+
+        </main>
+      </div>
+      <div class="comments-box">
+        <div id="fb-root"></div>
+        <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v7.0&amp;appId=722056048603698&amp;autoLogAppEvents=1"></script>
+        <div class="fb-comments" data-numposts="5" data-width="100%"></div>
+      </div>
+      <div class="footer">
+        <div class="license"></div>
+      </div>
+    </div>
+  </body>
+</html>
