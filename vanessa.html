@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="max-age" content="864000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <title>crawler</title>
+    <style>
+      ::selection {
+        background: #e8788e;
+        color: #FFF; 
+      }
+
+      ::-moz-selection {
+        background: #e8788e;
+        color: #FFF; 
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px; 
+      }
+
+      ::-webkit-scrollbar-track-piece {
+        background: transparent; 
+      }
+
+      ::-webkit-scrollbar-thumb:vertical {
+        height: 15px;
+        border-radius: 4px;
+        background-color: #666;
+       }
+
+      ::-webkit-scrollbar-thumb:horizontal {
+        width: 15px;
+        border-radius: 4px;
+        background-color: #666;
+       }
+      
+       a {
+          text-decoration: none;
+          color: #42474c; 
+        }
+
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        img {
+          border: 0;
+        }
+
+        ol, ul, li {
+          list-style: none;
+        }
+
+        body {
+          font-family: "Microsoft JhengHei";
+          width: 100vw;
+          height: 100vh;
+          background: rgba(238, 109, 109, 0.1);
+        }
+
+        #app {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .input__box {
+          width: 60%;
+          height: 44px;
+          display: flex;
+          flex-flow: row wrap;
+          padding: 6px 0 ;
+        }
+        
+        .input__box > input {
+          width: calc(100% - 96px);
+          height: 100%;
+          border-radius: 8px;
+          padding: 4px 12px;
+          outline: none;
+          border: 2px solid #DDD;
+        }
+
+        .input__box > .button {
+          width: 76px;
+          margin-left: 16px;
+          height: 100%;
+          border: none;
+          border-radius: 8px;
+          text-align: center;
+          background: rgba(238, 109, 109, 1);
+          padding: 4px;
+          color: #FFF;
+
+        }
+
+        .input__box > .button:hover {
+          cursor: pointer;
+          background: rgba(238, 109, 109, 0.8);
+          
+        }
+
+        .result__box {
+          width: 60%;
+          height: 60%;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          border: 4px dashed #DDD;
+          overflow: auto;
+          padding: 12px;
+        }
+
+        .result__box > .item {
+          width: calc(100% - 16px);
+          height: 32px;
+          border-radius: 8px;
+          border: 2px solid #DDD;
+          margin: 8px;
+          padding: 4px 12px;
+          cursor: pointer;
+          background: rgba(238, 109, 109, 0.4);
+          color: #42474c;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="input__box">
+        <input v-model="searchBox">
+        <div class='button' @click="search">SEARCH</div>
+      </div>
+    <div class="result__box">
+      <div class="item" v-for="(item, index) in result" :key="item.url">
+        <span>{{index + 1}}.</span>
+        <a target="_blank" :href="item.url"> {{item.url}}</a>
+       </div>
+    </div>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data () {
+          return {
+            dataList: [],
+            searchBox : '',
+            result: [],
+            tips: ''
+          }
+        },
+        watch: {
+        },
+        methods: {
+          search () {
+            if (this.searchBox === null || this.searchBox === undefined || this.searchBox === '') {
+              alert('請至少輸入一個查詢條件！')
+              return
+            }
+            let tags = this.searchBox.split(',')
+            this.result = this.dataList.filter(e => {
+              let result = false
+              tags.forEach(i => {
+                result = result | e.content.toLowerCase().includes(i)
+              });
+              if (result) {
+                return e
+              }
+            })
+          }
+        },
+        mounted () {
+          $.getJSON("/data.json", e => {
+            this.dataList = e
+          })
+        }
+      })
+
+    </script>
+  </body>
+</html>
