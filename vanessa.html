@@ -190,6 +190,8 @@
             })
             if (this.result.length === 0) {
               this.tip = '此條件查無資料！'
+            } else {
+              this.tip = `此條件共查到${this.result.length}筆資料。`
             }
           }
         },
