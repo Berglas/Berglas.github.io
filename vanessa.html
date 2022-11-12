@@ -110,7 +110,14 @@
           background: rgba(238, 109, 109, 0.8);
           
         }
-
+        .tip__box {
+          width: 60%;
+          text-align: left;
+          margin: 4px 0;
+        }
+        .tip__box > .tip {
+          color: #42474c;
+        }
         .result__box {
           width: 60%;
           height: 60%;
@@ -142,12 +149,15 @@
         <input v-model="searchBox">
         <div class='button' @click="search">SEARCH</div>
       </div>
-    <div class="result__box">
-      <div class="item" v-for="(item, index) in result" :key="item.url">
-        <span>{{index + 1}}.</span>
-        <a target="_blank" :href="item.url"> {{item.url}}</a>
-       </div>
-    </div>
+      <div class="tip__box">
+        <span class="tip">{{tip}}</span>
+      </div>
+      <div class="result__box">
+        <div class="item" v-for="(item, index) in result" :key="item.url">
+          <span>{{index + 1}}.</span>
+          <a target="_blank" :href="item.url"> {{item.url}}</a>
+        </div>
+      </div>
     </div>
     <script>
       new Vue({
@@ -157,7 +167,7 @@
             dataList: [],
             searchBox : '',
             result: [],
-            tips: ''
+            tip: '查詢兩個以上條件用半形逗號隔開。e.g .net,vue,react'
           }
         },
         watch: {
@@ -165,19 +175,22 @@
         methods: {
           search () {
             if (this.searchBox === null || this.searchBox === undefined || this.searchBox === '') {
-              alert('請至少輸入一個查詢條件！')
+              this.tip = '請至少輸入一個查詢條件！'
               return
             }
             let tags = this.searchBox.split(',')
             this.result = this.dataList.filter(e => {
               let result = false
               tags.forEach(i => {
-                result = result | e.content.toLowerCase().includes(i)
+                result = result | e.content.toLowerCase().includes(i.toLowerCase())
               });
               if (result) {
                 return e
               }
             })
+            if (this.result.length === 0) {
+              this.tip = '此條件查無資料！'
+            }
           }
         },
         mounted () {
